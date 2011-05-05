@@ -1,0 +1,39 @@
+\documentclass{cam-thesis}
+
+\title{My Title}
+\author{My Full Name}
+\college{My College}
+\date{My Month, My Year}
+
+\abstract{%
+  My abstract ...
+}
+
+\acknowledgements{%
+  My acknowledgements ...
+}
+
+\begin{document}
+
+\frontmatter{}
+
+\chapter{Introduction}
+This document was created with the help of a custom class file~\cite{example}. A
+{\em \LaTeX{} class file}\index{\LaTeX{} class file@LaTeX class file} is a file,
+which holds style information for a particular \LaTeX{} class.
+
+
+\bibliographystyle{plain}
+\bibliography{thesis}
+\addcontentsline{toc}{chapter}{Bibliography}
+
+\appendix
+\chapter{Extra Information}
+Some more text ...
+
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{Index}
+\printindex
+
+\end{document}

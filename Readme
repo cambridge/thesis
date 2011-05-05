@@ -1,0 +1,60 @@
+##
+### Quick start
+##
+
+Copy all files in this directory (where you found this 'Readme' file) to your
+desired location.
+
+Finally, you can start putting the content of your thesis into 'thesis.tex'.
+
+
+## Producing PDF, DVI and PS documents
+
+# To build your thesis, run:
+
+    make
+
+This should build 'thesis.dvi', 'thesis.ps' and 'thesis.pdf' documents.
+
+# To clean unwanted clutter (all LaTeX auto-generated files), run:
+
+    make clean
+
+# To clean absolutely all files produced by 'make', run:
+
+    make distclean
+
+For other build options, refer to the 'Makefile' file itself.
+
+
+
+##
+### But what if I don't want the template files in my thesis directory?
+##
+
+Put the files listed below into a directory where TeX can find it (either the
+standard directory for classes[1], e.g., '/usr/share/texmf/tex/latex/base', or one
+that is specified in the 'TEXINPUTS' environment variable).
+
+File list:
+
+    cam-thesis.cls
+    CUni.eps
+    CUni.pdf
+
+
+[1] Note: you have to rebuild the package index, usually with the command
+'texhash'.
+
+
+
+##
+### University logo
+##
+
+The university updates its logo every now and then. You can find up-to-date
+logos on this page (subject to change without notice):
+
+    http://www.admin.cam.ac.uk/offices/communications/services/logos/
+
+Download and exchange the new logos with 'CUni.eps' and/or 'CUni.pdf'.
