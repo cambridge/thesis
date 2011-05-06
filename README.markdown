@@ -46,11 +46,12 @@ info see __[1]__):
 > installation and operating system you use. For example, for TeX Live on Fedora
 > 14 it is `/usr/share/texmf/tex/latex/base`.
 >
-> In any case, after this LaTeX will still not be able find your class. You will
-> have to rebuild its package index. This procedure also depends on your
+> In any case, after this, LaTeX will still not be able find your class. You
+> will have to rebuild the package index. This procedure also depends on your
 > installation specifics, but for TeX Live you have to run the `texhash` command.
 >
-> For more comprehensive information refer to [LaTeX Wikibooks](http://en.wikibooks.org/wiki/LaTeX/Packages/Installing_Extra_Packages).
+> For more comprehensive information refer to
+> [LaTeX Wikibooks](http://en.wikibooks.org/wiki/LaTeX/Packages/Installing_Extra_Packages).
 
 ## Where can I find newer versions of the University of Cambridge logo?
 
