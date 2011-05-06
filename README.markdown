@@ -32,19 +32,19 @@ For other build options, refer to the `Makefile` file itself.
 ## But what if I don't want the template files in my thesis directory?
 
 Put the files listed below into a directory where LaTeX can find them (for more
-info see [1](#standardClassDir)):
+info see [[1]](#standardClassDir)):
 
     cam-thesis.cls
     CUni.eps
     CUni.pdf
 
 
-> <span id="standardClassDir">[1]</span> You can put these files either
+> <strong id="standardClassDir">[1]</strong> You can put these files either
 > into the standard LaTeX directory for classes
-> [2](#standardClassDirInstructions), or a directory listed in your
+> [[2]](#standardClassDirInstructions), or a directory listed in your
 > `TEXINPUTS` environment variable.
 >
-> <span id="standardClassDirInstructions">[2]</span> The location of the
+> <string id="standardClassDirInstructions">[2]</strong> The location of the
 > standard LaTeX class directory depends on which LaTeX installation and
 > operating system you use. For example, for TeX Live on Fedora 14 it is
 > `/usr/share/texmf/tex/latex/base`.
