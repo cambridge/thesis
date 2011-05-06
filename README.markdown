@@ -44,22 +44,16 @@ Put the files listed below into a directory where LaTeX can find them [1]:
     CUni.pdf
 
 
-> [1] You can put these files either into the standard LaTeX directory for
-classes [2], or a directory listed in your 'TEXINPUTS' environment variable.
+> *[1]* You can put these files either into the standard LaTeX directory for
+classes [2], or a directory listed in your `TEXINPUTS` environment variable.
 
-> [2] The location of the standard LaTeX class directory depends on which LaTeX
+> *[2]* The location of the standard LaTeX class directory depends on which LaTeX
 installation and operating system you use. For example, for TeX Live on Fedora
-14 it is:
-
-    /usr/share/texmf/tex/latex/base.
+14 it is `/usr/share/texmf/tex/latex/base`.
 
 > In any case, after this LaTeX will still not be able find your class. You will
 have to rebuild its package index. This procedure also depends on your
-installation specifics, but for TeX Live it is:
-
-```sh
-texhash
-```
+installation specifics, but for TeX Live it is  `texhash`.
 
 > For more comprehensive information refer to [LaTeX Wikibooks](http://en.wikibooks.org/wiki/LaTeX/Packages/Installing_Extra_Packages).
 
