@@ -2,7 +2,7 @@
 ### Quick start
 ##
 
-Copy all files in this directory (where you found this 'Readme' file) to your
+Copy all files from this directory (where you found this 'Readme' file) to your
 desired location.
 
 Finally, you can start putting the content of your thesis into 'thesis.tex'.
@@ -32,18 +32,18 @@ For other build options, refer to the 'Makefile' file itself.
 ### But what if I don't want the template files in my thesis directory?
 ##
 
-Put the files listed below into a directory where TeX can find it (either the
-standard directory for classes[1], e.g., '/usr/share/texmf/tex/latex/base', or one
-that is specified in the 'TEXINPUTS' environment variable).
-
-File list:
+Put the files listed below into a directory where 'latex' can find them[1]:
 
     cam-thesis.cls
     CUni.eps
     CUni.pdf
 
 
-[1] Note: you have to rebuild the package index, usually with the command
+[1] You can put these files either into the standard LaTeX directory for
+classes[2], e.g., '/usr/share/texmf/tex/latex/base', or a directory listed in
+your 'TEXINPUTS' environment variable.
+
+[2] Note: you'll have to rebuild the package index, usually with the command
 'texhash'.
 
 
