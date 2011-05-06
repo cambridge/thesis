@@ -1,9 +1,9 @@
 # Quick start
 
-Copy all files from the directory where you found this 'Readme' file to your
+Copy all files from this directory (where you found this readme file) to your
 desired location.
 
-Now you can start writing your thesis in 'thesis.tex'.
+Now you can start writing your thesis using the `thesis.tex` file.
 
 ## Producing PDF, DVI and PS documents
 
@@ -37,23 +37,23 @@ For other build options, refer to the 'Makefile' file itself.
 
 ## But what if I don't want the template files in my thesis directory?
 
-Put the files listed below into a directory where 'latex' can find them[1]:
+Put the files listed below into a directory where LaTeX can find them [1]:
 
     cam-thesis.cls
     CUni.eps
     CUni.pdf
 
 
-[1]: You can put these files either into the [standard LaTeX directory for
-classes][2], or a directory listed in your 'TEXINPUTS' environment variable.
+> [1] You can put these files either into the standard LaTeX directory for
+classes [2], or a directory listed in your 'TEXINPUTS' environment variable.
 
-[2]: The location of the standard LaTeX class directory depends on which LaTeX
+> [2] The location of the standard LaTeX class directory depends on which LaTeX
 installation and operating system you use. For example, for TeX Live on Fedora
 14 it is:
 
     /usr/share/texmf/tex/latex/base.
 
-In any case, after this LaTeX will still not be able find your class. You will
+> In any case, after this LaTeX will still not be able find your class. You will
 have to rebuild its package index. This procedure also depends on your
 installation specifics, but for TeX Live it is:
 
@@ -61,7 +61,7 @@ installation specifics, but for TeX Live it is:
 texhash
 ```
 
-For more comprehensive information refer to [LaTeX Wikibooks](http://en.wikibooks.org/wiki/LaTeX/Packages/Installing_Extra_Packages).
+> For more comprehensive information refer to [LaTeX Wikibooks](http://en.wikibooks.org/wiki/LaTeX/Packages/Installing_Extra_Packages).
 
 ## Where can I find newer versions of the University of Cambridge logo?
 
