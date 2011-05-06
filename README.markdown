@@ -5,6 +5,14 @@ desired location.
 
 Now you can start writing your thesis using the `thesis.tex` file.
 
+## How will it look like?
+
+Your thesis document will look something like this:
+
+* [Thesis Sample (PS)](https://github.com/downloads/cambridge/thesis/thesis.ps)
+* [Thesis Sample (DIV)](https://github.com/downloads/cambridge/thesis/thesis.div)
+* [Thesis Sample (PDF)](https://github.com/downloads/cambridge/thesis/thesis.pdf)
+
 ## Producing PDF, DVI and PS documents
 
 ### Build your thesis
