@@ -1,0 +1,78 @@
+# Quick start
+
+Copy all files from the directory where you found this 'Readme' file to your
+desired location.
+
+Now you can start writing your thesis in 'thesis.tex'.
+
+
+## Producing PDF, DVI and PS documents
+
+### Build your thesis
+
+To build your thesis, run:
+
+```sh
+make
+```
+
+This should build 'thesis.dvi', 'thesis.ps' and 'thesis.pdf' documents.
+
+### Clean unwanted files
+
+To clean unwanted clutter (all LaTeX auto-generated files), run:
+
+```sh
+make clean
+```
+
+To clean absolutely all files produced by 'make', run:
+
+```sh
+make distclean
+```
+
+For other build options, refer to the 'Makefile' file itself.
+
+
+
+# Troubleshooting
+
+## But what if I don't want the template files in my thesis directory?
+
+Put the files listed below into a directory where 'latex' can find them[1]:
+
+    cam-thesis.cls
+    CUni.eps
+    CUni.pdf
+
+
+[1]: You can put these files either into the [standard LaTeX directory for
+classes][2], or a directory listed in your 'TEXINPUTS' environment variable.
+
+[2]: The location of the standard LaTeX class directory depends on which LaTeX
+installation and operating system you use. For example, for TeX Live on Fedora
+14 it is:
+
+    /usr/share/texmf/tex/latex/base.
+
+In any case, after this LaTeX will still not be able find your class. You will
+have to rebuild its package index. This procedure also depends on your
+installation specifics, but for TeX Live it is:
+
+```sh
+texhash
+```
+
+For more comprehensive information refer to [LaTeX Wikibooks](http://en.wikibooks.org/wiki/LaTeX/Packages/Installing_Extra_Packages).
+
+
+
+## Where can I find newer versions of the University of Cambridge logo?
+
+The university updates its logo every now and then. You can find up-to-date
+logos on this page (subject to change without notice):
+
+    http://www.admin.cam.ac.uk/offices/communications/services/logos/
+
+Download and exchange the new logos with 'CUni.eps' and/or 'CUni.pdf'.
