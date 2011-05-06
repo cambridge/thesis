@@ -6,6 +6,10 @@
 %% Authors: Jean Martina, Rok Strnisa, Matej Urbas
 %% Date: 30/07/2008
 %%
+%% Copyright (c) 2008-2011, Rok Strniša, Jean Martina, Matej Urbas
+%% License: Simplified BSD License
+%% License file: ./License
+%% Original License URL: http://www.freebsd.org/copyright/freebsd-license.html
 %%%%%
 
 %%%%%
