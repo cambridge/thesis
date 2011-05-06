@@ -5,7 +5,6 @@ desired location.
 
 Now you can start writing your thesis in 'thesis.tex'.
 
-
 ## Producing PDF, DVI and PS documents
 
 ### Build your thesis
@@ -33,8 +32,6 @@ make distclean
 ```
 
 For other build options, refer to the 'Makefile' file itself.
-
-
 
 # Troubleshooting
 
@@ -66,13 +63,10 @@ texhash
 
 For more comprehensive information refer to [LaTeX Wikibooks](http://en.wikibooks.org/wiki/LaTeX/Packages/Installing_Extra_Packages).
 
-
-
 ## Where can I find newer versions of the University of Cambridge logo?
 
 The university updates its logo every now and then. You can find up-to-date
-logos on this page (subject to change without notice):
+logos on [this page](http://www.admin.cam.ac.uk/offices/communications/services/logos/)
+(subject to change without notice).
 
-    http://www.admin.cam.ac.uk/offices/communications/services/logos/
-
-Download and exchange the new logos with 'CUni.eps' and/or 'CUni.pdf'.
+Download and exchange the new logos with `CUni.eps` and/or `CUni.pdf`.
