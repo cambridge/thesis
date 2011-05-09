@@ -44,15 +44,16 @@
 %% Declared options.
 %%
 %%%%%
-\DeclareOption*{\PassOptionToClass{\CurrentOption}{report}}
-\ProcessOptions
 
 %%%%%
 %%
 %% Using report class as base.
 %%
 %%%%%
-\LoadClass[12pt,a4paper,twoside,openright]{report}
+\PassOptionsToClass{a4paper,12pt,twoside,openright}{report}
+\DeclareOption*{\PassOptionsToClass{\CurrentOption}{report}}
+\ProcessOptions\relax
+\LoadClass{report}
 
 %%%%%
 %%

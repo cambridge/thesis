@@ -2,6 +2,7 @@ LATEX=latex
 MAKEINDEX=makeindex
 BIBTEX=bibtex
 DVIPDF=dvipdf
+PDFLATEX=pdflatex
 DVIPS=dvips -Ppdf -G0
 
 SRC=thesis.tex thesis.bib cam-thesis.cls
@@ -10,8 +11,9 @@ SRC=thesis.tex thesis.bib cam-thesis.cls
 
 thesis: thesis.pdf thesis.ps
 
-thesis.pdf: thesis.dvi
-	$(DVIPDF) thesis
+thesis.pdf: $(SRC)
+	$(PDFLATEX) thesis && $(MAKEINDEX) thesis && $(BIBTEX) thesis && \
+        $(PDFLATEX) thesis && $(PDFLATEX) thesis
 
 thesis.ps: thesis.dvi
 	$(DVIPS) thesis
