@@ -14,16 +14,26 @@
 
 %%%%%
 %%
+%% General guidelines on which this class is based:
+%%
+%%     http://www.cl.cam.ac.uk/local/phd/typography/
+%%
+%%%%%
+
+
+%%%%%
+%%
 %% Class identification.
 %%
 %%%%%
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{cam-thesis}[2008/07/30]
+\ProvidesClass{cam-thesis}[2008/07/30 University of Cambridge thesis class]
 
 \typeout{}
 \typeout{***********************************************}
 \typeout{***********************************************}
 \typeout{}
+
 
 %%%%%
 %%
@@ -39,11 +49,13 @@
 %%
 %%%%%
 
+
 %%%%%
 %%
 %% Declared options.
 %%
 %%%%%
+
 
 %%%%%
 %%
@@ -54,6 +66,7 @@
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{report}}
 \ProcessOptions\relax
 \LoadClass{report}
+
 
 %%%%%
 %%
@@ -71,23 +84,68 @@
 %% Page margins (suitable for J.S. Wilson & Son).
 %%
 %%%%%
-\setlength{\oddsidemargin}{4.6mm}  % 30 mm left margin
-\setlength{\evensidemargin}{\oddsidemargin}
-\setlength{\textwidth}{150.8mm}    % 20 mm right margin
-\setlength{\topmargin}{-5.4mm}     % 20 mm top margin
-\setlength{\headheight}{5mm}
-\setlength{\headsep}{5mm}
-\setlength{\footskip}{10mm}
-\setlength{\textheight}{237mm}     % 20 mm bottom margin
 
+% Setting the offsets to 'zero' makes the calculation of margins a bit easier
+\setlength{\hoffset}{-1in}
+\setlength{\voffset}{-1in}
+
+\newlength{\cam@topmargin}
+\newlength{\cam@bottommargin}
+
+% MARGINS
+\setlength{\oddsidemargin}{35mm}        % inner margin
+\setlength{\evensidemargin}{30mm}       % outer margin
+\setlength{\cam@topmargin}{35mm}        % top margin        (the distance from the top of the page to the top of the body text -- the header is located between)
+\setlength{\cam@bottommargin}{45mm}     % bottom margin     (the distance from the bottom of the page to the bottom of the body text -- the footer is located between)
+
+% TODO: Shouldn't the 'top margin' rather indicate the distance between the top of the header and the top of the page?
+% TODO: Shouldn't the 'bottom margin' rather indicate the distance between the bottom of the footer and the bottom of the page?
+
+% Calculate the lengths for the rest of the page
+% Horizontal spacing
+\setlength{\textwidth}{\paperwidth}     % text takes the remaining width (210 - inner - outer)
+\addtolength{\textwidth}{-\oddsidemargin}
+\addtolength{\textwidth}{-\evensidemargin}
+
+\setlength{\marginparwidth}{\evensidemargin} % the margin only has 'outer' space available, so we have to make it a bit thinner.
+\addtolength{\marginparwidth}{-8mm}
+\setlength{\marginparsep}{3mm}
+
+% Vertical spacing
+\setlength{\headheight}{5mm}      % The height of the box where the heading text lives
+\setlength{\headsep}{5mm}         % The distance between the heading and the top of the text
+\setlength{\topmargin}{\cam@topmargin}
+\addtolength{\topmargin}{-\headheight}
+\addtolength{\topmargin}{-\headsep}
+
+\setlength{\textheight}{\paperheight}   % text takes the remaining height (297 - top margin - bottom margin)
+\addtolength{\textheight}{-\cam@topmargin}
+\addtolength{\textheight}{-\cam@bottommargin}
+\setlength{\footskip}{.5\cam@bottommargin} % The distance from the bottom of the text to the bottom of the footer
+
+
+%%%%%
+%%
+%% Fonts
+%%
+%%%%%
 
 % Font recommended by the Computer Laboratory (Adobe Sabon).
 % Note: You might need to install it first.
 %\renewcommand{\rmdefault}{psb}
 
+
+%%%%%
+%%
+%% Line spacing
+%%
+%%%%%
+
 % One-and-a-half spacing (required by board of graduate studies).
 % (Should remove this for Computer Laboratory technical report.)
+% TODO: Add an option, which checks whether our document is a technical report.
 \renewcommand{\baselinestretch}{1.2}
+
 
 %%%%%
 %%
@@ -102,12 +160,11 @@
 \newcommand{\@acknowledgements}{}
 \newcommand{\acknowledgements}[1]{\renewcommand{\@acknowledgements}{#1}}
 
+
 %%%%%
 %%
-%% First page.
+%% Front matter
 %%
-%
-%% FRONT MATTER:
 %% - outside and inside front cover
 %% - title leaf
 %% Do not include the date of make!
@@ -122,7 +179,7 @@
 \pagestyle{empty}
 
 \begin{center}
-~\vspace{2.5cm}\\
+~\vspace{1.5cm}\\
 \includegraphics[width=73mm]{CUni}\\
 \vspace{4cm}
 {\huge \@title{}}\\
@@ -165,6 +222,8 @@ This thesis:
 % - list of figures (optional)
 % - list of symbols (optional)
 % - glossary (optional)
+
+\pagestyle{plain}
 }
 
 %%%%% EOF: cam-thesis.cls
