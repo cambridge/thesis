@@ -73,10 +73,17 @@
 %% Additional packages, and their options.
 %%
 %%%%%
-\RequirePackage{amsmath,amssymb,amsthm,graphicx,makeidx,times}
+% TODO: Add an option to not use any non-essential packages
+% TODO: Add an option to not use the 'times' font.
+\RequirePackage{amsmath}    % Not essential
+\RequirePackage{amssymb}    % Not essential
+\RequirePackage{amsthm}     % Not essential
+\RequirePackage{graphicx}   % Required for the UC Logo (on the title page)
+\RequirePackage{makeidx}    % Not essential
+\RequirePackage{times}      % Not essential
 \makeindex
-\usepackage[pdffitwindow=true,colorlinks=true,linkcolor=black,citecolor=black,urlcolor=black]{hyperref}
-\usepackage[all]{hypcap}
+\RequirePackage[pdffitwindow=true,colorlinks=true,linkcolor=black,citecolor=black,urlcolor=black]{hyperref} % Not essential
+\RequirePackage[all]{hypcap} % Not essential
 
 
 %%%%%
@@ -85,7 +92,7 @@
 %%
 %%%%%
 
-% Setting the offsets to 'zero' makes the calculation of margins a bit easier
+% Setting the offsets to 'zero' (LaTeX calculates offsets 1in from the left and upper edges of the page) makes the calculation of margins a bit easier.
 \setlength{\hoffset}{-1in}
 \setlength{\voffset}{-1in}
 
@@ -189,7 +196,6 @@
 \vspace{6.5cm}
 A thesis submitted for the Degree of Doctor of Philosophy
 \end{center}
-\pagestyle{empty}
 
 % Epigraph on odd page. (optional)
 
