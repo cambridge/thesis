@@ -17,6 +17,7 @@
 %% General guidelines on which this class is based:
 %%
 %%     http://www.cl.cam.ac.uk/local/phd/typography/
+%%     http://www.admin.cam.ac.uk/offices/gradstud/exams/submission/phd/format.html
 %%
 %%%%%
 
@@ -109,10 +110,11 @@
 % TODO: Shouldn't the 'bottom margin' rather indicate the distance between the bottom of the footer and the bottom of the page?
 
 % Calculate the lengths for the rest of the page
+\DeclareRobustCommand{\cam@calcpaperdims}[4]{%
 % Horizontal spacing
 \setlength{\textwidth}{\paperwidth}     % text takes the remaining width (210 - inner - outer)
-\addtolength{\textwidth}{-\oddsidemargin}
-\addtolength{\textwidth}{-\evensidemargin}
+\addtolength{\textwidth}{-#1}
+\addtolength{\textwidth}{-#2}
 
 \setlength{\marginparwidth}{\evensidemargin} % the margin only has 'outer' space available, so we have to make it a bit thinner.
 \addtolength{\marginparwidth}{-8mm}
@@ -121,15 +123,16 @@
 % Vertical spacing
 \setlength{\headheight}{5mm}      % The height of the box where the heading text lives
 \setlength{\headsep}{5mm}         % The distance between the heading and the top of the text
-\setlength{\topmargin}{\cam@topmargin}
+\setlength{\topmargin}{#3}
 \addtolength{\topmargin}{-\headheight}
 \addtolength{\topmargin}{-\headsep}
 
 \setlength{\textheight}{\paperheight}   % text takes the remaining height (297 - top margin - bottom margin)
-\addtolength{\textheight}{-\cam@topmargin}
-\addtolength{\textheight}{-\cam@bottommargin}
-\setlength{\footskip}{.5\cam@bottommargin} % The distance from the bottom of the text to the bottom of the footer
-
+\addtolength{\textheight}{-#3}
+\addtolength{\textheight}{-#4}
+\setlength{\footskip}{.5#4} % The distance from the bottom of the text to the bottom of the footer
+}
+\cam@calcpaperdims{\oddsidemargin}{\evensidemargin}{\cam@topmargin}{\cam@bottommargin}
 
 %%%%%
 %%
@@ -185,16 +188,64 @@
 
 \pagestyle{empty}
 
+% The boxes below are all that will be displayed on the title page. They are
+% used to calculate exactly how much space should be left between them
+% (vertically).
+
+%% LOGO box
+\newsavebox{\cam@logo}
+\begin{lrbox}{\cam@logo}
+\includegraphics[width=73mm]{CUni}
+\end{lrbox}
+
+%% THESIS TITLE box
+\newsavebox{\cam@title}
+\begin{lrbox}{\cam@title}
+{\huge \@title{}}
+\end{lrbox}
+
+%% AUTHOR&COLLEGE box
+\newsavebox{\cam@authorcollege}
+\begin{lrbox}{\cam@authorcollege}
+    \begin{minipage}[c][\height][c]{\textwidth}
+        \begin{center}
+        {\large \@author{}}\\
+        \@college{}
+        \end{center}
+    \end{minipage}
+\end{lrbox}
+
+%% SUBMISSION NOTICE box
+\newsavebox{\cam@submitnotice}
+\begin{lrbox}{\cam@submitnotice}
+    \begin{minipage}[c][\height][c]{\textwidth}
+        \begin{center}
+            A thesis submitted for the Degree of Doctor of Philosophy
+        \end{center}
+    \end{minipage}
+\end{lrbox}
+
+% Now calculate the exact free vertical space
+\newlength{\cam@titlepagevspace}
+% The actual calculation:
+\newlength{\cam@tmplen}
+\setlength{\cam@titlepagevspace}{\textheight}
+\settoheight{\cam@tmplen}{\usebox{\cam@logo}}\addtolength{\cam@titlepagevspace}{-\cam@tmplen}
+\settoheight{\cam@tmplen}{\usebox{\cam@title}}\addtolength{\cam@titlepagevspace}{-\cam@tmplen}
+\settoheight{\cam@tmplen}{\usebox{\cam@authorcollege}}\addtolength{\cam@titlepagevspace}{-\cam@tmplen}
+\settoheight{\cam@tmplen}{\usebox{\cam@submitnotice}}\addtolength{\cam@titlepagevspace}{-5\cam@tmplen}
+
+
 \begin{center}
-~\vspace{1.5cm}\\
-\includegraphics[width=73mm]{CUni}\\
-\vspace{4cm}
-{\huge \@title{}}\\
-\vspace{4cm}
-{\large \@author{}}\\
-\@college{}\\
-\vspace{6.5cm}
-A thesis submitted for the Degree of Doctor of Philosophy
+~\vspace{.02\cam@titlepagevspace}\\
+\usebox{\cam@logo}\\
+\vspace{.23\cam@titlepagevspace}
+\usebox{\cam@title}\\
+\vspace{.25\cam@titlepagevspace}
+\usebox{\cam@authorcollege}\\
+\vspace{.37\cam@titlepagevspace}
+\usebox{\cam@submitnotice}
+\null\vfill
 \end{center}
 
 % Epigraph on odd page. (optional)

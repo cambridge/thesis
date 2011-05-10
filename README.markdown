@@ -37,6 +37,13 @@ For other build options, refer to the `Makefile` file itself.
 
 # Troubleshooting
 
+## Can I use my own Makefile?
+
+By all means. Here is a very nice (and smart) `Makefile` built specifically for
+LaTeX:
+
+> [http://code.google.com/p/latex-makefile/](http://code.google.com/p/latex-makefile/)
+
 ## But what if I don't want the template files in my thesis directory?
 
 Put the files listed below into a directory where LaTeX can find them (for more
