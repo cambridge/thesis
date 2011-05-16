@@ -53,7 +53,12 @@ It also supports some custom options.
 
     *   different margins (left and right margins are 25mm, top and bottom
         margins are 20mm),
-    *   normal line spacing (instead of one-half spacing).
+    *   normal line spacing (instead of one-half spacing),
+    *   no custom title page,
+    *   no declaration,
+    *   page count starts with 3,
+    *   if the `hyperref` package is used, the option `pdfpagelabels=false` will
+        be passed to it. 
 
 -------------------------------------------------------------------------------
 

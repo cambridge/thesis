@@ -87,6 +87,9 @@
 \RequirePackage{makeidx}    % Not essential
 \RequirePackage{times}      % Not essential
 \makeindex
+\ifcam@techreport
+\PassOptionsToPackage{pdfpagelabels=false,pdfborder={0 0 0}}{hyperref}
+\fi
 \RequirePackage[pdffitwindow=true,colorlinks=true,linkcolor=black,citecolor=black,urlcolor=black]{hyperref} % Not essential
 \RequirePackage[all]{hypcap} % Not essential
 \RequirePackage{calc}      	% Used for calculating margins and laying out the title page
@@ -203,7 +206,10 @@
 %% Title page
 %%
 %%%%%
-
+\ifcam@techreport
+% Technical report mustn't have the custom title page (a standard one will be
+% prepended by the editor, see http://www.cl.cam.ac.uk/techreports/submission.html).
+\else
 % The boxes below are all that will be displayed on the title page. They are
 % used to calculate exactly how much space should be left between them
 % (vertically).
@@ -255,7 +261,11 @@
 	-\totalheightof{\usebox{\cam@authorcollege}}%
 	-\totalheightof{\usebox{\cam@title}}}
 
-%% Put the logo, title, author, college and submit notice onto the title page
+%%%%%
+%%
+%% Title Page: Put the logo, title, author, college and submit notice onto the title page
+%%
+%%%%%
 \begin{center}
 ~\vspace{.02\cam@titlepagevspace}\\
 {\usebox{\cam@logo}}\\
@@ -266,6 +276,7 @@
 \null\vfill
 {\usebox{\cam@submitnotice}}
 \end{center}
+\fi
 
 % Epigraph on odd page. (optional)
 
@@ -274,6 +285,9 @@
 %% Abstract
 %%
 %%%%%
+\ifcam@techreport
+\setcounter{page}{3}
+\fi
 
 \chapter*{Abstract}
 \thispagestyle{empty}
@@ -284,7 +298,10 @@
 %% Declaration
 %%
 %%%%%
-
+\ifcam@techreport
+% Technical report doesn't need the declaration
+% (see http://www.cl.cam.ac.uk/techreports/submission.html).
+\else
 \chapter*{Declaration}
 \thispagestyle{empty}
 This thesis:
@@ -300,6 +317,7 @@ This thesis:
 \@date{}\\
 \end{flushright}
 \vfill
+\fi
 
 %%%%%
 %%
