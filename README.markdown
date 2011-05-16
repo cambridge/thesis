@@ -35,7 +35,39 @@ To clean absolutely all files produced by `make`, run:
 
 For other build options, refer to the `Makefile` file itself.
 
+-------------------------------------------------------------------------------
+
+# Usage details
+
+## Class options
+
+`cam-thesis` supports all the options of the standard `report` class (on which
+it is based).
+
+It also supports some custom options.
+
+*   `techreport`: formats the document as a technical report. Here is a list of
+    formatting points in which the technical report differs from a normal thesis
+    (see [guidelines](http://www.cl.cam.ac.uk/techreports/submission.html) for
+    more information):
+
+    *   different margins (left and right margins are 25mm, top and bottom
+        margins are 20mm),
+    *   normal line spacing (instead of one-half spacing).
+
+-------------------------------------------------------------------------------
+
 # Troubleshooting
+
+## Where can I find the thesis formatting guidelines this class is based on?
+
+The University of Cambridge guidelines:
+
+> [http://www.admin.cam.ac.uk/offices/gradstud/exams/submission/phd/format.html](http://www.admin.cam.ac.uk/offices/gradstud/exams/submission/phd/format.html)
+
+The Computer Laboratory guidelines:
+
+> [http://www.cl.cam.ac.uk/local/phd/typography/](http://www.cl.cam.ac.uk/local/phd/typography/)     
 
 ## Can I use my own Makefile?
 

@@ -53,9 +53,13 @@
 
 %%%%%
 %%
-%% Declared options.
+%% Package options (see README.markdown for a list of options with
+%% 					descriptions)
 %%
 %%%%%
+
+\newif\ifcam@techreport\cam@techreportfalse
+\DeclareOption{techreport}{\cam@techreporttrue}
 
 
 %%%%%
@@ -85,6 +89,8 @@
 \makeindex
 \RequirePackage[pdffitwindow=true,colorlinks=true,linkcolor=black,citecolor=black,urlcolor=black]{hyperref} % Not essential
 \RequirePackage[all]{hypcap} % Not essential
+\RequirePackage{calc}      	% Used for calculating margins and laying out the title page
+\RequirePackage{setspace}      	% Used for calculating margins and laying out the title page
 
 
 %%%%%
@@ -100,39 +106,40 @@
 \newlength{\cam@topmargin}
 \newlength{\cam@bottommargin}
 
-% MARGINS
-\setlength{\oddsidemargin}{35mm}        % inner margin
-\setlength{\evensidemargin}{30mm}       % outer margin
-\setlength{\cam@topmargin}{35mm}        % top margin        (the distance from the top of the page to the top of the body text -- the header is located between)
-\setlength{\cam@bottommargin}{45mm}     % bottom margin     (the distance from the bottom of the page to the bottom of the body text -- the footer is located between)
-
-% TODO: Shouldn't the 'top margin' rather indicate the distance between the top of the header and the top of the page?
-% TODO: Shouldn't the 'bottom margin' rather indicate the distance between the bottom of the footer and the bottom of the page?
-
-% Calculate the lengths for the rest of the page
+%%%%
+%% Calculate the lengths for the rest of the page.
+%%
+%% @param	1	odd side margin (inner margin).
+%% @param	2	even side margin (outer margin).
+%% @param	3	top margin.
+%% @param	4	bottom margin.
 \DeclareRobustCommand{\cam@calcpaperdims}[4]{%
+% MARGINS
+% 'Top margin' is the distance between the top of the text and the top of the page.
+% 'Bottom margin' is the distance between the bottom of the footer (the page number) and the bottom of the page.
+\setlength{\oddsidemargin}{#1}        % inner margin
+\setlength{\evensidemargin}{#2}       % outer margin
+\setlength{\cam@topmargin}{#3}        % top margin        (the distance from the top of the page to the top of the body text -- the header is located between)
+\setlength{\cam@bottommargin}{#4}     % bottom margin     (the distance from the bottom of the page to the bottom of the body text -- the footer is located between)
 % Horizontal spacing
-\setlength{\textwidth}{\paperwidth}     % text takes the remaining width (210 - inner - outer)
-\addtolength{\textwidth}{-#1}
-\addtolength{\textwidth}{-#2}
+\setlength{\textwidth}{\paperwidth-#1-#2}     % text takes the remaining width (210 - inner - outer)
 
-\setlength{\marginparwidth}{\evensidemargin} % the margin only has 'outer' space available, so we have to make it a bit thinner.
-\addtolength{\marginparwidth}{-8mm}
+\setlength{\marginparwidth}{\evensidemargin-8mm} % the margin only has 'outer' space available, so we have to make it a bit thinner.
 \setlength{\marginparsep}{3mm}
 
 % Vertical spacing
 \setlength{\headheight}{5mm}      % The height of the box where the heading text lives
 \setlength{\headsep}{5mm}         % The distance between the heading and the top of the text
-\setlength{\topmargin}{#3}
-\addtolength{\topmargin}{-\headheight}
-\addtolength{\topmargin}{-\headsep}
+\setlength{\topmargin}{#3-\headheight-\headsep}
 
-\setlength{\textheight}{\paperheight}   % text takes the remaining height (297 - top margin - bottom margin)
-\addtolength{\textheight}{-#3}
-\addtolength{\textheight}{-#4}
-\setlength{\footskip}{.5#4} % The distance from the bottom of the text to the bottom of the footer
+\setlength{\textheight}{\paperheight-#3-1.7\cam@bottommargin}   % text takes the remaining height (297 - top margin - bottom margin)
+\setlength{\footskip}{.7\cam@bottommargin} % The distance from the bottom of the text to the bottom of the footer
 }
-\cam@calcpaperdims{\oddsidemargin}{\evensidemargin}{\cam@topmargin}{\cam@bottommargin}
+\ifcam@techreport
+\cam@calcpaperdims{25mm}{25mm}{20mm}{20mm}
+\else
+\cam@calcpaperdims{35mm}{30mm}{35mm}{25mm}
+\fi
 
 %%%%%
 %%
@@ -154,7 +161,10 @@
 % One-and-a-half spacing (required by board of graduate studies).
 % (Should remove this for Computer Laboratory technical report.)
 % TODO: Add an option, which checks whether our document is a technical report.
-\renewcommand{\baselinestretch}{1.2}
+\ifcam@techreport
+\else
+\onehalfspacing%
+\fi
 
 
 %%%%%
@@ -188,6 +198,12 @@
 
 \pagestyle{empty}
 
+%%%%%
+%%
+%% Title page
+%%
+%%%%%
+
 % The boxes below are all that will be displayed on the title page. They are
 % used to calculate exactly how much space should be left between them
 % (vertically).
@@ -201,15 +217,21 @@
 %% THESIS TITLE box
 \newsavebox{\cam@title}
 \begin{lrbox}{\cam@title}
-{\huge \@title{}}
+    \begin{minipage}[c][\height][c]{.98\textwidth}
+        \begin{center}
+        	\begin{spacing}{2}
+            	{\huge \@title{}}
+        	\end{spacing}
+        \end{center}
+    \end{minipage}
 \end{lrbox}
 
 %% AUTHOR&COLLEGE box
 \newsavebox{\cam@authorcollege}
 \begin{lrbox}{\cam@authorcollege}
-    \begin{minipage}[c][\height][c]{\textwidth}
+    \begin{minipage}[c][\height][c]{.98\textwidth}
         \begin{center}
-        {\large \@author{}}\\
+        {\large \@author{}}\\[1ex]
         \@college{}
         \end{center}
     \end{minipage}
@@ -218,7 +240,7 @@
 %% SUBMISSION NOTICE box
 \newsavebox{\cam@submitnotice}
 \begin{lrbox}{\cam@submitnotice}
-    \begin{minipage}[c][\height][c]{\textwidth}
+    \begin{minipage}[c][\height][c]{.98\textwidth}
         \begin{center}
             A thesis submitted for the Degree of Doctor of Philosophy
         \end{center}
@@ -227,32 +249,41 @@
 
 % Now calculate the exact free vertical space
 \newlength{\cam@titlepagevspace}
-% The actual calculation:
-\newlength{\cam@tmplen}
-\setlength{\cam@titlepagevspace}{\textheight}
-\settoheight{\cam@tmplen}{\usebox{\cam@logo}}\addtolength{\cam@titlepagevspace}{-\cam@tmplen}
-\settoheight{\cam@tmplen}{\usebox{\cam@title}}\addtolength{\cam@titlepagevspace}{-\cam@tmplen}
-\settoheight{\cam@tmplen}{\usebox{\cam@authorcollege}}\addtolength{\cam@titlepagevspace}{-\cam@tmplen}
-\settoheight{\cam@tmplen}{\usebox{\cam@submitnotice}}\addtolength{\cam@titlepagevspace}{-5\cam@tmplen}
+\setlength{\cam@titlepagevspace}{\textheight%
+	-\totalheightof{\usebox{\cam@logo}}%
+	-\totalheightof{\usebox{\cam@submitnotice}}%
+	-\totalheightof{\usebox{\cam@authorcollege}}%
+	-\totalheightof{\usebox{\cam@title}}}
 
-
+%% Put the logo, title, author, college and submit notice onto the title page
 \begin{center}
 ~\vspace{.02\cam@titlepagevspace}\\
-\usebox{\cam@logo}\\
+{\usebox{\cam@logo}}\\
+\vspace{.28\cam@titlepagevspace}
+{\usebox{\cam@title}}\\
 \vspace{.23\cam@titlepagevspace}
-\usebox{\cam@title}\\
-\vspace{.25\cam@titlepagevspace}
-\usebox{\cam@authorcollege}\\
-\vspace{.37\cam@titlepagevspace}
-\usebox{\cam@submitnotice}
+{\usebox{\cam@authorcollege}}\\
 \null\vfill
+{\usebox{\cam@submitnotice}}
 \end{center}
 
 % Epigraph on odd page. (optional)
 
+%%%%%
+%%
+%% Abstract
+%%
+%%%%%
+
 \chapter*{Abstract}
 \thispagestyle{empty}
 \@abstract{}
+
+%%%%%
+%%
+%% Declaration
+%%
+%%%%%
 
 \chapter*{Declaration}
 \thispagestyle{empty}
@@ -270,10 +301,21 @@ This thesis:
 \end{flushright}
 \vfill
 
+%%%%%
+%%
+%% Acknowledgements
+%%
+%%%%%
 
 \chapter*{Acknowledgements}
 \thispagestyle{empty}
 \@acknowledgements{}
+
+%%%%%
+%%
+%% Table of contents
+%%
+%%%%%
 
 \tableofcontents{}
 % - list of figures (optional)
