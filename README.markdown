@@ -64,6 +64,14 @@ It also supports some custom options.
 
 # Troubleshooting
 
+## I have found a bug in the template. Where do I report bugs?
+
+You can report issues through
+[our GitHub repository](https://github.com/cambridge/thesis/issues).
+
+You can also mail
+[the maintainers](https://github.com/cambridge/thesis/contributors) directly.
+
 ## Where can I find the thesis formatting guidelines this class is based on?
 
 The University of Cambridge guidelines:
