@@ -61,6 +61,12 @@
 \newif\ifcam@techreport\cam@techreportfalse
 \DeclareOption{techreport}{\cam@techreporttrue}
 
+\newif\ifcam@times\cam@timestrue
+\DeclareOption{notimes}{\cam@timesfalse}
+
+\newif\ifcam@withpackages\cam@withpackagestrue
+\DeclareOption{nopackages}{\cam@withpackagesfalse}
+
 
 %%%%%
 %%
@@ -78,22 +84,34 @@
 %% Additional packages, and their options.
 %%
 %%%%%
-% TODO: Add an option to not use any non-essential packages
-% TODO: Add an option to not use the 'times' font.
-\RequirePackage{amsmath}    % Not essential
-\RequirePackage{amssymb}    % Not essential
-\RequirePackage{amsthm}     % Not essential
-\RequirePackage{graphicx}   % Required for the UC Logo (on the title page)
-\RequirePackage{makeidx}    % Not essential
-\RequirePackage{times}      % Not essential
+\RequirePackage{graphicx}           % Required for the UC Logo (on the title page)
+\RequirePackage{calc}               % Used for calculating margins and laying out the title page
+\RequirePackage{setspace}      	    % Used for selecting single or onehalf line spacing.
+\RequirePackage{makeidx}            % For building the index (otherwise not essential).
 \makeindex
-\ifcam@techreport
-\PassOptionsToPackage{pdfpagelabels=false,pdfborder={0 0 0}}{hyperref}
+
+\ifcam@withpackages
+    \ifcam@times
+        \RequirePackage{times}      % Not essential
+    \fi
+
+    \RequirePackage{amsmath}        % Not essential
+    \RequirePackage{amssymb}        % Not essential
+    \RequirePackage{amsthm}         % Not essential
 \fi
-\RequirePackage[pdffitwindow=true,colorlinks=true,linkcolor=black,citecolor=black,urlcolor=black]{hyperref} % Not essential
-\RequirePackage[all]{hypcap} % Not essential
-\RequirePackage{calc}      	% Used for calculating margins and laying out the title page
-\RequirePackage{setspace}      	% Used for calculating margins and laying out the title page
+
+% Hyperref should be included in any case, but we make it non-obtrusive (i.e.: no hyperlink borders).
+\ifcam@techreport
+    \PassOptionsToPackage{pdfpagelabels=false,pdfborder={0 0 0}}{hyperref}
+\else
+    \RequirePackage[
+        pdffitwindow=true,
+        colorlinks=true,
+        linkcolor=black,
+        citecolor=black,
+        urlcolor=black]{hyperref}
+\fi
+\RequirePackage[all]{hypcap}        % Fixes links to floats (must be included after hyperref).
 
 
 %%%%%
@@ -109,7 +127,7 @@
 \newlength{\cam@topmargin}
 \newlength{\cam@bottommargin}
 
-%%%%
+
 %% Calculate the lengths for the rest of the page.
 %%
 %% @param	1	odd side margin (inner margin).
@@ -163,7 +181,6 @@
 
 % One-and-a-half spacing (required by board of graduate studies).
 % (Should remove this for Computer Laboratory technical report.)
-% TODO: Add an option, which checks whether our document is a technical report.
 \ifcam@techreport
 \else
 \onehalfspacing%
@@ -226,7 +243,12 @@
     \begin{minipage}[c][\height][c]{.98\textwidth}
         \begin{center}
         	\begin{spacing}{2}
-            	{\huge \@title{}}
+            	{\Huge  \ifcam@withpackages%
+                            \ifcam@times\else%
+                                \bfseries
+                            \fi%
+                        \else\bfseries\fi%
+                 \@title{}}
         	\end{spacing}
         \end{center}
     \end{minipage}

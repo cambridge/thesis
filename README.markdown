@@ -58,7 +58,21 @@ It also supports some custom options.
     *   no declaration,
     *   page count starts with 3,
     *   if the `hyperref` package is used, the option `pdfpagelabels=false` will
-        be passed to it. 
+        be passed to it.
+
+*   `notimes`: tells the class not to use the _times_ font. This option is
+    implied by the `nopackages`.
+
+*   `nopackages`: tells the class not to use any non-essential packages (this
+    option implies the `notimes` option).
+
+    _Note_: If this option is not specified, then the class will use the
+    following non-essential packages:
+
+    * `times` (can also be excluded by using the `notimes` option),
+    * `amsmath`
+    * `amssymb`
+    * `amsthm`
 
 -------------------------------------------------------------------------------
 
@@ -120,3 +134,10 @@ logos on [this page](http://www.admin.cam.ac.uk/offices/communications/services/
 (subject to change without notice).
 
 Download and exchange the new logos with `CUni.eps` and/or `CUni.pdf`.
+
+--------------------------------------------------------------------------------
+
+# TODO list
+
+*   Fill PDF's meta tags (e.g.: author, title, keywords etc.).
+*   It is debatable which packages are non-essential. We could reclassify this.
