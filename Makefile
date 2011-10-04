@@ -1,3 +1,4 @@
+SHELL=/bin/bash
 LATEX=latex
 MAKEINDEX=makeindex
 BIBTEX=bibtex
