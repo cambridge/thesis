@@ -139,5 +139,4 @@ Download and exchange the new logos with `CUni.eps` and/or `CUni.pdf`.
 
 # TODO list
 
-*   Fill PDF's meta tags (e.g.: author, title, keywords etc.).
 *   It is debatable which packages are non-essential. We could reclassify this.
