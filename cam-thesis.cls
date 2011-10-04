@@ -101,18 +101,24 @@
 \fi
 
 % Hyperref should be included in any case, but we make it non-obtrusive (i.e.: no hyperlink borders).
+% Why do we need a separate treatment of hyperref for the techreport? Because the guidelines say so. :)
 \ifcam@techreport
-    \PassOptionsToPackage{pdfpagelabels=false,pdfborder={0 0 0}}{hyperref}
+    % TODO: If the thesis is compiled to PS, include the 'dvips' option to hyperref.
+    \RequirePackage[
+        pdfpagelabels=false,
+        pdfborder={0 0 0},
+        pdfusetitle=true
+    ]{hyperref}
 \else
     \RequirePackage[
         pdffitwindow=true,
-        colorlinks=true,
-        linkcolor=black,
-        citecolor=black,
-        urlcolor=black]{hyperref}
+        pdfpagelabels=true,
+        colorlinks=false,
+        pdfborder={0 0 0},
+        pdfusetitle=true
+    ]{hyperref}
 \fi
 \RequirePackage[all]{hypcap}        % Fixes links to floats (must be included after hyperref).
-
 
 %%%%%
 %%
@@ -193,13 +199,16 @@
 %%
 %%%%%
 
-\newcommand{\@college}{}
-\newcommand{\college}[1]{\renewcommand{\@college}{#1}}
 \newcommand{\@abstract}{}
 \renewcommand{\abstract}[1]{\renewcommand{\@abstract}{#1}}
 \newcommand{\@acknowledgements}{}
 \newcommand{\acknowledgements}[1]{\renewcommand{\@acknowledgements}{#1}}
-
+\newcommand{\@college}{}
+\newcommand{\college}[1]{\renewcommand{\@college}{#1}}
+\newcommand{\@keywords}{}
+\newcommand{\keywords}[1]{\renewcommand{\@keywords}{#1}}
+\newcommand{\@subjectline}{}
+\newcommand{\subjectline}[1]{\renewcommand{\@subjectline}{#1}}
 
 %%%%%
 %%
@@ -298,6 +307,7 @@
 \null\vfill
 {\usebox{\cam@submitnotice}}
 \end{center}
+\hypersetup{pdfsubject={\@subjectline},pdfkeywords={\@keywords}}
 \fi
 
 % Epigraph on odd page. (optional)
