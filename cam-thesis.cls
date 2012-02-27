@@ -6,7 +6,7 @@
 %% Authors: Jean Martina, Rok Strnisa, Matej Urbas
 %% Date: 30/07/2008
 %%
-%% Copyright (c) 2008-2011, Rok Strniša, Jean Martina, Matej Urbas
+%% Copyright (c) 2008-2012, Rok Strniša, Jean Martina, Matej Urbas
 %% License: Simplified BSD License
 %% License file: ./License
 %% Original License URL: http://www.freebsd.org/copyright/freebsd-license.html
@@ -88,6 +88,7 @@
 \RequirePackage{calc}               % Used for calculating margins and laying out the title page
 \RequirePackage{setspace}      	    % Used for selecting single or onehalf line spacing.
 \RequirePackage{makeidx}            % For building the index (otherwise not essential).
+% after hyperref).
 \makeindex
 
 \ifcam@withpackages
@@ -210,6 +211,12 @@
 \newcommand{\@subjectline}{}
 \newcommand{\subjectline}[1]{\renewcommand{\@subjectline}{#1}}
 
+% If `collegecrest' is provided, it will be included in the title page (just
+% below the author's name and above the name of the college).
+\newif\ifcam@collegecrest\cam@collegecrestfalse
+\newcommand{\@collegecrest}{}
+\newcommand{\collegecrest}[1]{\renewcommand{\@collegecrest}{#1}\cam@collegecresttrue}
+
 %%%%%
 %%
 %% Front matter
@@ -263,12 +270,24 @@
     \end{minipage}
 \end{lrbox}
 
+%% COLLEGECREST box (optional):
+\ifcam@collegecrest%
+    \newsavebox{\cam@collegecrestbox}
+    \begin{lrbox}{\cam@collegecrestbox}
+    \includegraphics[height=20mm]{\@collegecrest}
+    \end{lrbox}
+\fi
+
 %% AUTHOR&COLLEGE box
 \newsavebox{\cam@authorcollege}
 \begin{lrbox}{\cam@authorcollege}
     \begin{minipage}[c][\height][c]{.98\textwidth}
         \begin{center}
         {\large \@author{}}\\[1ex]
+        \ifcam@collegecrest%
+            \vspace{5mm}
+            {\usebox{\cam@collegecrestbox}}\\
+        \fi
         \@college{}
         \end{center}
     \end{minipage}
