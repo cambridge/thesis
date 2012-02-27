@@ -285,8 +285,7 @@
         \begin{center}
         {\large \@author{}}\\[1ex]
         \ifcam@collegecrest%
-            \vspace{5mm}
-            {\usebox{\cam@collegecrestbox}}\\
+            \vspace{2mm}{\usebox{\cam@collegecrestbox}}\\
         \fi
         \@college{}
         \end{center}
