@@ -141,7 +141,7 @@ Download and exchange the new logos with `CUni.eps` and/or `CUni.pdf`.
 
 The shields are being added on the go (when somebody, who uses them, provides them).
 
-If you find a distributable vector-based image of your college's shield you can report it as an issue or mail it to contributors directly (refer to question __1__ above).
+If you find a distributable vector-based image of your college's shield you can report it as an issue or mail it to contributors directly (refer to question __Q1__ above).
 
 --------------------------------------------------------------------------------
 
