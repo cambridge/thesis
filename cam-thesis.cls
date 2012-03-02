@@ -53,8 +53,7 @@
 
 %%%%%
 %%
-%% Package options (see README.markdown for a list of options with
-%% 					descriptions)
+%% Package options (see README.md for a list of options with descriptions).
 %%
 %%%%%
 
