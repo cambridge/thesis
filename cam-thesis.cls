@@ -56,14 +56,22 @@
 %% Package options (see README.markdown for a list of options with
 %% 					descriptions)
 %%
+%% These options can be provided within square brackets of the `documentclass'
+%% command.
+%%
 %%%%%
 
+% techreport - formats the thesis as a technical report.
 \newif\ifcam@techreport\cam@techreportfalse
 \DeclareOption{techreport}{\cam@techreporttrue}
 
+% notimes - disables the use of the `times' font and uses the default (computer
+% modern).
 \newif\ifcam@times\cam@timestrue
 \DeclareOption{notimes}{\cam@timesfalse}
 
+% nopackages - prevents the inclusion of ``unnecessary'' (but convenient)
+% packages.
 \newif\ifcam@withpackages\cam@withpackagestrue
 \DeclareOption{nopackages}{\cam@withpackagesfalse}
 
@@ -211,6 +219,22 @@
 \newcommand{\@subjectline}{}
 \newcommand{\subjectline}[1]{\renewcommand{\@subjectline}{#1}}
 
+% If the submission date is provided, it will be printed on the title page
+% (within the submission notice by default).
+\newif\ifcam@submissiondate\cam@submissiondatefalse
+\newcommand{\@submissiondate}{}
+\newcommand{\submissiondate}[1]{\renewcommand{\@submissiondate}{#1}\cam@submissiondatetrue}
+
+% The submission notice is shown on the bottom of the title page:
+\newcommand{\@submissionnotice}{%
+A thesis submitted
+\ifcam@submissiondate
+    on \@submissiondate{}
+\fi
+for the Degree of Doctor of Philosophy%
+}
+\newcommand{\submissionnotice}[1]{\renewcommand{\@submissionnotice}{#1}}
+
 % If `collegeshield' is provided, it will be included in the title page (just
 % below the author's name and above the name of the college).
 \newif\ifcam@collegeshield\cam@collegeshieldfalse
@@ -297,7 +321,7 @@
 \begin{lrbox}{\cam@submitnotice}
     \begin{minipage}[c][\height][c]{.98\textwidth}
         \begin{center}
-            A thesis submitted for the Degree of Doctor of Philosophy
+            \@submissionnotice{}
         \end{center}
     \end{minipage}
 \end{lrbox}

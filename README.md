@@ -91,7 +91,7 @@ You can also mail
 
 The University of Cambridge guidelines:
 
-> [http://www.admin.cam.ac.uk/offices/gradstud/exams/submission/phd/format.html](http://www.admin.cam.ac.uk/offices/gradstud/exams/submission/phd/format.html)
+> [http://www.admin.cam.ac.uk/students/studentregistry/exams/submission/phd/format.html](http://www.admin.cam.ac.uk/students/studentregistry/exams/submission/phd/format.html)
 
 The Computer Laboratory guidelines:
 

@@ -14,28 +14,67 @@
 
 \documentclass{cam-thesis}
 
+
+
+%%
+%% Thesis meta-information
+%%
+
+%% The title of the thesis:
 \title{My thesis title\\
 spanning two lines}
+
+%% The full name of the author (e.g.: James Smith):
 \author{My Full Name}
+
+%% College affiliation:
 \college{My College}
+
+%% College shield (optional):
 \collegeshield{CollegeShields/Queens}
+
+%% Submission date (optional):
+\submissiondate{November, 2042}
+
+%% You can redefine the submission notice:
+% \submissionnotice{A badass thesis submitted on time for the Degree of PhD}
+
+%% Declaration date:
 \date{My Month, My Year}
 
+%% PDF meta-info:
 \subjectline{Computer Science}
 \keywords{one two three}
 
+
+
+%%
+%% Abstract:
+%%
 \abstract{%
   My abstract ...
 }
 
+
+
+%%
+%% Acknowledgements:
+%%
 \acknowledgements{%
   My acknowledgements ...
 }
 
 \begin{document}
 
+%% Prints the title page (is automatically omitted in the technical report
+%% mode).
 \frontmatter{}
 
+
+
+%%
+%% Contents:
+%%
 \chapter{Introduction}
 This document was created with the help of a custom class file~\cite{example}. A
 {\em \LaTeX{} class file}\index{\LaTeX{} class file@LaTeX class file} is a file,
@@ -79,13 +118,31 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 
+
+%%
+%% Bibliography:
+%%
+
 \bibliographystyle{plain}
 \bibliography{thesis}
 \addcontentsline{toc}{chapter}{Bibliography}
 
+
+
+%%
+%% Appendix:
+%%
+
 \appendix
+
 \chapter{Extra Information}
 Some more text ...
+
+
+
+%%
+%% Index:
+%%
 
 \cleardoublepage
 \phantomsection
