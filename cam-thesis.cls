@@ -211,11 +211,11 @@
 \newcommand{\@subjectline}{}
 \newcommand{\subjectline}[1]{\renewcommand{\@subjectline}{#1}}
 
-% If `collegecrest' is provided, it will be included in the title page (just
+% If `collegeshield' is provided, it will be included in the title page (just
 % below the author's name and above the name of the college).
-\newif\ifcam@collegecrest\cam@collegecrestfalse
-\newcommand{\@collegecrest}{}
-\newcommand{\collegecrest}[1]{\renewcommand{\@collegecrest}{#1}\cam@collegecresttrue}
+\newif\ifcam@collegeshield\cam@collegeshieldfalse
+\newcommand{\@collegeshield}{}
+\newcommand{\collegeshield}[1]{\renewcommand{\@collegeshield}{#1}\cam@collegeshieldtrue}
 
 %%%%%
 %%
@@ -270,11 +270,11 @@
     \end{minipage}
 \end{lrbox}
 
-%% COLLEGECREST box (optional):
-\ifcam@collegecrest%
-    \newsavebox{\cam@collegecrestbox}
-    \begin{lrbox}{\cam@collegecrestbox}
-    \includegraphics[height=20mm]{\@collegecrest}
+%% COLLEGESHIELD box (optional):
+\ifcam@collegeshield%
+    \newsavebox{\cam@collegeshieldbox}
+    \begin{lrbox}{\cam@collegeshieldbox}
+    \includegraphics[height=20mm]{\@collegeshield}
     \end{lrbox}
 \fi
 
@@ -284,8 +284,8 @@
     \begin{minipage}[c][\height][c]{.98\textwidth}
         \begin{center}
         {\large \@author{}}\\[1ex]
-        \ifcam@collegecrest%
-            \vspace{2mm}{\usebox{\cam@collegecrestbox}}\\
+        \ifcam@collegeshield%
+            \vspace{2mm}{\usebox{\cam@collegeshieldbox}}\\
         \fi
         \@college{}
         \end{center}
