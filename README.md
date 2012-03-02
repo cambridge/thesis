@@ -106,12 +106,13 @@ LaTeX:
 
 ## But what if I don't want the template files in my thesis directory?
 
-Put the files listed below into a directory where LaTeX can find them (for more
+Put the files and folders listed below into a directory where LaTeX can find them (for more
 info see __[1]__):
 
     cam-thesis.cls
     CUni.eps
     CUni.pdf
+    CollegeShields/
 
 
 > __[1]__ You can put these files either into the standard LaTeX directory for
