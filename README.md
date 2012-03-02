@@ -9,9 +9,10 @@ Now you can start writing your thesis using the `thesis.tex` file.
 
 Your thesis document will look something like this:
 
-* [Thesis Sample (PS)](https://github.com/downloads/cambridge/thesis/thesis.ps)
-* [Thesis Sample (DVI)](https://github.com/downloads/cambridge/thesis/thesis.dvi)
-* [Thesis Sample (PDF)](https://github.com/downloads/cambridge/thesis/thesis.pdf)
+* [Thesis Sample (PDF)](https://github.com/downloads/cambridge/thesis/thesis-sample.pdf)
+
+The template also supports DVI and PS formats. All three formats are generated
+by the provided `Makefile`.
 
 ## Producing PDF, DVI and PS documents
 
