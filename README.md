@@ -79,7 +79,7 @@ It also supports some custom options.
 
 # Troubleshooting
 
-## I have found a bug in the template. Where do I report bugs?
+## _Q1_: I found a bug in the template. Where do I report bugs?
 
 You can report issues through
 [our GitHub repository](https://github.com/cambridge/thesis/issues).
@@ -87,7 +87,7 @@ You can report issues through
 You can also mail
 [the maintainers](https://github.com/cambridge/thesis/contributors) directly.
 
-## Where can I find the thesis formatting guidelines this class is based on?
+## _Q2_: Where can I find the thesis formatting guidelines this class is based on?
 
 The University of Cambridge guidelines:
 
@@ -97,14 +97,14 @@ The Computer Laboratory guidelines:
 
 > [http://www.cl.cam.ac.uk/local/phd/typography/](http://www.cl.cam.ac.uk/local/phd/typography/)     
 
-## Can I use my own Makefile?
+## _Q3_: Can I use my own Makefile?
 
 By all means. Here is a very nice (and smart) `Makefile` built specifically for
 LaTeX:
 
 > [http://code.google.com/p/latex-makefile/](http://code.google.com/p/latex-makefile/)
 
-## But what if I don't want the template files in my thesis directory?
+## _Q4_: But what if I don't want the template files in my thesis directory?
 
 Put the files and folders listed below into a directory where LaTeX can find them (for more
 info see __[1]__):
@@ -129,13 +129,19 @@ info see __[1]__):
 > For more comprehensive information refer to
 > [LaTeX Wikibooks](http://en.wikibooks.org/wiki/LaTeX/Packages/Installing_Extra_Packages).
 
-## Where can I find newer versions of the University of Cambridge logo?
+## _Q5_: Where can I find newer versions of the University of Cambridge logo?
 
 The university updates its logo every now and then. You can find up-to-date
 logos on [this page](http://www.admin.cam.ac.uk/offices/communications/services/logos/)
 (subject to change without notice).
 
 Download and exchange the new logos with `CUni.eps` and/or `CUni.pdf`.
+
+## _Q6_: My college's shield/coat of arms/crest is not included. Why u no include it?
+
+The shields are being added on the go (when somebody, who uses them, provides them).
+
+If you find a distributable vector-based image of your college's shield you can report it as an issue or mail it to contributors directly (refer to question __1__ above).
 
 --------------------------------------------------------------------------------
 
