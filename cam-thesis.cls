@@ -282,12 +282,13 @@ for the Degree of Doctor of Philosophy%
     \begin{minipage}[c][\height][c]{.98\textwidth}
         \begin{center}
         	\begin{spacing}{2}
-            	{\Huge  \ifcam@withpackages%
-                            \ifcam@times\else%
-                                \bfseries
-                            \fi%
-                        \else\bfseries\fi%
-                 \@title{}}
+            	{\Huge%
+            	   \ifcam@withpackages%
+                        \ifcam@times\else%
+                            \bfseries%
+                        \fi%
+                    \else\bfseries\fi%
+                 {\@title{}}}
         	\end{spacing}
         \end{center}
     \end{minipage}
