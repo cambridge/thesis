@@ -6,6 +6,8 @@ Files:
 
         Fitzwilliam.pdf
         Fitzwilliam.eps
+        FitzwilliamRed.pdf
+        FitzwilliamRed.eps
 
 Source:
 
