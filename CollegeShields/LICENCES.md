@@ -1,5 +1,22 @@
 This file contains licences accompanying the images in this folder.
 
+# Fitzwilliam College's shield
+
+Files:
+
+        Fitzwilliam.pdf
+        Fitzwilliam.eps
+
+Source:
+
+        Provided by the college
+
+Licence:
+
+        Not specified
+
+
+
 # Queens' College's shield
 
 File:
