@@ -95,7 +95,7 @@
 \RequirePackage{calc}               % Used for calculating margins and laying out the title page
 \RequirePackage{setspace}      	    % Used for selecting single or onehalf line spacing.
 \RequirePackage{makeidx}            % For building the index (otherwise not essential).
-% after hyperref).
+
 \makeindex
 
 \ifcam@withpackages
@@ -142,7 +142,8 @@
 \newlength{\cam@bottommargin}
 
 
-%% Calculate the lengths for the rest of the page.
+%% Calculate and set the margins properly (with parameters that actually have
+%% some meaning for everyday thesis-writers).
 %%
 %% @param	1	odd side margin (inner margin).
 %% @param	2	even side margin (outer margin).
