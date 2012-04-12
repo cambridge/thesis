@@ -97,6 +97,10 @@ The Computer Laboratory guidelines:
 
 > [http://www.cl.cam.ac.uk/local/phd/typography/](http://www.cl.cam.ac.uk/local/phd/typography/)     
 
+The Computer Laboratory guidelines for technical reports:
+
+> [http://www.cl.cam.ac.uk/techreports/submission.html](http://www.cl.cam.ac.uk/techreports/submission.html)
+
 ## _Q3_: Can I use my own Makefile?
 
 By all means. Here is a very nice (and smart) `Makefile` built specifically for

@@ -1,4 +1,4 @@
-%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
 %% Class ``cam-thesis''
 %%
@@ -12,7 +12,7 @@
 %% Original License URL: http://www.freebsd.org/copyright/freebsd-license.html
 %%%%%
 
-%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
 %% General guidelines on which this class is based:
 %%
@@ -22,13 +22,13 @@
 %%%%%
 
 
-%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
 %% Class identification.
 %%
 %%%%%
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{cam-thesis}[2008/07/30 University of Cambridge thesis class]
+\ProvidesClass{cam-thesis}[2012/04/12 University of Cambridge thesis class]
 
 \typeout{}
 \typeout{***********************************************}
@@ -36,7 +36,7 @@
 \typeout{}
 
 
-%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
 %% General Cambridge guidelines.
 %%
@@ -51,7 +51,7 @@
 %%%%%
 
 
-%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
 %% Package options (see README.md for a list of options with descriptions).
 %%
@@ -74,8 +74,10 @@
 \newif\ifcam@withpackages\cam@withpackagestrue
 \DeclareOption{nopackages}{\cam@withpackagesfalse}
 
+% TODO: Maybe add the option to not include the `makeidx` package?
 
-%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
 %% Using report class as base.
 %%
@@ -86,7 +88,7 @@
 \LoadClass{report}
 
 
-%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
 %% Additional packages, and their options.
 %%
@@ -128,7 +130,8 @@
 \fi
 \RequirePackage[all]{hypcap}        % Fixes links to floats (must be included after hyperref).
 
-%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
 %% Page margins (suitable for J.S. Wilson & Son).
 %%
@@ -177,7 +180,8 @@
 \cam@calcpaperdims{35mm}{30mm}{35mm}{25mm}
 \fi
 
-%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
 %% Fonts
 %%
@@ -188,7 +192,7 @@
 %\renewcommand{\rmdefault}{psb}
 
 
-%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
 %% Line spacing
 %%
@@ -202,30 +206,52 @@
 \fi
 
 
-%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
-%% Variable definitions and default values.
+%% Variable definitions and default values: these variables should be defined by
+%% the user (somewhere in the preamble). For example, to put the abstract into
+%% the thesis, the thesis writer should type the following somewhere in the
+%% preamble (before the `\begin{document}` or `\frontmatter` commands are
+%% called):
+%%
+%%      \abstract{This is my abstract.}
+%%
+%% See below (in the comments starting with 'DOCVAR: ') for a list of all
+% variables
+%% the thesis writer is expected to use.
 %%
 %%%%%
 
+% DOCVAR: abstract (The text that will be instered into the abstract of the
+% thesis.)
 \newcommand{\@abstract}{}
 \renewcommand{\abstract}[1]{\renewcommand{\@abstract}{#1}}
+% DOCVAR: acknowledgements (The text that will be instered into the
+% acknowledgments of the thesis.)
 \newcommand{\@acknowledgements}{}
 \newcommand{\acknowledgements}[1]{\renewcommand{\@acknowledgements}{#1}}
+% DOCVAR: college (The name of the thesis writer's college, which will appear
+% just below their name.)
 \newcommand{\@college}{}
 \newcommand{\college}[1]{\renewcommand{\@college}{#1}}
+% DOCVAR: keywords (These keywords will appear in the PDF meta-information
+% called `pdfkeywords`.)
 \newcommand{\@keywords}{}
 \newcommand{\keywords}[1]{\renewcommand{\@keywords}{#1}}
+% DOCVAR: subjectline (This subject will appear in the PDF meta-information
+% called `pdfsubject`.)
 \newcommand{\@subjectline}{}
 \newcommand{\subjectline}[1]{\renewcommand{\@subjectline}{#1}}
-
-% If the submission date is provided, it will be printed on the title page
-% (within the submission notice by default).
+% DOCVAR: submissiondate (The date of the submission of this thesis. If the
+% submission date is provided, it will be printed on the title page--within the
+% `submissionnotice` by default. Note that the thesis writer can provide their
+% own `submissionnotice`, in which case it is up to them whether they will use
+% this date in their notice.)
 \newif\ifcam@submissiondate\cam@submissiondatefalse
 \newcommand{\@submissiondate}{}
 \newcommand{\submissiondate}[1]{\renewcommand{\@submissiondate}{#1}\cam@submissiondatetrue}
-
-% The submission notice is shown on the bottom of the title page:
+% DOCVAR: submissionnotice (The submission notice is shown on the bottom of the
+% title page.)
 \newcommand{\@submissionnotice}{%
 A thesis submitted
 \ifcam@submissiondate
@@ -234,14 +260,15 @@ A thesis submitted
 for the Degree of Doctor of Philosophy%
 }
 \newcommand{\submissionnotice}[1]{\renewcommand{\@submissionnotice}{#1}}
-
-% If `collegeshield' is provided, it will be included in the title page (just
-% below the author's name and above the name of the college).
+% DOCVAR: collegeshield (The name of the file that contains the image of the
+% college's shield. If `collegeshield' is provided, it will be included in the
+% title page (just below the author's name and above the name of the college).
 \newif\ifcam@collegeshield\cam@collegeshieldfalse
 \newcommand{\@collegeshield}{}
 \newcommand{\collegeshield}[1]{\renewcommand{\@collegeshield}{#1}\cam@collegeshieldtrue}
 
-%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
 %% Front matter
 %%
@@ -258,9 +285,10 @@ for the Degree of Doctor of Philosophy%
 
 \pagestyle{empty}
 
-%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
-%% Title page
+%% Title page components
 %%
 %%%%%
 \ifcam@techreport
@@ -335,9 +363,11 @@ for the Degree of Doctor of Philosophy%
 	-\totalheightof{\usebox{\cam@authorcollege}}%
 	-\totalheightof{\usebox{\cam@title}}}
 
-%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
-%% Title Page: Put the logo, title, author, college and submit notice onto the title page
+%% Title Page: Put the components (logo, title, author, college and submit
+%% notice) onto the title page.
 %%
 %%%%%
 \begin{center}
@@ -355,7 +385,8 @@ for the Degree of Doctor of Philosophy%
 
 % Epigraph on odd page. (optional)
 
-%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
 %% Abstract
 %%
@@ -368,7 +399,8 @@ for the Degree of Doctor of Philosophy%
 \thispagestyle{empty}
 \@abstract{}
 
-%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
 %% Declaration
 %%
@@ -394,7 +426,8 @@ This thesis:
 \vfill
 \fi
 
-%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
 %% Acknowledgements
 %%
@@ -404,7 +437,8 @@ This thesis:
 \thispagestyle{empty}
 \@acknowledgements{}
 
-%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
 %% Table of contents
 %%
