@@ -270,6 +270,16 @@ for the Degree of Doctor of Philosophy%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
+%% Chapter and section numbering
+%%
+% TODO: Check whether numbering up to the fourth level is okay. It is not
+% specified in the guidelines.
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
 %% Front matter
 %%
 %% - outside and inside front cover
