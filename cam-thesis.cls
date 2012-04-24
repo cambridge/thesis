@@ -274,8 +274,8 @@ for the Degree of Doctor of Philosophy%
 %%
 % TODO: Check whether numbering up to the fourth level is okay. It is not
 % specified in the guidelines.
-\setcounter{secnumdepth}{4}
-\setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
