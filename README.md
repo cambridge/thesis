@@ -147,6 +147,10 @@ The shields are being added on the go (when somebody, who uses them, provides th
 
 If you find a distributable vector-based image of your college's shield you can report it as an issue or mail it to contributors directly (refer to question __Q1__ above).
 
+## _Q7_: Where can I find extra fonts (like Adobe Sabon, Adobe Utopia etc.)?
+
+The Computer Laboratory provides some [here](http://www.cl.cam.ac.uk/local/sys/unix/applications/tex/).
+
 --------------------------------------------------------------------------------
 
 # TODO list
