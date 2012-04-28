@@ -1,15 +1,21 @@
-# Quick start
+# __cam-thesis__: _a LaTeX thesis template for Cambridge PhD students_
 
-Copy all files from this directory (where you found this readme file) to your
+Want to write a thesis? Well, all you need is this template, one of the existing samples&mdash;which can be found in the [`./Samples/`](https://github.com/cambridge/thesis/tree/master/Samples) folder&mdash;, and some content.
+
+The samples are typically neatly structured, have their own special cosmetic features, and are based on theses of other PhD students.
+
+## Quicker start
+
+Copy all files from this directory (where you found this `README` file) to your
 desired location.
 
 Now you can start writing your thesis using the `thesis.tex` file.
 
 ## How will it look like?
 
-Your thesis document will look something like this:
+Your thesis document will look something like this (using the Adobe Sabon font and the _clean_ sample, which can be found in [`./Samples/clean`](https://github.com/cambridge/thesis/tree/master/Samples/clean)):
 
-* [Thesis Sample (PDF)](https://github.com/downloads/cambridge/thesis/thesis-sample.pdf)
+* [Thesis Sample (PDF)](https://github.com/downloads/cambridge/thesis/thesis.pdf)
 
 The template also supports DVI and PS formats. All three formats are generated
 by the provided `Makefile`.
