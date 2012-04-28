@@ -155,6 +155,12 @@ After you've installed the fonts, add somewhere in the preamble (before `\begin{
 
     \renewcommand\rmdefault{psb}
 
+## _Q8_: How should I count the number of words in my thesis?
+
+There is [a page](http://www.cl.cam.ac.uk/local/phd/writingup.html) on the Computer Lab's web site. They recommend using this command:
+
+    ps2ascii thesis.pdf | wc -w
+
 --------------------------------------------------------------------------------
 
 # TODO list
