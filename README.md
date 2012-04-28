@@ -151,6 +151,10 @@ If you find a distributable vector-based image of your college's shield you can 
 
 The Computer Laboratory provides some [here](http://www.cl.cam.ac.uk/local/sys/unix/applications/tex/#clfonts).
 
+After you've installed the fonts, add somewhere in the preamble (before `\begin{document}`) the following command:
+
+    \renewcommand\rmdefault{psb}
+
 --------------------------------------------------------------------------------
 
 # TODO list

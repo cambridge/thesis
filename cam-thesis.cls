@@ -189,7 +189,7 @@
 
 % Font recommended by the Computer Laboratory (Adobe Sabon).
 % Note: You might need to install it first.
-%\renewcommand{\rmdefault}{psb}
+% \renewcommand\rmdefault{psb}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
