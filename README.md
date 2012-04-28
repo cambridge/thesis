@@ -1,4 +1,6 @@
-# __cam-thesis__: _a LaTeX thesis template for Cambridge PhD students_
+# cam-thesis
+
+    a LaTeX thesis template for Cambridge PhD students
 
 Want to write a thesis? Well, all you need is this template, one of the existing samples&mdash;which can be found in the [`./Samples/`](https://github.com/cambridge/thesis/tree/master/Samples) folder&mdash;, and some content.
 
