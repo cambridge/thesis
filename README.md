@@ -19,9 +19,9 @@ Now you can start writing your thesis using the `thesis.tex` file.
 
 Finally, build the `PDF` document by running one of the following in the command line:
 
-    `make`
-    `./makepdf`
-    `./makeps`
+    make
+    ./makepdf
+    ./makeps
 
 ## How will it look like?
 
