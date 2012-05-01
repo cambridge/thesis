@@ -34,6 +34,10 @@ To build the `PDF` version of your thesis, run:
 
     make
 
+or
+
+    ./makepdf
+
 This build procedure uses `pdflatex` and will produce `thesis.pdf`.
 
 To produce `DVI` and `PS` versions of your document, you should run:
@@ -61,6 +65,10 @@ __Note__: the `Makefile` itself is take from and maintained at
 1.  When using the glossary, references are not pointing to the right page.
 
     __Workaround__: Build the document with:
+
+        ./makepdf
+
+    or
 
         make && makeglossaries thesis && makeindex thesis && pdflatex thesis.tex
 
