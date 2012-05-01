@@ -1,10 +1,14 @@
 # cam-thesis
 
-    a LaTeX thesis template for Cambridge PhD students
+>   _a LaTeX thesis template for Cambridge PhD students_
 
-Want to write a thesis? Well, all you need is this template, one of the existing samples&mdash;which can be found in the [`./Samples/`](https://github.com/cambridge/thesis/tree/master/Samples) folder&mdash;, and some content.
+Want to write a thesis? Well, here is what you need:
 
-The samples are typically neatly structured, have their own special cosmetic features, and are based on theses of other PhD students.
+1.  this template (just clone it with git),
+2.  one of the existing samples (which can be found in the [`./Samples/`](https://github.com/cambridge/thesis/tree/master/Samples) folder), and
+3.  and some research content.
+
+The samples are based on other PhD students' theses.
 
 ## Quicker start
 
@@ -13,15 +17,17 @@ desired location.
 
 Now you can start writing your thesis using the `thesis.tex` file.
 
-Finally, build the `PDF` document by running (in the command line):
+Finally, build the `PDF` document by running one of the following in the command line:
 
-    make
+    `make`
+    `./makepdf`
+    `./makeps`
 
 ## How will it look like?
 
 Your thesis document will look something like this (using the Adobe Sabon font and the _clean_ sample, which can be found in [`./Samples/clean`](https://github.com/cambridge/thesis/tree/master/Samples/clean)):
 
-* [Thesis Sample (PDF)](https://github.com/downloads/cambridge/thesis/thesis.pdf)
+>   [Thesis Sample (PDF)](https://github.com/downloads/cambridge/thesis/thesis.pdf)
 
 The template also supports DVI and PS formats. All three formats can be generated
 with the provided `Makefile`.
