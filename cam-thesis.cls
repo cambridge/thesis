@@ -64,17 +64,19 @@
 \newif\ifcam@techreport\cam@techreportfalse
 \DeclareOption{techreport}{\cam@techreporttrue}
 
-% notimes - disables the use of the `times' font and uses the default (computer
-% modern).
-\newif\ifcam@times\cam@timestrue
-\DeclareOption{notimes}{\cam@timesfalse}
+% times - tells the class to use the times font.
+\newif\ifcam@times\cam@timesfalse
+\DeclareOption{times}{\cam@timestrue}
 
-% nopackages - prevents the inclusion of ``unnecessary'' (but convenient)
-% packages.
-\newif\ifcam@withpackages\cam@withpackagestrue
-\DeclareOption{nopackages}{\cam@withpackagesfalse}
+% glossary - puts the glossary (after the TOC).
+%
+\newif\ifcam@glossary\cam@glossaryfalse
+\DeclareOption{glossary}{\cam@glossarytrue}
 
-% TODO: Maybe add the option to not include the `makeidx` package?
+% index - puts the index at the end of the thesis.
+%
+\newif\ifcam@index\cam@indexfalse
+\DeclareOption{index}{\cam@indextrue}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -96,19 +98,6 @@
 \RequirePackage{graphicx}           % Required for the UC Logo (on the title page)
 \RequirePackage{calc}               % Used for calculating margins and laying out the title page
 \RequirePackage{setspace}      	    % Used for selecting single or onehalf line spacing.
-\RequirePackage{makeidx}            % For building the index (otherwise not essential).
-
-\makeindex
-
-\ifcam@withpackages
-    \ifcam@times
-        \RequirePackage{times}      % Not essential
-    \fi
-
-    \RequirePackage{amsmath}        % Not essential
-    \RequirePackage{amssymb}        % Not essential
-    \RequirePackage{amsthm}         % Not essential
-\fi
 
 % Hyperref should be included in any case, but we make it non-obtrusive (i.e.: no hyperlink borders).
 % Why do we need a separate treatment of hyperref for the techreport? Because the guidelines say so. :)
@@ -129,6 +118,27 @@
     ]{hyperref}
 \fi
 \RequirePackage[all]{hypcap}        % Fixes links to floats (must be included after hyperref).
+
+% Create the index
+\ifcam@index
+    \RequirePackage{makeidx}
+    \makeindex
+    \newcommand{\printthesisindex}{%
+        \cleardoublepage%
+        \phantomsection%
+        \addcontentsline{toc}{chapter}{Index}%
+        \printindex}
+\fi
+
+% Create the glossary
+\ifcam@glossary
+    \RequirePackage{glossaries}
+    \makeglossaries%
+    \newcommand{\cam@printthesisglossary}{%
+        \thispagestyle{empty}%
+        \printglossaries%
+    }
+\fi
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -191,6 +201,11 @@
 % Note: You might need to install it first.
 % \renewcommand\rmdefault{psb}
 
+% Use the times font if the user selected this option.
+\ifcam@times
+    \RequirePackage{times}
+\fi
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
@@ -200,9 +215,8 @@
 
 % One-and-a-half spacing (required by board of graduate studies).
 % (Should remove this for Computer Laboratory technical report.)
-\ifcam@techreport
-\else
-\onehalfspacing%
+\ifcam@techreport\else%
+    \onehalfspacing%
 \fi
 
 
@@ -226,22 +240,27 @@
 % thesis.)
 \newcommand{\@abstract}{}
 \renewcommand{\abstract}[1]{\renewcommand{\@abstract}{#1}}
+
 % DOCVAR: acknowledgements (The text that will be instered into the
 % acknowledgments of the thesis.)
 \newcommand{\@acknowledgements}{}
 \newcommand{\acknowledgements}[1]{\renewcommand{\@acknowledgements}{#1}}
+
 % DOCVAR: college (The name of the thesis writer's college, which will appear
 % just below their name.)
 \newcommand{\@college}{}
 \newcommand{\college}[1]{\renewcommand{\@college}{#1}}
+
 % DOCVAR: keywords (These keywords will appear in the PDF meta-information
 % called `pdfkeywords`.)
 \newcommand{\@keywords}{}
 \newcommand{\keywords}[1]{\renewcommand{\@keywords}{#1}}
+
 % DOCVAR: subjectline (This subject will appear in the PDF meta-information
 % called `pdfsubject`.)
 \newcommand{\@subjectline}{}
 \newcommand{\subjectline}[1]{\renewcommand{\@subjectline}{#1}}
+
 % DOCVAR: submissiondate (The date of the submission of this thesis. If the
 % submission date is provided, it will be printed on the title page--within the
 % `submissionnotice` by default. Note that the thesis writer can provide their
@@ -250,6 +269,7 @@
 \newif\ifcam@submissiondate\cam@submissiondatefalse
 \newcommand{\@submissiondate}{}
 \newcommand{\submissiondate}[1]{\renewcommand{\@submissiondate}{#1}\cam@submissiondatetrue}
+
 % DOCVAR: submissionnotice (The submission notice is shown on the bottom of the
 % title page.)
 \newcommand{\@submissionnotice}{%
@@ -260,6 +280,7 @@ A thesis submitted
 for the Degree of Doctor of Philosophy%
 }
 \newcommand{\submissionnotice}[1]{\renewcommand{\@submissionnotice}{#1}}
+
 % DOCVAR: collegeshield (The name of the file that contains the image of the
 % college's shield. If `collegeshield' is provided, it will be included in the
 % title page (just below the author's name and above the name of the college).
@@ -322,11 +343,9 @@ for the Degree of Doctor of Philosophy%
         \begin{center}
         	\begin{spacing}{2}
             	{\Huge%
-            	   \ifcam@withpackages%
-                        \ifcam@times\else%
-                            \bfseries%
-                        \fi%
-                    \else\bfseries\fi%
+                    \ifcam@times\else%
+                        \bfseries%
+                    \fi%
                  {\@title{}}}
         	\end{spacing}
         \end{center}
@@ -401,8 +420,8 @@ for the Degree of Doctor of Philosophy%
 %% Abstract
 %%
 %%%%%
-\ifcam@techreport
-\setcounter{page}{3}
+\ifcam@techreport%
+    \setcounter{page}{20}
 \fi
 
 \chapter*{Abstract}
@@ -450,15 +469,21 @@ This thesis:
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
-%% Table of contents
+%% Table of contents, figures, symbols and glossary.
 %%
 %%%%%
 
+% The following command prevents the page number to be displayed on the first
+% page of the TOC.
+\addtocontents{toc}{\protect\thispagestyle{empty}}
+\pagestyle{empty}
 \tableofcontents{}
-% - list of figures (optional)
-% - list of symbols (optional)
-% - glossary (optional)
 
+\ifcam@glossary%
+    \cam@printthesisglossary
+\fi
+
+\cleardoublepage
 \pagestyle{plain}
 }
 

@@ -13,24 +13,39 @@ desired location.
 
 Now you can start writing your thesis using the `thesis.tex` file.
 
+Finally, build the `PDF` document by running (in the command line):
+
+    make
+
 ## How will it look like?
 
 Your thesis document will look something like this (using the Adobe Sabon font and the _clean_ sample, which can be found in [`./Samples/clean`](https://github.com/cambridge/thesis/tree/master/Samples/clean)):
 
 * [Thesis Sample (PDF)](https://github.com/downloads/cambridge/thesis/thesis.pdf)
 
-The template also supports DVI and PS formats. All three formats are generated
-by the provided `Makefile`.
+The template also supports DVI and PS formats. All three formats can be generated
+with the provided `Makefile`.
 
-## Producing PDF, DVI and PS documents
+## Producing `PDF`, `DVI` and `PS` documents
 
 ### Build your thesis
 
-To build your thesis, run:
+To build the `PDF` version of your thesis, run:
 
     make
 
-This should build `thesis.dvi`, `thesis.ps` and `thesis.pdf` documents.
+This build procedure uses `pdflatex` and will produce `thesis.pdf`.
+
+To produce `DVI` and `PS` versions of your document, you should run:
+
+    ./makeps
+
+or
+
+    make BUILD_STRATEGY=latex
+
+This will use the `latex` command to build the document and will produce
+`thesis.dvi`, `thesis.ps` and `thesis.pdf` documents.
 
 ### Clean unwanted files
 
@@ -38,11 +53,20 @@ To clean unwanted clutter (all LaTeX auto-generated files), run:
 
     make clean
 
-To clean absolutely all files produced by `make`, run:
+__Note__: the `Makefile` itself is take from and maintained at
+[here](http://code.google.com/p/latex-makefile/).
 
-    make distclean
+## Known issues
 
-For other build options, refer to the `Makefile` file itself.
+1.  When using the glossary, references are not pointing to the right page.
+
+    __Workaround__: Build the document with:
+
+        make && makeglossaries thesis && makeindex thesis && pdflatex thesis.tex
+
+2.  When using the glossary, the first page of the glossary has a page number.
+
+    _There is no known workaround._ We are trying to fix this.
 
 -------------------------------------------------------------------------------
 
@@ -69,19 +93,33 @@ It also supports some custom options.
     *   if the `hyperref` package is used, the option `pdfpagelabels=false` will
         be passed to it.
 
-*   `notimes`: tells the class not to use the _times_ font. This option is
-    implied by the `nopackages`.
+*   `times`: tells the class to use the _times_ font.
 
-*   `nopackages`: tells the class not to use any non-essential packages (this
-    option implies the `notimes` option).
+*   `glossary`: puts the glossary after the TOC. The glossary contains a list of
+    abbreviations, their explanations etc. Describe your abbreviations and add
+    them to the glossary immediately after you introduce them in the body of
+    your thesis. You can use the following command for this:
 
-    _Note_: If this option is not specified, then the class will use the
-    following non-essential packages:
+        \newglossaryentry{computer}
+        {
+          name=computer,
+          description={is a programmable machine that receives input,
+                       stores and manipulates data, and provides
+                       output in a useful format}
+        }
 
-    * `times` (can also be excluded by using the `notimes` option),
-    * `amsmath`
-    * `amssymb`
-    * `amsthm`
+    Further instructions can be found [here](http://en.wikibooks.org/wiki/LaTeX/Glossary).
+
+    _Note_: `glossaries` is the package used to create the glossary.
+
+*   `index`: build the index, which you can put at the and of the thesis with
+     the following command (it will create a new unnumbered chapter):
+
+        \printthesisindex
+
+    Instructions on how to use the index can be found [here](http://en.wikibooks.org/wiki/LaTeX/Indexing#Using_makeidx).
+
+    _Note_: the package `makeidx` is used to create the index.
 
 -------------------------------------------------------------------------------
 
@@ -111,8 +149,8 @@ The Computer Laboratory guidelines for technical reports:
 
 ## _Q3_: Can I use my own Makefile?
 
-By all means. Here is a very nice (and smart) `Makefile` built specifically for
-LaTeX:
+By all means. We are currently using the very nice (and smart) `Makefile` built
+specifically for LaTeX:
 
 > [http://code.google.com/p/latex-makefile/](http://code.google.com/p/latex-makefile/)
 
@@ -125,6 +163,8 @@ info see __[1]__):
     CUni.eps
     CUni.pdf
     CollegeShields/
+    Makefile
+    Variables.ini
 
 
 > __[1]__ You can put these files either into the standard LaTeX directory for
@@ -173,5 +213,4 @@ There is [a page](http://www.cl.cam.ac.uk/local/phd/writingup.html) on the Compu
 
 # TODO list
 
-*   Fill PDF's meta tags (e.g.: author, title, keywords etc.).
-*   It is debatable which packages are non-essential. We could reclassify this.
+*   Fill out more PDF meta tags (e.g.: keywords, subject etc.).
