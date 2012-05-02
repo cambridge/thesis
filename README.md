@@ -78,10 +78,6 @@ __Note__: the `Makefile` itself is take from and maintained at
 
         make && makeglossaries thesis && makeindex thesis && pdflatex thesis.tex
 
-2.  When using the glossary, the first page of the glossary has a page number.
-
-    _There is no known workaround._ We are trying to fix this.
-
 -------------------------------------------------------------------------------
 
 # Usage details

@@ -135,8 +135,10 @@
     \RequirePackage{glossaries}
     \makeglossaries%
     \newcommand{\cam@printthesisglossary}{%
-        \thispagestyle{empty}%
-        \printglossaries%
+        \cleardoublepage%
+        \pagestyle{empty}%
+        \renewcommand{\glossarypreamble}{\thispagestyle{empty}}%
+        \printglossary%
     }
 \fi
 
