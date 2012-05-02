@@ -134,11 +134,12 @@
 \ifcam@glossary
     \RequirePackage{glossaries}
     \makeglossaries%
+    \newcommand{\printthesisglossary}{\printglossary}
     \newcommand{\cam@printthesisglossary}{%
         \cleardoublepage%
         \pagestyle{empty}%
         \renewcommand{\glossarypreamble}{\thispagestyle{empty}}%
-        \printglossary%
+        \printthesisglossary%
     }
 \fi
 
