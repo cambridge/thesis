@@ -421,7 +421,7 @@ for the Degree of Doctor of Philosophy%
 %%
 %%%%%
 \ifcam@techreport%
-    \setcounter{page}{20}
+    \setcounter{page}{3}
 \fi
 
 \chapter*{Abstract}
