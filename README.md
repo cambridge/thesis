@@ -118,7 +118,15 @@ It also supports some custom options.
                        output in a useful format}
         }
 
-    Further instructions can be found [here](http://en.wikibooks.org/wiki/LaTeX/Glossary).
+    After that, you can reference particular glossary entries like this:
+
+        \gls{computer}
+
+    You can also change the glossary style. For example, try putting this in the preamble of your document:
+
+        \PassOptionsToPackage{style=altlong4colheader}{glossaries}
+
+    Further instructions can be found [on LaTeX Wikibooks](http://en.wikibooks.org/wiki/LaTeX/Glossary) or the [user manual at CTAN](http://mirrors.ctan.org/macros/latex/contrib/glossaries/glossaries-user.pdf).
 
     _Note_: `glossaries` is the package used to create the glossary.
 
