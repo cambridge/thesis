@@ -122,7 +122,7 @@ It also supports some custom options.
 
         \gls{computer}
 
-    You can also change the glossary style. For example, try putting this in the preamble of your document:
+    You can also change the glossary style. For example, try putting this on the very top of the preamble (even before you define the document class with `\documentclass[glossary]{cam-thesis}`):
 
         \PassOptionsToPackage{style=altlong4colheader}{glossaries}
 
