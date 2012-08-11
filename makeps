@@ -1,0 +1,3 @@
+#!/bin/sh
+
+make BUILD_STRATEGY=latex && makeglossaries thesis && makeindex thesis && make BUILD_STRATEGY=latex
