@@ -17,11 +17,16 @@ desired location.
 
 Now you can start writing your thesis using the `thesis.tex` file.
 
-Finally, build the `PDF` document by running one of the following in the command line:
+Finally, build the `PDF` document by running the following in the command line:
 
     make
+
+If you're using the `glossaries` package, try using these:
+
     ./makepdf
     ./makeps
+
+The above scripts work around a bug in the supplied makefile (i.e., the makefile forgets to rebuild the glossary index when pages change between LaTeX build runs).
 
 ## How will it look like?
 
