@@ -60,6 +60,26 @@ Licence:
 
 
 
+# Trinity College's shield
+
+File:
+
+        Trinity.svg
+
+Derivative files:
+
+        Trinity.eps
+        Trinity.pdf
+
+Source:
+
+        http://en.wikipedia.org/wiki/File:Trinity_College_(Cambridge)_shield.svg
+
+Licence:
+
+        GNU Free Documentation License, Version 1.2 or any later version 
+
+
 # Licences
 
 ## Creative Commons Attribution-Share Alike 3.0 Unported
