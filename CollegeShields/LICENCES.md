@@ -68,6 +68,7 @@ File:
 
 Derivative files:
 
+        Trinity.eps
         Trinity.pdf
 
 Source:
