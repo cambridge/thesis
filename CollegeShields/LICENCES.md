@@ -60,6 +60,26 @@ Licence:
 
 
 
+# Peterhouse's shield
+
+File:
+
+       Peterhouse.svg
+
+Derivative files:
+
+       Peterhouse.pdf  (rsvg-convert -f pdf -o Peterhouse.pdf Peterhouse.svg)
+
+Source:
+
+       https://en.wikipedia.org/wiki/File:Peterhouse_shield.svg
+
+Licence:
+
+        GNU Free Documentation License, Version 1.2 or any later version or
+        Creative Commons Attribution-Share Alike 3.0 Unported
+
+
 # Licences
 
 ## Creative Commons Attribution-Share Alike 3.0 Unported
