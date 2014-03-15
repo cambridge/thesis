@@ -276,11 +276,11 @@
 % DOCVAR: submissionnotice (The submission notice is shown on the bottom of the
 % title page.)
 \newcommand{\@submissionnotice}{%
-A thesis submitted
+This dissertation is submitted
 \ifcam@submissiondate
     on \@submissiondate{}
 \fi
-for the Degree of Doctor of Philosophy%
+for the degree of Doctor of Philosophy%
 }
 \newcommand{\submissionnotice}[1]{\renewcommand{\@submissionnotice}{#1}}
 
@@ -443,14 +443,15 @@ for the Degree of Doctor of Philosophy%
 \else
 \chapter*{Declaration}
 \thispagestyle{empty}
-This thesis:
-\begin{itemize}
-\item is my own work and contains nothing which is the outcome of work done in
-  collaboration with others, except where specified in the text;
-\item is not substantially the same as any that I have submitted for a degree or
-  diploma or other qualification at any other university; and
-\item does not exceed the prescribed limit of 60,000 words.
-\end{itemize}
+This dissertation is my own work and contains nothing which is the outcome of
+work done in collaboration with others, except where specified in the text. This
+dissertation is not substantially the same as any that I have submitted for a
+degree or diploma or other qualification at any other university. This
+dissertation does not exceed the prescribed limit of 60,000 words.
+
+% Leaving some space for the signature:
+\vspace{15mm}
+
 \begin{flushright}
 \@author{}\\
 \@date{}\\
