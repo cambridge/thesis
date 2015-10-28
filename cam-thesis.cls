@@ -132,7 +132,10 @@
 
 % Create the glossary
 \ifcam@glossary
+    \usepackage{savesym}
+    \savesymbol{printindex}
     \RequirePackage{glossaries}
+    \restoresymbol{GLOS}{printindex}
     \makeglossaries%
     \newcommand{\printthesisglossary}{\printglossary}
     \newcommand{\cam@printthesisglossary}{%
