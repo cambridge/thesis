@@ -100,6 +100,24 @@ Licence:
 
         GNU Free Documentation License, Version 1.2 or any later version
 
+# Clare's shield
+
+File:
+
+        Clare.svg
+
+Derivative files:
+
+        Clare.eps
+        Clare.pdf
+
+Source:
+
+        https://commons.wikimedia.org/wiki/File:ClareCollegeCrest.svg
+
+Licence:
+
+        Creative Commons CC0 1.0 Universal Public Domain Dedication
 
 
 # Licences
