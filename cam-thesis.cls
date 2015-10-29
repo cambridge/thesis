@@ -450,7 +450,7 @@ This dissertation is my own work and contains nothing which is the outcome of
 work done in collaboration with others, except where specified in the text. This
 dissertation is not substantially the same as any that I have submitted for a
 degree or diploma or other qualification at any other university. This
-dissertation does not exceed the prescribed limit of 60,000 words.
+dissertation does not exceed the prescribed limit of 60\,000 words.
 
 % Leaving some space for the signature:
 \vspace{15mm}
