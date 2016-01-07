@@ -1,3 +1,0 @@
-#!/bin/sh
-
-make && makeglossaries thesis && makeindex thesis && pdflatex thesis.tex

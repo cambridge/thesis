@@ -21,13 +21,6 @@ Finally, build the `PDF` document by running the following in the command line:
 
     make
 
-If you're using the `glossaries` package, try using these:
-
-    ./makepdf
-    ./makeps
-
-The above scripts work around a bug in the supplied makefile (i.e., the makefile forgets to rebuild the glossary index when pages change between LaTeX build runs).
-
 ## How will it look like?
 
 Your thesis document will look something like this (using the Adobe Sabon font and the _clean_ sample, which can be found in [`./Samples/clean`](https://github.com/cambridge/thesis/tree/master/Samples/clean)):
@@ -45,43 +38,20 @@ To build the `PDF` version of your thesis, run:
 
     make
 
-or
-
-    ./makepdf
-
 This build procedure uses `pdflatex` and will produce `thesis.pdf`.
 
 To produce `DVI` and `PS` versions of your document, you should run:
 
-    ./makeps
+    make thesis.ps
 
-or
-
-    make BUILD_STRATEGY=latex
-
-This will use the `latex` command to build the document and will produce
-`thesis.dvi`, `thesis.ps` and `thesis.pdf` documents.
+This will use the `latex` and `dvips` commands to build the document
+and will produce `thesis.dvi` and `thesis.ps` documents.
 
 ### Clean unwanted files
 
 To clean unwanted clutter (all LaTeX auto-generated files), run:
 
     make clean
-
-__Note__: the `Makefile` itself is take from and maintained at
-[here](http://code.google.com/p/latex-makefile/).
-
-## Known issues
-
-1.  When using the glossary, references are not pointing to the right page.
-
-    __Workaround__: Build the document with:
-
-        ./makepdf
-
-    or
-
-        make && makeglossaries thesis && makeindex thesis && pdflatex thesis.tex
 
 -------------------------------------------------------------------------------
 
@@ -135,7 +105,7 @@ It also supports some custom options.
 
     _Note_: `glossaries` is the package used to create the glossary.
 
-*   `index`: build the index, which you can put at the and of the thesis with
+*   `withindex`: build the index, which you can put at the and of the thesis with
      the following command (it will create a new unnumbered chapter):
 
         \printthesisindex
@@ -172,8 +142,7 @@ The Computer Laboratory guidelines for technical reports:
 
 ## _Q3_: Can I use my own Makefile?
 
-By all means. We are currently using the very nice (and smart) `Makefile` built
-specifically for LaTeX:
+By all means. Previously we used the horrendously complex `Makefile` at
 
 > [http://code.google.com/p/latex-makefile/](http://code.google.com/p/latex-makefile/)
 
@@ -183,12 +152,7 @@ Put the files and folders listed below into a directory where LaTeX can find the
 info see __[1]__):
 
     cam-thesis.cls
-    CUni.eps
-    CUni.pdf
     CollegeShields/
-    Makefile
-    Variables.ini
-
 
 > __[1]__ You can put these files either into the standard LaTeX directory for
 > classes __[2]__, or a directory listed in your `TEXINPUTS` environment variable.
