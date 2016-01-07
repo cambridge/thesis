@@ -336,7 +336,7 @@ for the degree of Doctor of Philosophy%
 %% LOGO box
 \newsavebox{\cam@logo}
 \begin{lrbox}{\cam@logo}
-\includegraphics[width=73mm]{CUni}
+\includegraphics[width=73mm]{CollegeShields/CUni}
 \end{lrbox}
 
 %% THESIS TITLE box
