@@ -135,7 +135,7 @@ It also supports some custom options.
 
     _Note_: `glossaries` is the package used to create the glossary.
 
-*   `index`: build the index, which you can put at the and of the thesis with
+*   `withindex`: build the index, which you can put at the and of the thesis with
      the following command (it will create a new unnumbered chapter):
 
         \printthesisindex

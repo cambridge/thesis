@@ -76,7 +76,7 @@
 % index - puts the index at the end of the thesis.
 %
 \newif\ifcam@index\cam@indexfalse
-\DeclareOption{index}{\cam@indextrue}
+\DeclareOption{withindex}{\cam@indextrue}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
