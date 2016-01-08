@@ -1,5 +1,7 @@
 # cam-thesis
 
+[![Build Status](https://travis-ci.org/urbas/thesis.svg?branch=master)](https://travis-ci.org/urbas/thesis)
+
 >   _a LaTeX thesis template for Cambridge PhD students_
 
 Want to write a thesis? Well, here is what you need:

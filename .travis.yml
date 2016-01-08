@@ -1,0 +1,15 @@
+sudo: false
+addons:
+  apt:
+    packages:
+      - texlive
+      - texlive-latex-extra
+script:
+  - make
+  - curl -X PUT -T thesis.pdf -umatej:$BINTRAY_API_KEY https://api.bintray.com/content/matej/cam-thesis/cam-thesis/1.0.0/thesis-$TRAVIS_PULL_REQUEST.pdf?publish=1
+  - cd Samples/clean
+  - ln -s ../../CollegeShields .
+  - ln -s ../../cam-thesis.cls .
+  - ln -s ../../Makefile .
+  - make
+  - curl -X PUT -T thesis.pdf -umatej:$BINTRAY_API_KEY https://api.bintray.com/content/matej/cam-thesis/cam-thesis/1.0.0/SampleClean-$TRAVIS_PULL_REQUEST.pdf?publish=1
