@@ -7,7 +7,7 @@
 Want to write a thesis? Well, here is what you need:
 
 1.  this template (just clone it with git),
-2.  one of the existing samples (which can be found in the [`./Samples/`](https://github.com/cambridge/thesis/tree/master/Samples) folder), and
+2.  one of the existing samples (which can be found in the [`./Samples/`](Samples) folder), and
 3.  and some research content.
 
 The samples are based on other PhD students' theses.
