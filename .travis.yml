@@ -5,11 +5,12 @@ addons:
       - texlive
       - texlive-latex-extra
 script:
+  - export FILE_VERSION=$([[ $TRAVIS_PULL_REQUEST -eq 'false' ]] && echo -n $TRAVIS_BRANCH || echo -n $TRAVIS_PULL_REQUEST)
   - make
-  - curl -X PUT -T thesis.pdf -umatej:$BINTRAY_API_KEY https://api.bintray.com/content/matej/cam-thesis/cam-thesis/1.0.0/thesis-$TRAVIS_PULL_REQUEST.pdf?publish=1
+  - curl -X PUT -T thesis.pdf -umatej:$BINTRAY_API_KEY https://api.bintray.com/content/matej/cam-thesis/cam-thesis/1.0.0/thesis-$FILE_VERSION.pdf?publish=1
   - cd Samples/clean
   - ln -s ../../CollegeShields .
   - ln -s ../../cam-thesis.cls .
   - ln -s ../../Makefile .
   - make
-  - curl -X PUT -T thesis.pdf -umatej:$BINTRAY_API_KEY https://api.bintray.com/content/matej/cam-thesis/cam-thesis/1.0.0/SampleClean-$TRAVIS_PULL_REQUEST.pdf?publish=1
+  - curl -X PUT -T thesis.pdf -umatej:$BINTRAY_API_KEY https://api.bintray.com/content/matej/cam-thesis/cam-thesis/1.0.0/SampleClean-$FILE_VERSION.pdf?publish=1
