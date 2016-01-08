@@ -25,9 +25,13 @@ Finally, build the `PDF` document by running the following in the command line:
 
 ## How will it look like?
 
-Your thesis document will look something like this (using the Adobe Sabon font and the _clean_ sample, which can be found in [`./Samples/clean`](https://github.com/cambridge/thesis/tree/master/Samples/clean)):
+Your thesis document will look something like this:
 
->   [Thesis Sample (PDF)](https://github.com/downloads/cambridge/thesis/thesis.pdf)
+>   [Plain (PDF)](https://dl.bintray.com/matej/cam-thesis/:thesis-master.pdf)
+
+If you use the _clean_ sample, which can be found in [`./Samples/clean`](https://github.com/cambridge/thesis/tree/master/Samples/clean), it will look like this:
+
+>   [Sample Clean (PDF)](https://dl.bintray.com/matej/cam-thesis/:SampleClean-master.pdf)
 
 The template also supports DVI and PS formats. All three formats can be generated
 with the provided `Makefile`.
