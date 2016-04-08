@@ -334,9 +334,11 @@ for the degree of Doctor of Philosophy%
 % (vertically).
 
 %% LOGO box
+\newlength{\cam@logorightnudge}
+\setlength{\cam@logorightnudge}{-0.5\paperwidth+12mm}
 \newsavebox{\cam@logo}
 \begin{lrbox}{\cam@logo}
-\includegraphics[width=73mm]{CollegeShields/CUni}
+\hspace*{\cam@logorightnudge}\includegraphics[width=73mm]{CollegeShields/CUni}
 \end{lrbox}
 
 %% THESIS TITLE box
