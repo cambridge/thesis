@@ -116,6 +116,7 @@
         pdfborder={0 0 0},
         pdfusetitle=true
     ]{hyperref}
+    \RequirePackage[export]{adjustbox} % Used to move the university logo to the left
 \fi
 \RequirePackage[all]{hypcap}        % Fixes links to floats (must be included after hyperref).
 
@@ -336,7 +337,7 @@ for the degree of Doctor of Philosophy%
 %% LOGO box
 \newsavebox{\cam@logo}
 \begin{lrbox}{\cam@logo}
-\includegraphics[width=73mm]{CollegeShields/CUni}
+\includegraphics[width=73mm,trim={-12mm 0 0 0},left]{CollegeShields/CUni}
 \end{lrbox}
 
 %% THESIS TITLE box
