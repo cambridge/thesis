@@ -84,6 +84,16 @@ It also supports some custom options.
     *   if the `hyperref` package is used, the option `pdfpagelabels=false` will
         be passed to it.
 
+*   `firstyr`: formats the document as a first-year report (essentially removing
+    some unneeded elements and modifying the submission note). Here is a list of
+    formatting points in which the first year report differs from a normal thesis:
+
+    *   an appropraite subtitle is added,
+    *   the submission note is changed appropriately,
+    *   no standalone abstract,
+    *   no declaration,
+    *   no acknowledgements.
+
 *   `times`: tells the class to use the _times_ font.
 
 *   `glossary`: puts the glossary after the TOC. The glossary contains a list of
