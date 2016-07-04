@@ -78,6 +78,11 @@
 \newif\ifcam@index\cam@indexfalse
 \DeclareOption{withindex}{\cam@indextrue}
 
+% 1st year report - omits abstract/declaration
+%
+\newif\ifcam@firstyr\cam@firstyrfalse
+\DeclareOption{firstyr}{\cam@firstyrtrue}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
@@ -276,9 +281,16 @@
 % DOCVAR: submissionnotice (The submission notice is shown on the bottom of the
 % title page.)
 \newcommand{\@submissionnotice}{%
+\ifcam@firstyr
+First year report submitted
+\else
 This dissertation is submitted
+\fi
 \ifcam@submissiondate
     on \@submissiondate{}
+\fi
+\ifcam@firstyr
+in partial fulfilment of the requirements
 \fi
 for the degree of Doctor of Philosophy%
 }
@@ -334,9 +346,11 @@ for the degree of Doctor of Philosophy%
 % (vertically).
 
 %% LOGO box
+\newlength{\cam@logorightnudge}
+\setlength{\cam@logorightnudge}{-0.5\paperwidth+12mm}
 \newsavebox{\cam@logo}
 \begin{lrbox}{\cam@logo}
-\includegraphics[width=73mm]{CollegeShields/CUni}
+\hspace*{\cam@logorightnudge}\includegraphics[width=73mm]{CollegeShields/CUni}
 \end{lrbox}
 
 %% THESIS TITLE box
@@ -349,7 +363,8 @@ for the degree of Doctor of Philosophy%
                     \ifcam@times\else%
                         \bfseries%
                     \fi%
-                 {\@title{}}}
+                 {\@title{}}\\
+                 {\emph{\LARGE PhD Proposal}}}
         	\end{spacing}
         \end{center}
     \end{minipage}
@@ -427,10 +442,14 @@ for the degree of Doctor of Philosophy%
     \setcounter{page}{3}
 \fi
 
+\ifcam@firstyr
+% First yr report doesn't need a standalone abstract
+\else
+
 \chapter*{Abstract}
 \thispagestyle{empty}
 \@abstract{}
-
+\fi
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
@@ -440,6 +459,9 @@ for the degree of Doctor of Philosophy%
 \ifcam@techreport
 % Technical report doesn't need the declaration
 % (see http://www.cl.cam.ac.uk/techreports/submission.html).
+\else
+\ifcam@firstyr
+% First yr report doesn't need the declaration
 \else
 \chapter*{Declaration}
 \thispagestyle{empty}
@@ -466,10 +488,13 @@ dissertation does not exceed the prescribed limit of 60\,000 words.
 %%
 %%%%%
 
+\ifcam@firstyr
+% First yr report doesn't need the declaration
+\else
 \chapter*{Acknowledgements}
 \thispagestyle{empty}
 \@acknowledgements{}
-
+\fi
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
