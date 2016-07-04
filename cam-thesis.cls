@@ -363,8 +363,10 @@ for the degree of Doctor of Philosophy%
                     \ifcam@times\else%
                         \bfseries%
                     \fi%
-                 {\@title{}}\\
-                 {\emph{\LARGE PhD Proposal}}}
+                 {\@title{}}%
+                 \ifcam@firstyr\\%
+                 {\emph{\LARGE PhD Proposal}}%
+                 \fi}%
         	\end{spacing}
         \end{center}
     \end{minipage}
