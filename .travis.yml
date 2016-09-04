@@ -2,6 +2,6 @@ sudo: false
 addons:
   apt:
     packages:
-      - texlive
-      - texlive-latex-extra
+      #- texlive
+      #- texlive-latex-extra
 script: source .travis.script.sh
