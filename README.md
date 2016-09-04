@@ -31,7 +31,7 @@ Your thesis document will look something like this:
 
 If you use the _clean_ sample, which can be found in [`./Samples/clean`](Samples/clean), it will look like this:
 
->   [Sample Clean (PDF)](https://dl.bintray.com/matej/cam-thesis/SampleClean-master.pdf)
+>   [Sample Clean (PDF)](https://dl.bintray.com/matej/cam-thesis/sample-clean-master.pdf)
 
 The template also supports DVI and PS formats. All three formats can be generated
 with the provided `Makefile`.

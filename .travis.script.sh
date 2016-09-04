@@ -2,28 +2,92 @@
 
 set -e;
 
-function getVersion {
-  [[ $TRAVIS_PULL_REQUEST -eq 'false' ]] && echo -n $TRAVIS_BRANCH || echo -n $TRAVIS_PULL_REQUEST.$TRAVIS_BUILD_NUMBER.$(date +%Y-%m-%d.%H%M%S).$TRAVIS_COMMIT;
+BUILD_DIR=build;
+
+function getPackageName {
+  if isPullRequest; then
+    echo -n "pull-request-$TRAVIS_PULL_REQUEST";
+  else
+    echo -n ${TRAVIS_BRANCH/\//_};
+  fi
+}
+
+function isPullRequest {
+  [[ $TRAVIS_PULL_REQUEST != false ]];
+}
+
+function isMasterBuild {
+  ! isPullRequest && [[ $TRAVIS_BRANCH = 'master' ]];
 }
 
 function uploadFileToBinTray {
   local fileToUpload=$1;
-  local remoteArtifactId=$2;
-  local version=$3;
-  local fakeVersion='1.0.1'
-  curl -X DELETE -umatej:$BINTRAY_API_KEY https://api.bintray.com/content/matej/cam-thesis/cam-thesis/$fakeVersion/$remoteArtifactId-$version.pdf
-  curl -X PUT -T $fileToUpload -umatej:$BINTRAY_API_KEY https://api.bintray.com/content/matej/cam-thesis/cam-thesis/$fakeVersion/$remoteArtifactId-$version.pdf?publish=1  
+  local packageName=$2;
+  local remoteArtifactName=$3;
+  local version=$4;
+  curl -X DELETE -umatej:$BINTRAY_API_KEY https://api.bintray.com/content/matej/cam-thesis/$packageName/$version/$remoteArtifactName;
+  curl -X PUT -T $fileToUpload -umatej:$BINTRAY_API_KEY "https://api.bintray.com/content/matej/cam-thesis/$remoteArtifactName;bt_package=$packageName;bt_version=$version;publish=1;override=1";
 }
 
-export BUILD_VERSION=$(getVersion)
+function deleteBinTrayPackage {
+  curl -X DELETE -umatej:$BINTRAY_API_KEY "https://api.bintray.com/packages/matej/cam-thesis/$1";
+}
 
-make
+function createBinTrayPackage {
+  curl -X POST -H "Content-Type: application/json" -d "{\"name\": \"$1\", \"licenses\": [\"BSD\"], \"vcs_url\": \"https://github.com/cambridge/thesis\"}" -umatej:$BINTRAY_API_KEY "https://api.bintray.com/packages/matej/cam-thesis";
+}
 
-uploadFileToBinTray thesis.pdf thesis $BUILD_VERSION
+function createTestDir {
+  local sourceDir=$1;
+  local targetDir="$BUILD_DIR/${sourceDir##*/}";
+  rm -Rf $targetDir;
+  mkdir -p $targetDir;
+  cp -r CollegeShields $targetDir;
+  cp cam-thesis.cls $targetDir;
+  cp Makefile $targetDir;
+  cp -r $sourceDir/* $targetDir;
+  echo $targetDir;
+}
 
-cd Samples/clean
-ln -s ../../CollegeShields .
-ln -s ../../cam-thesis.cls .
-ln -s ../../Makefile .
-make
-uploadFileToBinTray thesis.pdf SampleClean $BUILD_VERSION
+function buildMain {
+  echo ">>> MAKING: main...";
+  make
+  echo ">>> MAKING: main... DONE";
+}
+
+function buildSamples {
+  for sampleDir in `find Samples/ -maxdepth 1 -mindepth 1 -type d`; do
+    echo ">>> MAKING: sample-${sampleDir##*/}...";
+    sampleTestDir=$(createTestDir $sampleDir);
+
+    (cd $sampleTestDir && make);
+    echo ">>> MAKING: sample-${sampleDir##*/}... DONE";
+  done
+}
+
+PACKAGE_NAME=$(getPackageName);
+
+function uploadMain {
+  uploadFileToBinTray thesis.pdf $PACKAGE_NAME thesis-$TRAVIS_BUILD_NUMBER.pdf $TRAVIS_BUILD_NUMBER;
+}
+
+function uploadSamples {
+  for sampleDir in `find $BUILD_DIR/ -maxdepth 1 -mindepth 1 -type d`; do
+    uploadFileToBinTray $sampleDir/thesis.pdf $PACKAGE_NAME sample-${sampleDir##*/}-$TRAVIS_BUILD_NUMBER.pdf $TRAVIS_BUILD_NUMBER;
+  done
+}
+
+createBinTrayPackage $PACKAGE_NAME;
+buildMain;
+buildSamples;
+uploadMain;
+uploadSamples;
+
+if isMasterBuild; then
+  deleteBinTrayPackage master-build
+  createBinTrayPackage master-build
+  uploadFileToBinTray thesis.pdf master-build thesis.pdf $TRAVIS_BUILD_NUMBER;
+  for sampleDir in `find $BUILD_DIR/ -maxdepth 1 -mindepth 1 -type d`; do
+    uploadFileToBinTray $sampleDir/thesis.pdf master-build sample-${sampleDir##*/}.pdf $TRAVIS_BUILD_NUMBER;
+  done
+fi
