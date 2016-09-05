@@ -27,6 +27,7 @@ function uploadFileToBinTray {
   local version=$4;
   curl -X DELETE -umatej:$BINTRAY_API_KEY https://api.bintray.com/content/matej/cam-thesis/$packageName/$version/$remoteArtifactName;
   curl -X PUT -T $fileToUpload -umatej:$BINTRAY_API_KEY "https://api.bintray.com/content/matej/cam-thesis/$remoteArtifactName;bt_package=$packageName;bt_version=$version;publish=1;override=1";
+  echo "https://dl.bintray.com/matej/cam-thesis/$remoteArtifactName";
 }
 
 function deleteBinTrayPackage {
@@ -35,6 +36,10 @@ function deleteBinTrayPackage {
 
 function createBinTrayPackage {
   curl -X POST -H "Content-Type: application/json" -d "{\"name\": \"$1\", \"licenses\": [\"BSD\"], \"vcs_url\": \"https://github.com/cambridge/thesis\"}" -umatej:$BINTRAY_API_KEY "https://api.bintray.com/packages/matej/cam-thesis";
+}
+
+function listSamples {
+  find $1 -maxdepth 1 -mindepth 1 -type d;
 }
 
 function createTestDir {
@@ -56,7 +61,7 @@ function buildMain {
 }
 
 function buildSamples {
-  for sampleDir in `find Samples/ -maxdepth 1 -mindepth 1 -type d`; do
+  for sampleDir in `listSamples Samples/`; do
     echo ">>> MAKING: sample-${sampleDir##*/}...";
     sampleTestDir=$(createTestDir $sampleDir);
 
@@ -72,7 +77,7 @@ function uploadMain {
 }
 
 function uploadSamples {
-  for sampleDir in `find $BUILD_DIR/ -maxdepth 1 -mindepth 1 -type d`; do
+  for sampleDir in `listSamples $BUILD_DIR/`; do
     uploadFileToBinTray $sampleDir/thesis.pdf $PACKAGE_NAME sample-${sampleDir##*/}-$TRAVIS_BUILD_NUMBER.pdf $TRAVIS_BUILD_NUMBER;
   done
 }
@@ -87,7 +92,7 @@ if isMasterBuild; then
   deleteBinTrayPackage master-build
   createBinTrayPackage master-build
   uploadFileToBinTray thesis.pdf master-build thesis.pdf $TRAVIS_BUILD_NUMBER;
-  for sampleDir in `find $BUILD_DIR/ -maxdepth 1 -mindepth 1 -type d`; do
+  for sampleDir in `listSamples $BUILD_DIR/`; do
     uploadFileToBinTray $sampleDir/thesis.pdf master-build sample-${sampleDir##*/}.pdf $TRAVIS_BUILD_NUMBER;
   done
 fi
