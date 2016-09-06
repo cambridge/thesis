@@ -25,9 +25,13 @@ function uploadFileToBinTray {
   local packageName=$2;
   local remoteArtifactName=$3;
   local version=$4;
+  echo ">>> START: Uploading: https://api.bintray.com/content/matej/cam-thesis/$packageName/$version/$remoteArtifactName";
+
   curl -X DELETE -umatej:$BINTRAY_API_KEY https://api.bintray.com/content/matej/cam-thesis/$packageName/$version/$remoteArtifactName;
   curl -X PUT -T $fileToUpload -umatej:$BINTRAY_API_KEY "https://api.bintray.com/content/matej/cam-thesis/$remoteArtifactName;bt_package=$packageName;bt_version=$version;publish=1;override=1";
-  echo "https://dl.bintray.com/matej/cam-thesis/$remoteArtifactName";
+
+  echo "";
+  echo ">>> DONE: Uploaded to: https://dl.bintray.com/matej/cam-thesis/$remoteArtifactName";
 }
 
 function deleteBinTrayPackage {
@@ -71,14 +75,15 @@ function buildSamples {
 }
 
 PACKAGE_NAME=$(getPackageName);
+VERSION=$TRAVIS_BUILD_NUMBER-${TRAVIS_COMMIT:0:8}
 
 function uploadMain {
-  uploadFileToBinTray thesis.pdf $PACKAGE_NAME thesis-$TRAVIS_BUILD_NUMBER.pdf $TRAVIS_BUILD_NUMBER;
+  uploadFileToBinTray thesis.pdf $PACKAGE_NAME thesis-$VERSION.pdf $TRAVIS_BUILD_NUMBER;
 }
 
 function uploadSamples {
   for sampleDir in `listSamples $BUILD_DIR/`; do
-    uploadFileToBinTray $sampleDir/thesis.pdf $PACKAGE_NAME sample-${sampleDir##*/}-$TRAVIS_BUILD_NUMBER.pdf $TRAVIS_BUILD_NUMBER;
+    uploadFileToBinTray $sampleDir/thesis.pdf $PACKAGE_NAME sample-${sampleDir##*/}-$VERSION.pdf $TRAVIS_BUILD_NUMBER;
   done
 }
 
