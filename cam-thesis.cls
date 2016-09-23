@@ -195,7 +195,7 @@
 \ifcam@techreport
 \cam@calcpaperdims{25mm}{25mm}{20mm}{20mm}
 \else
-\cam@calcpaperdims{35mm}{30mm}{35mm}{25mm}
+\cam@calcpaperdims{30mm}{20mm}{20mm}{20mm}
 \fi
 
 
