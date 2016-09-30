@@ -2,7 +2,7 @@
 %%
 %% Sample document ``thesis.tex''
 %%
-%% Version: v0.2
+%% Version: v0.2-pimped
 %% Authors: Jean Martina, Rok Strnisa, Matej Urbas
 %% Date: 30/07/2008
 %%
@@ -19,9 +19,10 @@
 %   glossary    - enables the glossary.
 %   techreport  - typesets the thesis in the technical report format.
 %   times       - uses the `Times` font.
+%   screen      - sets a background color, flame vinyl shade, and sans serif fonts
 %
 % For more info see `README.md`
-\documentclass[withindex,glossary]{cam-thesis}
+\documentclass[screen,withindex,glossary]{cam-thesis}
 
 
 
@@ -45,13 +46,14 @@ spanning two lines}
 % \collegeshield{CollegeShields/Queens}
 % \collegeshield{CollegeShields/StJohns}
 % \collegeshield{CollegeShields/Trinity}
-\collegeshield{CollegeShields/FitzwilliamRed}
+% \collegeshield{CollegeShields/FitzwilliamRed}
+\collegeshield{CollegeShields/PimpMyCode}
 
 %% Submission date [optional]:
 % \submissiondate{November, 2042}
 
 %% You can redefine the submission notice [optional]:
-% \submissionnotice{A badass thesis submitted on time for the Degree of PhD}
+\submissionnotice{A badass thesis submitted on time for the Degree of PhD}
 
 %% Declaration date:
 \date{My Month, My Year}
@@ -123,7 +125,7 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-\marginpar[Marin note.]{Margin par.}
+\marginpar[Margin note.]{Margin par.}
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
@@ -149,6 +151,10 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
+
+\chapter{The Answer to the Ultimate Question of Life, The Universe, and Everything}
+
+42~\cite{hhgttg}.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

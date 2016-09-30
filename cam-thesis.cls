@@ -83,13 +83,18 @@
 \newif\ifcam@firstyr\cam@firstyrfalse
 \DeclareOption{firstyr}{\cam@firstyrtrue}
 
+% screen -- optimize output for on-screen reading
+%
+\newif\ifcam@screen\cam@screenfalse
+\DeclareOption{screen}{\cam@screentrue}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
 %% Using report class as base.
 %%
 %%%%%
-\PassOptionsToClass{a4paper,12pt,twoside,openright}{report}
+\PassOptionsToClass{a4paper,12pt,\ifcam@screen oneside \else twoside \fi,openright}{report}
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{report}}
 \ProcessOptions\relax
 \LoadClass{report}
@@ -103,6 +108,7 @@
 \RequirePackage{graphicx}           % Required for the UC Logo (on the title page)
 \RequirePackage{calc}               % Used for calculating margins and laying out the title page
 \RequirePackage{setspace}      	    % Used for selecting single or onehalf line spacing.
+\RequirePackage{tikz}
 
 % Hyperref should be included in any case, but we make it non-obtrusive (i.e.: no hyperlink borders).
 % Why do we need a separate treatment of hyperref for the techreport? Because the guidelines say so. :)
@@ -129,7 +135,7 @@
     \RequirePackage{makeidx}
     \makeindex
     \newcommand{\printthesisindex}{%
-        \cleardoublepage%
+        \cleardoublepage
         \phantomsection%
         \addcontentsline{toc}{chapter}{Index}%
         \printindex}
@@ -141,7 +147,7 @@
     \makeglossaries%
     \newcommand{\printthesisglossary}{\printglossary}
     \newcommand{\cam@printthesisglossary}{%
-        \cleardoublepage%
+        \cleardoublepage
         \pagestyle{empty}%
         \renewcommand{\glossarypreamble}{\thispagestyle{empty}}%
         \printthesisglossary%
@@ -316,6 +322,17 @@ for the degree of Doctor of Philosophy%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
+%% Page color for lower on-screen contrast
+%%
+\ifcam@screen
+\definecolor{pcolor}{HTML}{FFF6D5}
+\pagecolor{pcolor}
+\renewcommand\familydefault{\sfdefault}
+\fi
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
 %% Front matter
 %%
 %% - outside and inside front cover
@@ -330,7 +347,6 @@ for the degree of Doctor of Philosophy%
 \newcommand{\frontmatter}{
 
 \pagestyle{empty}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
@@ -352,6 +368,36 @@ for the degree of Doctor of Philosophy%
 \begin{lrbox}{\cam@logo}
 \hspace*{\cam@logorightnudge}\includegraphics[width=73mm]{CollegeShields/CUni}
 \end{lrbox}
+
+%% Sweet vinyl flames
+\tikz[remember picture,overlay] \node[opacity=0.3] at (-3,3) {
+  \begin{tikzpicture}[overlay]
+    \ifcam@screen
+    \shade[bottom color=orange, top color=yellow]
+    \else
+    \draw
+    \fi
+    (5.702474, -27.086517)
+    .. controls(0.098010, -21.579464) and (3.701048, -20.466264) .. (1.083470, -14.025014)
+    .. controls(2.242739, -15.694357) and (3.490671, -14.426828) .. (4.723270, -17.269702)
+    .. controls(4.403177, -14.103225) and (0.474041, -10.882329) .. (0.908343, -8.670443)
+    .. controls(2.005136, -11.850772) and (5.804890, -12.299849) .. (7.241650, -14.256029)
+    .. controls(3.529134, -8.803655) and (3.184968, -5.770257) .. (1.862249, -1.794255)
+    .. controls(3.554398, -4.217861) and (4.724399, -8.615377) .. (7.927626, -9.321477)
+    .. controls(7.727601, -4.212868) and (10.350486, -3.493937) .. (10.978797, -0.644914)
+    .. controls(11.872170, -3.496780) and (7.975352, -8.922770) .. (11.804121, -9.119821)
+    .. controls(14.705375, -9.269136) and (16.369801, -4.959644) .. (18.361966, -2.104253)
+    .. controls(16.600959, -5.737451) and (17.592149, -8.909370) .. (13.908305, -14.397782)
+    .. controls(16.054904, -13.463868) and (16.352666, -13.188222) .. (19.274362, -9.576118)
+    .. controls(18.501640, -12.313610) and (16.436827, -15.435455) .. (15.610451, -18.411632)
+    .. controls(17.473589, -15.284188) and (17.556411, -16.690675) .. (19.217338, -15.450942)
+    .. controls(15.700212, -22.596077) and (18.543002, -24.525189) .. (14.265477, -27.673594)
+    .. controls(15.721856, -24.646868) and (14.177128, -20.701422) .. (13.074611, -19.269126)
+    .. controls(13.175745, -22.447688) and (9.955380, -22.261096) .. (9.607497, -25.154502)
+    .. controls(9.136463, -22.631720) and (6.592149, -21.790823) .. (8.445488, -19.294593)
+    .. controls(6.142686, -20.782515) and (4.753245, -23.697295) .. (5.702474, -27.086517);
+  \end{tikzpicture}
+};
 
 %% THESIS TITLE box
 \newsavebox{\cam@title}
