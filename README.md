@@ -4,15 +4,15 @@
 
 >   _a LaTeX thesis template for Cambridge PhD students_
 
-Want to write a thesis? Well, here is what you need:
+Want to write a thesis? Here is what you need:
 
 1.  this template (just clone it with git),
 2.  one of the existing samples (which can be found in the [`./Samples/`](Samples) folder), and
-3.  and some research content.
+3.  some research content.
 
 The samples are based on other PhD students' theses.
 
-## Quicker start
+## Quick start
 
 Copy all files from this directory (where you found this `README` file) to your
 desired location.
