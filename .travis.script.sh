@@ -78,7 +78,7 @@ function uploadFileToBinTray {
   curl -X PUT -T $fileToUpload -umatej:$BINTRAY_API_KEY "https://api.bintray.com/content/matej/cam-thesis/$remoteArtifactName;bt_package=$packageName;bt_version=$version;publish=1;override=1";
 
   echo "";
-  logSuccess "Uploaded to: https://dl.bintray.com/matej/cam-thesis/$remoteArtifactName";
+  logSuccess "Uploaded to: https://bintray.com/matej/cam-thesis/download_file?file_path=$remoteArtifactName";
 }
 
 function deleteBinTrayPackage {
