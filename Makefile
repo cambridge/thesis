@@ -7,14 +7,14 @@ SHELL=/bin/bash
 
 # Build rules for LaTeX-related files
 %.dvi %.aux %.idx %.ist %.glo: %.tex
-	latex $<
-	while grep 'Rerun to get ' $*.log ; do latex $< ; done
+	latex $*.tex
+	while grep 'Rerun to get ' $*.log ; do latex $*.tex ; done
 	-killall -USR1 -r xdvi || true
 %.ps: %.dvi
-	dvips -Ppdf -G0 $<
+	dvips -Ppdf -G0 $*.dvi
 %.pdf %.aux %.idx %.ist %.glo: %.tex
-	pdflatex $<
-	while grep 'Rerun to get ' $*.log ; do pdflatex $< ; done
+	pdflatex $*.tex
+	while grep 'Rerun to get ' $*.log ; do pdflatex $*.tex ; done
 %.ind: %.idx
 	makeindex $*
 %.gls: %.ist %.glo
@@ -22,7 +22,7 @@ SHELL=/bin/bash
 %.bbl: %.aux
 	bibtex $*
 
-# Examples of rules for convertion various graphics formats into EPS or PDF
+# Examples of rules for converting various graphics formats into EPS or PDF
 # (so we can always clean intermediate EPS or PDF versions of figures)
 PNMTOPS=pnmtops -rle -noturn -nosetpage
 %.eps: %.png
@@ -54,7 +54,7 @@ PNMTOPS=pnmtops -rle -noturn -nosetpage
 
 all: thesis.pdf   # or thesis.ps
 
-thesis.pdf thesis.dvi: thesis.bbl thesis.gls thesis.ind thesis.aux 
+thesis.pdf thesis.dvi: thesis.bbl thesis.gls thesis.ind thesis.aux
 
 clean:
 	rm -f *~ *.dvi *.log *.bak *.aux *.toc *.ps *.eps *.blg *.bbl
