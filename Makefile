@@ -6,21 +6,28 @@ SHELL=/bin/bash
 .DELETE_ON_ERROR:
 
 # Build rules for LaTeX-related files
-%.dvi %.aux %.idx %.ist %.glo: %.tex
-	latex $*.tex
-	while grep 'Rerun to get ' $*.log ; do latex $*.tex ; done
+%.dvi: %.tex
+	latex $<
+	while grep 'Rerun to get ' $*.log ; do latex $< ; done
 	-killall -USR1 -r xdvi || true
+	makeindex $*
+	makeglossaries $*
+	bibtex $*
+	latex $<
+	while grep 'Rerun to get ' $*.log ; do latex $< ; done
+	-killall -USR1 -r xdvi || true
+
 %.ps: %.dvi
 	dvips -Ppdf -G0 $*.dvi
-%.pdf %.aux %.idx %.ist %.glo: %.tex
-	pdflatex $*.tex
-	while grep 'Rerun to get ' $*.log ; do pdflatex $*.tex ; done
-%.ind: %.idx
+
+%.pdf: %.tex
+	pdflatex $<
+	while grep 'Rerun to get ' $*.log ; do pdflatex $< ; done
 	makeindex $*
-%.gls: %.ist %.glo
 	makeglossaries $*
-%.bbl: %.aux
 	bibtex $*
+	pdflatex $<
+	while grep 'Rerun to get ' $*.log ; do pdflatex $< ; done
 
 # Examples of rules for converting various graphics formats into EPS or PDF
 # (so we can always clean intermediate EPS or PDF versions of figures)
@@ -53,8 +60,6 @@ PNMTOPS=pnmtops -rle -noturn -nosetpage
 	fig2dev -L pdftex $< $*.pdftex
 
 all: thesis.pdf   # or thesis.ps
-
-thesis.pdf thesis.dvi: thesis.bbl thesis.gls thesis.ind thesis.aux
 
 clean:
 	rm -f *~ *.dvi *.log *.bak *.aux *.toc *.ps *.eps *.blg *.bbl
