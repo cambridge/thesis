@@ -8,13 +8,7 @@ SHELL=/bin/bash
 # Build rules for LaTeX-related files
 %.dvi: %.tex
 	latex $<
-	while grep 'Rerun to get ' $*.log ; do latex $< ; done
-	-killall -USR1 -r xdvi || true
-	makeindex $*
-	makeglossaries $*
-	bibtex $*
-	latex $<
-	while grep 'Rerun to get ' $*.log ; do latex $< ; done
+	while grep 'Rerun to get ' $*.log ; do makeindex $*; makeglossaries $*; bibtex $*; latex $<; done
 	-killall -USR1 -r xdvi || true
 
 %.ps: %.dvi
@@ -22,12 +16,7 @@ SHELL=/bin/bash
 
 %.pdf: %.tex
 	pdflatex $<
-	while grep 'Rerun to get ' $*.log ; do pdflatex $< ; done
-	makeindex $*
-	makeglossaries $*
-	bibtex $*
-	pdflatex $<
-	while grep 'Rerun to get ' $*.log ; do pdflatex $< ; done
+	while grep 'Rerun to get ' $*.log ; do makeindex $*; makeglossaries $*; bibtex $*; pdflatex $<; done
 
 # Examples of rules for converting various graphics formats into EPS or PDF
 # (so we can always clean intermediate EPS or PDF versions of figures)
