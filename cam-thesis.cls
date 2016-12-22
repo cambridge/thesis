@@ -462,7 +462,7 @@ for the degree of Doctor of Philosophy%
 % Technical report doesn't need the declaration
 % (see http://www.cl.cam.ac.uk/techreports/submission.html).
 \else
-\ifcam@firstyr
+{\ifcam@firstyr
 % First yr report doesn't need the declaration
 \else
 \chapter*{Declaration}
@@ -481,6 +481,7 @@ dissertation does not exceed the prescribed limit of 60\,000 words.
 \@date{}\\
 \end{flushright}
 \vfill
+\fi}
 \fi
 
 

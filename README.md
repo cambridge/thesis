@@ -70,7 +70,9 @@ it is based).
 
 It also supports some custom options.
 
-*   `techreport`: formats the document as a technical report. Here is a list of
+*   `techreport`: formats the document as a technical report (here's
+    [a sample](https://dl.bintray.com/matej/cam-thesis/sample-techreport.pdf)).
+    Here is a list of
     formatting points in which the technical report differs from a normal thesis
     (see [guidelines](http://www.cl.cam.ac.uk/techreports/submission.html) for
     more information):
@@ -84,8 +86,9 @@ It also supports some custom options.
     *   if the `hyperref` package is used, the option `pdfpagelabels=false` will
         be passed to it.
 
-*   `firstyr`: formats the document as a first-year report (essentially removing
-    some unneeded elements and modifying the submission note). Here is a list of
+*   `firstyr`: formats the document as a first-year report (here's
+    [a sample](https://dl.bintray.com/matej/cam-thesis/sample-firstyr.pdf)). This option removes
+    some unneeded elements and modifies the submission note. Here is a list of
     formatting points in which the first year report differs from a normal thesis:
 
     *   an appropraite subtitle is added,

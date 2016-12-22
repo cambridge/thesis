@@ -1,89 +1,35 @@
-%%%%%
-%%
-%% Sample document ``thesis.tex''
-%%
-%% Version: v0.2
-%% Authors: Jean Martina, Rok Strnisa, Matej Urbas
-%% Date: 30/07/2008
-%%
-%% Copyright (c) 2008-2011, Rok Strniša, Jean Martina, Matej Urbas
-%% License: Simplified BSD License
-%% License file: ./License
-%% Original License URL: http://www.freebsd.org/copyright/freebsd-license.html
-%%%%%
+\documentclass[techreport,withindex,glossary]{cam-thesis}
 
-% Available documentclass options:
-%
-%   <all `report` document class options, e.g.: `a5paper`>
-%   withindex   - enables the index. New index entries can be added through `\index{my entry}`
-%   glossary    - enables the glossary.
-%   techreport  - typesets the thesis in the technical report format.
-%   firstyr     - formats the document as a first-year report.
-%   times       - uses the `Times` font.
-%
-% For more info see `README.md`
-\documentclass[withindex,glossary]{cam-thesis}
+\title{My dissertation title}
 
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Thesis meta-information
-%%
-
-%% The title of the thesis:
-\title{My dissertation title\\
-spanning two lines}
-
-%% The full name of the author (e.g.: James Smith):
 \author{My Full Name}
 
 %% College affiliation:
-\college{My College}
+\college{Queens'}
 
-%% College shield [optional]:
-% \collegeshield{CollegeShields/Clare}
-% \collegeshield{CollegeShields/Fitzwilliam}
-% \collegeshield{CollegeShields/Queens}
-% \collegeshield{CollegeShields/StJohns}
-% \collegeshield{CollegeShields/Trinity}
-\collegeshield{CollegeShields/FitzwilliamRed}
+\collegeshield{CollegeShields/Queens}
 
-%% Submission date [optional]:
-% \submissiondate{November, 2042}
+\submissiondate{November, 2042}
 
-%% You can redefine the submission notice [optional]:
-% \submissionnotice{A badass thesis submitted on time for the Degree of PhD}
+\date{August, 2042}
 
-%% Declaration date:
-\date{My Month, My Year}
-
-%% PDF meta-info:
 \subjectline{Computer Science}
-\keywords{one two three}
+\keywords{techreport thesis sample}
 
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Abstract:
-%%
 \abstract{%
   My abstract ...
 }
 
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Acknowledgements:
-%%
 \acknowledgements{%
   My acknowledgements ...
 }
 
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Glossary [optional]:
-%%
 \newglossaryentry{HOL}{
     name=HOL,
     description={Higher-order logic}
@@ -91,21 +37,12 @@ spanning two lines}
 
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Contents:
-%%
 \begin{document}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Title page, abstract, declaration etc.:
-%% -    the title page (is automatically omitted in the technical report mode).
 \frontmatter{}
 
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Thesis body:
-%%
 \chapter{Introduction}
 This document was created with the help of a custom class file~\cite{example}. A
 {\em \LaTeX{} class file}\index{\LaTeX{} class file@LaTeX class file} is a file,
@@ -152,9 +89,6 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
 
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Bibliography:
-%%
 \cleardoublepage
 \phantomsection
 \addcontentsline{toc}{chapter}{Bibliography}
@@ -163,10 +97,6 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
 
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Appendix:
-%%
-
 \appendix
 
 \chapter{Extra Information}
@@ -174,9 +104,6 @@ Some more text ...
 
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Index:
-%%
 \printthesisindex
 
 \end{document}
