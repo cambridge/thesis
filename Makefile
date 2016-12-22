@@ -6,23 +6,19 @@ SHELL=/bin/bash
 .DELETE_ON_ERROR:
 
 # Build rules for LaTeX-related files
-%.dvi %.aux %.idx %.ist %.glo: %.tex
-	latex $<
-	while grep 'Rerun to get ' $*.log ; do latex $< ; done
+%.dvi: %.tex
+	(latex $<; makeindex $*; makeglossaries $*; bibtex $*; latex $<)
+	while grep 'Rerun to get ' $*.log ; do (makeindex $*; makeglossaries $*; bibtex $*; latex $<); done
 	-killall -USR1 -r xdvi || true
-%.ps: %.dvi
-	dvips -Ppdf -G0 $<
-%.pdf %.aux %.idx %.ist %.glo: %.tex
-	pdflatex $<
-	while grep 'Rerun to get ' $*.log ; do pdflatex $< ; done
-%.ind: %.idx
-	makeindex $*
-%.gls: %.ist %.glo
-	makeglossaries $*
-%.bbl: %.aux
-	bibtex $*
 
-# Examples of rules for convertion various graphics formats into EPS or PDF
+%.ps: %.dvi
+	dvips -Ppdf -G0 $*.dvi
+
+%.pdf: %.tex
+	(pdflatex $<; makeindex $*; makeglossaries $*; bibtex $*; pdflatex $<)
+	while grep 'Rerun to get ' $*.log ; do (makeindex $*; makeglossaries $*; bibtex $*; pdflatex $<); done
+
+# Examples of rules for converting various graphics formats into EPS or PDF
 # (so we can always clean intermediate EPS or PDF versions of figures)
 PNMTOPS=pnmtops -rle -noturn -nosetpage
 %.eps: %.png
@@ -53,8 +49,6 @@ PNMTOPS=pnmtops -rle -noturn -nosetpage
 	fig2dev -L pdftex $< $*.pdftex
 
 all: thesis.pdf   # or thesis.ps
-
-thesis.pdf thesis.dvi: thesis.bbl thesis.gls thesis.ind thesis.aux 
 
 clean:
 	rm -f *~ *.dvi *.log *.bak *.aux *.toc *.ps *.eps *.blg *.bbl
