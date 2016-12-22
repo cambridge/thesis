@@ -7,8 +7,8 @@ SHELL=/bin/bash
 
 # Build rules for LaTeX-related files
 %.dvi %.aux %.idx %.ist %.glo: %.tex
-	latex $<
-	while grep 'Rerun to get ' $*.log ; do latex $< ; done
+	latex $*.tex
+	while grep 'Rerun to get ' $*.log ; do latex $*.tex ; done
 	-killall -USR1 -r xdvi || true
 %.ps: %.dvi
 	dvips -Ppdf -G0 $<
