@@ -5,6 +5,7 @@ set -e;
 BUILD_DIR=build;
 
 
+
 ###
 ## LOGGING
 
@@ -31,21 +32,56 @@ function logFatal {
 }
 
 
+
 ###
-## Input parameter checks
+## Command Line Parameters
 
-if [[ -z "$BINTRAY_API_KEY" ]]; then
-  logFatal "BinTray API key is required. Please specify: BINTRAY_API_KEY=xyz";
+_do_upload="no"
+
+args=$(getopt -l "upload" -o "u" -- "$@")
+
+eval set -- "$args"
+
+while [ $# -ge 1 ]; do
+  case "$1" in
+    --)
+      shift
+      break
+      ;;
+    -u|--upload)
+      _do_upload="yes"
+      ;;
+  esac
+
+  shift
+done
+
+function doUpload {
+  [[ $_do_upload = yes ]];
+}
+
+
+
+###
+## Environment Variables Checks
+
+if doUpload; then
+
+  if [[ -z "$BINTRAY_API_KEY" ]]; then
+    logFatal "BinTray API key is required. Please specify: BINTRAY_API_KEY=xyz";
+  fi
+
+  if [[ -z $TRAVIS_BUILD_NUMBER ]]; then
+    logFatal "Travis build number is required. Please specify: TRAVIS_BUILD_NUMBER=xyz";
+  fi
+
+  if [[ ( -z $TRAVIS_PULL_REQUEST ) && ( -z $TRAVIS_BRANCH ) ]]; then
+    logFatal "Specify either the pull request number or the name of the branch. Please specify:
+  TRAVIS_PULL_REQUEST=xyz or TRAVIS_BRANCH=xyz";
+  fi
+
 fi
 
-if [[ -z $TRAVIS_BUILD_NUMBER ]]; then
-  logFatal "Travis build number is required. Please specify: TRAVIS_BUILD_NUMBER=xyz";
-fi
-
-if [[ ( -z $TRAVIS_PULL_REQUEST ) && ( -z $TRAVIS_BRANCH ) ]]; then
-  logFatal "Specify either the pull request number or the name of the branch. Please specify:
-TRAVIS_PULL_REQUEST=xyz or TRAVIS_BRANCH=xyz";
-fi
 
 
 ###
@@ -136,26 +172,37 @@ function uploadSamples {
 }
 
 
+
 ###
 ## Build
 
-PACKAGE_NAME=$(getPackageName);
-
-logInfo "BinTray Package Name: $PACKAGE_NAME";
-
-VERSION=$TRAVIS_BUILD_NUMBER-${TRAVIS_COMMIT:0:8}
-
-createBinTrayPackage $PACKAGE_NAME;
 buildMain;
 buildSamples;
-uploadMain;
-uploadSamples;
 
-if isMasterBuild; then
-  deleteBinTrayPackage master-build
-  createBinTrayPackage master-build
-  uploadFileToBinTray thesis.pdf master-build thesis.pdf $TRAVIS_BUILD_NUMBER;
-  for sampleDir in `listSamples $BUILD_DIR/`; do
-    uploadFileToBinTray $sampleDir/thesis.pdf master-build sample-${sampleDir##*/}.pdf $TRAVIS_BUILD_NUMBER;
-  done
+
+
+###
+## Upload
+
+if doUpload; then
+
+  PACKAGE_NAME=$(getPackageName);
+
+  logInfo "BinTray Package Name: $PACKAGE_NAME";
+
+  VERSION=$TRAVIS_BUILD_NUMBER-${TRAVIS_COMMIT:0:8}
+
+  createBinTrayPackage $PACKAGE_NAME;
+
+  uploadMain;
+  uploadSamples;
+
+  if isMasterBuild; then
+    deleteBinTrayPackage master-build
+    createBinTrayPackage master-build
+    uploadFileToBinTray thesis.pdf master-build thesis.pdf $TRAVIS_BUILD_NUMBER;
+    for sampleDir in `listSamples $BUILD_DIR/`; do
+      uploadFileToBinTray $sampleDir/thesis.pdf master-build sample-${sampleDir##*/}.pdf $TRAVIS_BUILD_NUMBER;
+    done
+  fi
 fi
