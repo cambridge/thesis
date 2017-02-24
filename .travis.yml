@@ -4,4 +4,4 @@ addons:
     packages:
       - texlive
       - texlive-latex-extra
-script: source .travis.script.sh
+script: source .travis.script.sh --upload
