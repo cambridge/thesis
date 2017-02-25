@@ -1,6 +1,6 @@
 # cam-thesis
 
-[![Build Status](https://travis-ci.org/cambridge/thesis.svg)](https://travis-ci.org/cambridge/thesis)
+[![Build Status](https://travis-ci.org/cambridge/thesis.svg?branch=master)](https://travis-ci.org/cambridge/thesis)
 
 >   _a LaTeX thesis template for Cambridge PhD students_
 
