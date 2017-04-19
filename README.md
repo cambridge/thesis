@@ -133,6 +133,10 @@ It also supports some custom options.
 
     _Note_: the package `makeidx` is used to create the index.
 
+*   `backrefs`: Add back references in the Bibliography section. In other words, for each reference, it adds the page(s) where it is cited.
+
+    _Note_: the package `backref` is used to create the back references.
+
 -------------------------------------------------------------------------------
 
 # Troubleshooting
