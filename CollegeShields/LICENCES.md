@@ -1,5 +1,20 @@
 This file contains licences accompanying the images in this folder.
 
+# Churchill College's shield
+
+Files:
+
+        Churchill.pdf
+        Churchill.svg
+
+Source:
+
+        Provided by the college
+
+Licence:
+
+        Not specified
+
 # Fitzwilliam College's shield
 
 Files:
