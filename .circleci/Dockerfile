@@ -9,10 +9,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     bash \
     make \
     rsync \
+    curl \
     texlive \
     texlive-latex-extra
 
-RUN rm -rf /usr/src/python ~/.cache
 RUN rm -rf /var/lib/apt/lists/*
 
 LABEL name="cam-thesis-ubuntu-16.04"
