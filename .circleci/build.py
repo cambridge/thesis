@@ -5,7 +5,7 @@ from subprocess import check_call
 
 from os import listdir, environ
 
-logging.basicConfig(format='[%(levelname)s] %(message)s', level=logging.INFO)
+logging.basicConfig(format='[%(levelname)s] %(message)s', level=logging.DEBUG)
 
 _build_dir = 'build'
 _samples_source_dir = 'Samples'
@@ -77,11 +77,16 @@ def _upload_file_to_bintray(file_path, package_name=None, artifact_name=None, ve
 
     bintray_credentials = '-umatej:' + environ['BINTRAY_API_KEY']
     bintray_api_url = 'https://api.bintray.com/content/matej/cam-thesis'
-    check_call(['curl', '-X', 'DELETE', bintray_credentials, '{}/{}/{}/{}'.format(bintray_api_url, package_name,
-                                                                                  version, artifact_name)])
+
+    delete_url = '{}/{}/{}/{}'.format(bintray_api_url, package_name, version, artifact_name)
+    logging.debug("Deleting potentially existing artifact at '%s'", delete_url)
+    check_call(['curl', '-X', 'DELETE', bintray_credentials, delete_url])
+
+    put_url = '{}/{};bt_package={};bt_version={};publish=1;override=1'.format(bintray_api_url, artifact_name,
+                                                                              package_name, version)
+    logging.debug("Pushing the artifact to '%s'", put_url)
     check_call(['curl', '-X', 'PUT', '-T', file_path, bintray_credentials,
-                '{}/{};bt_package={};bt_version={};publish=1;override=1'.format(bintray_api_url, artifact_name,
-                                                                                package_name, version)])
+                put_url])
 
     logging.info("Uploaded to 'https://bintray.com/matej/cam-thesis/download_file?file_path=%s'.", artifact_name)
 
