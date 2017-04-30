@@ -76,12 +76,12 @@ def _upload_file_to_bintray(file_path, package_name=None, artifact_name=None, ve
     logging.info("Uploading '%s' to BinTray...", file_path)
 
     bintray_credentials = '-umatej:' + environ['BINTRAY_API_KEY']
-    check_call(['curl', '-X', 'DELETE', bintray_credentials,
-                'https://api.bintray.com/content/matej/cam-thesis/{}/{}/{}'
-               .format(package_name, version, artifact_name)])
+    bintray_api_url = 'https://api.bintray.com/content/matej/cam-thesis'
+    check_call(['curl', '-X', 'DELETE', bintray_credentials, '{}/{}/{}/{}'.format(bintray_api_url, package_name,
+                                                                                  version, artifact_name)])
     check_call(['curl', '-X', 'PUT', '-T', file_path, bintray_credentials,
-                'https://api.bintray.com/content/matej/cam-thesis/{};bt_package={};bt_version={};publish=1;override=1'
-               .format(artifact_name, package_name, version)])
+                '{}/{};bt_package={};bt_version={};publish=1;override=1'.format(bintray_api_url, artifact_name,
+                                                                                package_name, version)])
 
     logging.info("Uploaded to 'https://bintray.com/matej/cam-thesis/download_file?file_path=%s'.", artifact_name)
 
