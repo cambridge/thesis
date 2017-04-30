@@ -8,4 +8,4 @@ jobs:
       - checkout
       - run: ./.circleci/build.py
       - store_artifacts:
-        path: build/pdfs
+          path: build/pdfs
