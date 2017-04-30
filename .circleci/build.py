@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 import logging
-from os.path import join, basename
+from os.path import join, splitext
 from subprocess import check_call
 
 from os import listdir, environ
@@ -12,8 +12,8 @@ _samples_source_dir = 'Samples'
 _tests_dir = join('.circleci', 'tests')
 _samples_build_dir = join(_build_dir, 'samples')
 _pdfs_dir = join(_build_dir, 'pdfs')
-_bintray_content_api_url = 'https://api.bintray.com/content/matej/cam-thesis'
-_bintray_control_api_url = 'https://api.bintray.com/packages/matej/cam-thesis'
+_bintray_content_api_url = 'https://api.bintray.com/content/matej/thesis'
+_bintray_control_api_url = 'https://api.bintray.com/packages/matej/thesis'
 
 
 def main():
@@ -75,7 +75,7 @@ def _upload_to_bintray():
 
     for pdf in listdir(_pdfs_dir):
         pdf_path = join(_pdfs_dir, pdf)
-        artifact_name = '{}-{}.pdf'.format(basename(pdf_path), package_name)
+        artifact_name = '{}-{}.pdf'.format(splitext(pdf_path)[0], package_name)
         _upload_file_to_bintray(pdf_path, package_name, artifact_name, version)
 
 

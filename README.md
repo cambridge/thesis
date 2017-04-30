@@ -26,11 +26,11 @@ Pro tip: if you can also one of the samples in the [`Samples`](./Samples) direct
 
 Your thesis document will look something like this:
 
->   [Plain (PDF)](https://dl.bintray.com/matej/cam-thesis/thesis.pdf)
+>   [Plain (PDF)](https://dl.bintray.com/matej/thesis/thesis-bugfix_39-bintray-api-key-missing.pdf)
 
 If you use the _clean_ sample, which can be found in [`./Samples/clean`](Samples/clean), it will look like this:
 
->   [Sample Clean (PDF)](https://dl.bintray.com/matej/cam-thesis/sample-clean.pdf)
+>   [Sample Clean (PDF)](https://dl.bintray.com/matej/thesis/clean-bugfix_39-bintray-api-key-missing.pdf)
 
 The template also supports DVI and PS formats. All three formats can be generated
 with the provided `Makefile`.
@@ -77,7 +77,7 @@ it is based).
 It also supports some custom options.
 
 *   `techreport`: formats the document as a technical report (here's
-    [a sample](https://dl.bintray.com/matej/cam-thesis/sample-techreport.pdf)).
+    [a sample](https://dl.bintray.com/matej/thesis/techreport-bugfix_39-bintray-api-key-missing.pdf)).
     Here is a list of
     formatting points in which the technical report differs from a normal thesis
     (see [guidelines](http://www.cl.cam.ac.uk/techreports/submission.html) for
@@ -93,7 +93,7 @@ It also supports some custom options.
         be passed to it.
 
 *   `firstyr`: formats the document as a first-year report (here's
-    [a sample](https://dl.bintray.com/matej/cam-thesis/sample-firstyr.pdf)). This option removes
+    [a sample](https://dl.bintray.com/matej/thesis/firstyr-bugfix_39-bintray-api-key-missing.pdf)). This option removes
     some unneeded elements and modifies the submission note. Here is a list of
     formatting points in which the first year report differs from a normal thesis:
 
