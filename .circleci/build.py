@@ -19,11 +19,11 @@ def main():
     _copy_sources_to_build_dir(_samples_source_dir)
     _copy_sources_to_build_dir(_tests_dir)
     _build()
-    if _is_running_in_circle_ci():
+    # if _is_running_in_circle_ci():
         # if environ['CIRCLE_BRANCH'] == 'master':
-        for pdf in listdir(_pdfs_dir):
-            if isfile(pdf):
-                _upload_file_to_bintray(pdf)
+        # for pdf in listdir(_pdfs_dir):
+        #     if isfile(pdf):
+        #         _upload_file_to_bintray(pdf)
 
 
 def _clean_build_dir():
