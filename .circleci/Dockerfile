@@ -19,6 +19,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 RUN pip install --no-cache-dir --upgrade --force-reinstall \
   setuptools
 
+RUN apt-get update && apt-get upgrade
+
 RUN rm -rf /usr/src/python ~/.cache
 RUN rm -rf /var/lib/apt/lists/*
 
