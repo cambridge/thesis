@@ -1,0 +1,11 @@
+version: 2
+jobs:
+  build:
+    working_directory: /cam-thesis
+    docker:
+      - image: urbas/cam-thesis:1.0.7
+    steps:
+      - checkout
+      - run: ./.circleci/build.py
+      - store_artifacts:
+          path: build/pdfs
