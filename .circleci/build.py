@@ -103,8 +103,8 @@ def _create_bintray_package(package_name):
     _call_bintray_api('POST', _bintray_control_api_url, '-H', 'Content-Type: application/json', '-d', payload)
 
 
-def _call_bintray_api(http_verb, delete_url, *extra_args):
-    check_call(['curl', '-X', http_verb, _get_bintray_credentials()] + list(extra_args) + [delete_url])
+def _call_bintray_api(http_verb, *extra_args):
+    check_call(['curl', '-X', http_verb, _get_bintray_credentials()] + list(extra_args))
 
 
 def _get_bintray_credentials():
