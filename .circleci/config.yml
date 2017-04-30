@@ -9,9 +9,3 @@ jobs:
       - run: ./.circleci/build.py
       - store_artifacts:
         path: build/pdfs
-      - deploy:
-        name: Deploy Master
-        command: |
-          if [ "${CIRCLE_BRANCH}" == "master" ]; then
-            <your-deploy-commands>
-          fi
