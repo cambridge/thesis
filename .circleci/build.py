@@ -69,7 +69,7 @@ def _is_running_in_circle_ci():
 
 
 def _upload_file_to_bintray(file_path, package_name=None, artifact_name=None, version=None):
-    package_name = package_name or environ['CIRCLE_BRANCH']
+    package_name = package_name or environ['CIRCLE_BRANCH'].replace('/', '_')
     version = version or environ['CIRCLE_BUILD_NUM'] + '-' + environ['CIRCLE_SHA1'][:8]
     artifact_name = artifact_name or '{}-{}.pdf'.format(basename(file_path), version)
 
@@ -84,21 +84,6 @@ def _upload_file_to_bintray(file_path, package_name=None, artifact_name=None, ve
                                                                                 package_name, version)])
 
     logging.info("Uploaded to 'https://bintray.com/matej/cam-thesis/download_file?file_path=%s'.", artifact_name)
-
-
-# function uploadFileToBinTray {
-#   local fileToUpload=$1;
-#   local packageName=$2;
-#   local remoteArtifactName=$3;
-#   local version=$4;
-#   logInfo "Uploading: https://api.bintray.com/content/matej/cam-thesis/$packageName/$version/$remoteArtifactName";
-#
-#   curl -X DELETE -umatej:$BINTRAY_API_KEY https://api.bintray.com/content/matej/cam-thesis/$packageName/$version/$remoteArtifactName;
-#   curl -X PUT -T $fileToUpload -umatej:$BINTRAY_API_KEY "https://api.bintray.com/content/matej/cam-thesis/$remoteArtifactName;bt_package=$packageName;bt_version=$version;publish=1;override=1";
-#
-#   echo "";
-#   logSuccess "Uploaded to: https://bintray.com/matej/cam-thesis/download_file?file_path=$remoteArtifactName";
-# }
 
 
 if __name__ == '__main__':
