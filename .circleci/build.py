@@ -104,7 +104,7 @@ def _create_bintray_package(package_name):
 
 
 def _call_bintray_api(http_verb, delete_url, *extra_args):
-    check_call(['curl', '-X', http_verb, _get_bintray_credentials()] + list(extra_args) + delete_url)
+    check_call(['curl', '-X', http_verb, _get_bintray_credentials()] + list(extra_args) + [delete_url])
 
 
 def _get_bintray_credentials():
