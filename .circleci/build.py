@@ -15,10 +15,10 @@ _pdfs_dir = join(_build_dir, 'pdfs')
 
 
 def main():
-    # _clean_build_dir()
-    # _copy_sources_to_build_dir(_samples_source_dir)
-    # _copy_sources_to_build_dir(_tests_dir)
-    # _build()
+    _clean_build_dir()
+    _copy_sources_to_build_dir(_samples_source_dir)
+    _copy_sources_to_build_dir(_tests_dir)
+    _build()
     if _is_running_in_circle_ci():
         # if environ['CIRCLE_BRANCH'] == 'master':
         for pdf in listdir(_pdfs_dir):
