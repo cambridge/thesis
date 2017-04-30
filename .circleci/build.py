@@ -75,8 +75,8 @@ def _upload_to_bintray():
 
     for pdf in listdir(_pdfs_dir):
         pdf_path = join(_pdfs_dir, pdf)
-        artifact_name = '{}-{}.pdf'.format(basename(pdf_path), version)
-        _upload_file_to_bintray(pdf_path, package_name=package_name, artifact_name=basename(pdf_path), version=version)
+        artifact_name = '{}-{}.pdf'.format(basename(pdf_path), package_name)
+        _upload_file_to_bintray(pdf_path, package_name, artifact_name, version)
 
 
 def _upload_file_to_bintray(file_path, package_name, artifact_name, version):
