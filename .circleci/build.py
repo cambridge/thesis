@@ -12,6 +12,8 @@ _samples_source_dir = 'Samples'
 _tests_dir = join('.circleci', 'tests')
 _samples_build_dir = join(_build_dir, 'samples')
 _pdfs_dir = join(_build_dir, 'pdfs')
+_bintray_content_api_url = 'https://api.bintray.com/content/matej/cam-thesis'
+_bintray_control_api_url = 'https://api.bintray.com/packages/matej/cam-thesis'
 
 
 def main():
@@ -73,22 +75,41 @@ def _upload_file_to_bintray(file_path, package_name=None, artifact_name=None, ve
     version = version or environ['CIRCLE_BUILD_NUM'] + '-' + environ['CIRCLE_SHA1'][:8]
     artifact_name = artifact_name or '{}-{}.pdf'.format(basename(file_path), version)
 
+    _create_bintray_package(package_name)
+
     logging.info("Uploading '%s' to BinTray...", file_path)
 
-    bintray_credentials = '-umatej:' + environ['BINTRAY_API_KEY']
-    bintray_api_url = 'https://api.bintray.com/content/matej/cam-thesis'
-
-    delete_url = '{}/{}/{}/{}'.format(bintray_api_url, package_name, version, artifact_name)
+    delete_url = '{}/{}/{}/{}'.format(_bintray_content_api_url, package_name, version, artifact_name)
     logging.debug("Deleting potentially existing artifact at '%s'", delete_url)
-    check_call(['curl', '-X', 'DELETE', bintray_credentials, delete_url])
+    _call_bintray_api('DELETE', delete_url)
 
-    put_url = '{}/{};bt_package={};bt_version={};publish=1;override=1'.format(bintray_api_url, artifact_name,
+    put_url = '{}/{};bt_package={};bt_version={};publish=1;override=1'.format(_bintray_content_api_url, artifact_name,
                                                                               package_name, version)
     logging.debug("Pushing the artifact to '%s'", put_url)
-    check_call(['curl', '-X', 'PUT', '-T', file_path, bintray_credentials,
-                put_url])
+    _call_bintray_api('PUT', put_url, '-T', file_path)
 
     logging.info("Uploaded to 'https://bintray.com/matej/cam-thesis/download_file?file_path=%s'.", artifact_name)
+
+
+def _delete_bintray_package(package_name):
+    delete_url = '{}/{}'.format(_bintray_control_api_url, package_name)
+    logging.debug("Deleting BinTray package: '%s'", delete_url)
+    _call_bintray_api('DELETE', delete_url)
+
+
+def _create_bintray_package(package_name):
+    logging.debug("Creating BinTray package: '%s'", package_name)
+    payload = '{"name": "{}", "licenses": ["BSD"], "vcs_url": "https://github.com/cambridge/thesis"}'\
+        .format(package_name)
+    _call_bintray_api('POST', _bintray_control_api_url, '-H', 'Content-Type: application/json', '-d', payload)
+
+
+def _call_bintray_api(http_verb, delete_url, *extra_args):
+    check_call(['curl', '-X', http_verb, _get_bintray_credentials()] + extra_args + delete_url)
+
+
+def _get_bintray_credentials():
+    return '-umatej:' + environ['BINTRAY_API_KEY']
 
 
 if __name__ == '__main__':
