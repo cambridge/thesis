@@ -86,7 +86,7 @@ def _upload_file_to_bintray(file_path, package_name=None, artifact_name=None, ve
     put_url = '{}/{};bt_package={};bt_version={};publish=1;override=1'.format(_bintray_content_api_url, artifact_name,
                                                                               package_name, version)
     logging.debug("Pushing the artifact to '%s'", put_url)
-    _call_bintray_api('PUT', put_url, '-T', file_path)
+    _call_bintray_api('PUT', '-T', file_path, put_url)
 
     logging.info("Uploaded to 'https://bintray.com/matej/cam-thesis/download_file?file_path=%s'.", artifact_name)
 
@@ -100,7 +100,7 @@ def _delete_bintray_package(package_name):
 def _create_bintray_package(package_name):
     logging.debug("Creating BinTray package: '%s'", package_name)
     payload = '{"name": "%s", "licenses": ["BSD"], "vcs_url": "https://github.com/cambridge/thesis"}' % (package_name)
-    _call_bintray_api('POST', _bintray_control_api_url, '-H', 'Content-Type: application/json', '-d', payload)
+    _call_bintray_api('POST', '-H', 'Content-Type: application/json', '-d', payload, _bintray_control_api_url)
 
 
 def _call_bintray_api(http_verb, *extra_args):
