@@ -20,7 +20,6 @@ def main():
     _copy_sources_to_build_dir(_tests_dir)
     _build()
     if _is_running_in_circle_ci():
-        logging.info("BUILDING IN CIRCLECI!")
         # if environ['CIRCLE_BRANCH'] == 'master':
         for pdf in listdir(_pdfs_dir):
             pdf_path = join(_pdfs_dir, pdf)
