@@ -23,8 +23,9 @@ def main():
         logging.info("BUILDING IN CIRCLECI!")
         # if environ['CIRCLE_BRANCH'] == 'master':
         for pdf in listdir(_pdfs_dir):
-            if isfile(pdf):
-                _upload_file_to_bintray(pdf)
+            pdf_path = join(_pdfs_dir, pdf)
+            if isfile(pdf_path):
+                _upload_file_to_bintray(pdf_path)
 
 
 def _clean_build_dir():
