@@ -99,8 +99,7 @@ def _delete_bintray_package(package_name):
 
 def _create_bintray_package(package_name):
     logging.debug("Creating BinTray package: '%s'", package_name)
-    payload = '{"name": "{}", "licenses": ["BSD"], "vcs_url": "https://github.com/cambridge/thesis"}'\
-        .format(package_name)
+    payload = '{"name": "%s", "licenses": ["BSD"], "vcs_url": "https://github.com/cambridge/thesis"}' % (package_name)
     _call_bintray_api('POST', _bintray_control_api_url, '-H', 'Content-Type: application/json', '-d', payload)
 
 
