@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 import logging
-from os.path import join, basename, isfile
+from os.path import join, basename
 from subprocess import check_call
 
 from os import listdir, environ
@@ -22,11 +22,7 @@ def main():
     _copy_sources_to_build_dir(_tests_dir)
     _build()
     if _is_running_in_circle_ci():
-        # if environ['CIRCLE_BRANCH'] == 'master':
-        for pdf in listdir(_pdfs_dir):
-            pdf_path = join(_pdfs_dir, pdf)
-            if isfile(pdf_path):
-                _upload_file_to_bintray(pdf_path)
+        _upload_to_bintray()
 
 
 def _clean_build_dir():
@@ -70,13 +66,20 @@ def _is_running_in_circle_ci():
     return environ.get('CIRCLECI', 'false') == 'true'
 
 
-def _upload_file_to_bintray(file_path, package_name=None, artifact_name=None, version=None):
-    package_name = package_name or environ['CIRCLE_BRANCH'].replace('/', '_')
-    version = version or environ['CIRCLE_BUILD_NUM'] + '-' + environ['CIRCLE_SHA1'][:8]
-    artifact_name = artifact_name or '{}-{}.pdf'.format(basename(file_path), version)
+def _upload_to_bintray():
+    package_name = environ['CIRCLE_BRANCH'].replace('/', '_')
+    version = environ['CIRCLE_BUILD_NUM'] + '-' + environ['CIRCLE_SHA1'][:8]
 
+    _delete_bintray_package(package_name)
     _create_bintray_package(package_name)
 
+    for pdf in listdir(_pdfs_dir):
+        pdf_path = join(_pdfs_dir, pdf)
+        artifact_name = '{}-{}.pdf'.format(basename(pdf_path), version)
+        _upload_file_to_bintray(pdf_path, package_name, artifact_name, version)
+
+
+def _upload_file_to_bintray(file_path, package_name, artifact_name, version):
     logging.info("Uploading '%s' to BinTray...", file_path)
 
     delete_url = '{}/{}/{}/{}'.format(_bintray_content_api_url, package_name, version, artifact_name)
