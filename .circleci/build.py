@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 import logging
-from os import listdir
+from os import listdir, environ
 from os.path import join
 from subprocess import check_call
 
@@ -15,10 +15,12 @@ _pdfs_dir = join(_build_dir, 'pdfs')
 
 
 def main():
-    _clean_build_dir()
-    _copy_sources_to_build_dir(_samples_source_dir)
-    _copy_sources_to_build_dir(_tests_dir)
-    _build()
+    # _clean_build_dir()
+    # _copy_sources_to_build_dir(_samples_source_dir)
+    # _copy_sources_to_build_dir(_tests_dir)
+    # _build()
+    if environ['CIRCLECI'] == 'true':
+        logging.info("RUNNING IN CIRCLECI")
 
 
 def _clean_build_dir():
