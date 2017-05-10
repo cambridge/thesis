@@ -363,17 +363,15 @@ for the degree of Doctor of Philosophy%
 \begin{lrbox}{\cam@title}
     \begin{minipage}[c][\height][c]{.98\textwidth}
         \begin{center}
-        	\begin{spacing}{1}
-            	{\Huge%
-                    \ifcam@times\else%
-                        \bfseries%
-                    \fi%
-                 {\@title{}}%
-                 \ifcam@firstyr\\%
-                 {\vspace{5mm}\emph{\LARGE PhD Proposal}}%
-                 \fi}%
-        	\end{spacing}
-        \end{center}
+			\Huge%
+				\ifcam@times\else%
+				\bfseries%
+				\fi%
+			{\@title{}}%
+			\ifcam@firstyr\\%
+				{\vspace{5mm}\emph{\LARGE PhD Proposal}}%
+			\fi%
+		\end{center}
     \end{minipage}
 \end{lrbox}
 
