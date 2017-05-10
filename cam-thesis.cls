@@ -83,6 +83,11 @@
 \newif\ifcam@firstyr\cam@firstyrfalse
 \DeclareOption{firstyr}{\cam@firstyrtrue}
 
+% backrefs - add back references
+%
+\newif\ifcam@backrefs\cam@backrefsfalse
+\DeclareOption{backrefs}{\cam@backrefstrue}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
@@ -139,7 +144,7 @@
 \ifcam@glossary
     \RequirePackage{glossaries}
     \makeglossaries%
-    \newcommand{\printthesisglossary}{\printglossary}
+    \newcommand{\printthesisglossary}{\printglossary[nonumberlist]}
     \newcommand{\cam@printthesisglossary}{%
         \cleardoublepage%
         \pagestyle{empty}%
@@ -358,17 +363,15 @@ for the degree of Doctor of Philosophy%
 \begin{lrbox}{\cam@title}
     \begin{minipage}[c][\height][c]{.98\textwidth}
         \begin{center}
-        	\begin{spacing}{2}
-            	{\Huge%
-                    \ifcam@times\else%
-                        \bfseries%
-                    \fi%
-                 {\@title{}}%
-                 \ifcam@firstyr\\%
-                 {\emph{\LARGE PhD Proposal}}%
-                 \fi}%
-        	\end{spacing}
-        \end{center}
+			\Huge%
+				\ifcam@times\else%
+				\bfseries%
+				\fi%
+			{\@title{}}%
+			\ifcam@firstyr\\%
+				{\vspace{5mm}\emph{\LARGE PhD Proposal}}%
+			\fi%
+		\end{center}
     \end{minipage}
 \end{lrbox}
 
@@ -523,5 +526,24 @@ This dissertation does not exceed the prescribed limit of 60\,000 words.
 \cleardoublepage
 \pagestyle{plain}
 }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% Backrefs
+%%
+%%%%%
+
+\ifcam@backrefs
+\RequirePackage[hyperpageref]{backref}
+\renewcommand*{\backref}[1]{}
+\renewcommand*{\backrefalt}[4]{%
+	\ifcase #1 %
+	\or
+	{\footnotesize Cited on page #2.}%
+	\else
+	{\footnotesize Cited on pages #2.}%
+	\fi
+}
+\fi
 
 %%%%% EOF: cam-thesis.cls
