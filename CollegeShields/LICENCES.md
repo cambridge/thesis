@@ -269,7 +269,7 @@ File:
 
 Derivative files:
 
-        Queens.pdf
+        Robinson.pdf
 
 Source:
 
