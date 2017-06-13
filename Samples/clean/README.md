@@ -9,7 +9,6 @@ __NOTE__: Before you'll be able to use this sample, you'll have to copy/link the
     ../../CUni.eps
     ../../CUni.pdf
     ../../Makefile
-    ../../Variables.ini
 
 
 ## Special features:

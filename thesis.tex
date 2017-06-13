@@ -20,11 +20,13 @@
 %   techreport  - typesets the thesis in the technical report format.
 %   firstyr     - formats the document as a first-year report.
 %   times       - uses the `Times` font.
+%   backrefs    - add back references in the Bibliography section
 %
 % For more info see `README.md`
 \documentclass[withindex,glossary]{cam-thesis}
 
-
+% Citations using numbers
+\usepackage[numbers]{natbib}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Thesis meta-information
@@ -41,9 +43,26 @@ spanning two lines}
 \college{My College}
 
 %% College shield [optional]:
+% \collegeshield{CollegeShields/Churchill}
 % \collegeshield{CollegeShields/Clare}
+% \collegeshield{CollegeShields/CorpusChristi}
+% \collegeshield{CollegeShields/Darwin}
+% \collegeshield{CollegeShields/Downing}
+% \collegeshield{CollegeShields/Emmanuel}
 % \collegeshield{CollegeShields/Fitzwilliam}
+% \collegeshield{CollegeShields/Girton}
+% \collegeshield{CollegeShields/GonCaius}
+% \collegeshield{CollegeShields/Jesus}
+% \collegeshield{CollegeShields/Kings}
+% \collegeshield{CollegeShields/Magdalene}
+% \collegeshield{CollegeShields/MurrayEdwards}
+% \collegeshield{CollegeShields/Pembroke}
+% \collegeshield{CollegeShields/Peterhouse}
 % \collegeshield{CollegeShields/Queens}
+% \collegeshield{CollegeShields/Robinson}
+% \collegeshield{CollegeShields/Selwyn}
+% \collegeshield{CollegeShields/SidneySussex}
+% \collegeshield{CollegeShields/StCatharines}
 % \collegeshield{CollegeShields/StJohns}
 % \collegeshield{CollegeShields/Trinity}
 \collegeshield{CollegeShields/FitzwilliamRed}
@@ -112,8 +131,10 @@ This document was created with the help of a custom class file~\cite{example}. A
 which holds style information for a particular \LaTeX{} class\footnote{You can
 find more about classes at \url{http://www.ctan.org/pkg/clsguide}.}.
 
-This is an example glossary reference: \GLS{HOL}.
+There are some handy options for citing publications. It is possible to print just the year of some publication:~\citeyear{example}. It is also possible to print the name of the author(s) in the form ``Author et al.'': \citeauthor{example}. Finally, there is also a command to print the full list of authors of a publication: \citet*{example}.
 
+This is an example glossary reference: \GLS{HOL}. \\
+ 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -160,7 +181,7 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
 \cleardoublepage
 \phantomsection
 \addcontentsline{toc}{chapter}{Bibliography}
-\bibliographystyle{plain}
+\bibliographystyle{plainnat}
 \bibliography{thesis}
 
 
