@@ -1,5 +1,20 @@
 This file contains licences accompanying the images in this folder.
 
+# Christ's College's shield
+
+File:
+
+        Christs.pdf (non-vector format)
+
+Source:
+
+        Copied from St John's crest
+
+Licence:
+
+        See St John's crest
+
+
 # Churchill College's shield
 
 Files:
@@ -28,6 +43,21 @@ Source:
 Licence:
 
         Creative Commons CC0 1.0 Universal Public Domain Dedication
+
+
+# Clare Hall's shield
+
+File:
+
+        ClareHall.pdf (non-vector format)
+
+Source:
+
+        https://commons.wikimedia.org/wiki/File:Clarehall_shield.png
+
+Licence:
+
+        Creative Commons Attribution-Share Alike 3.0 Unported
 
 
 # Corpus Christi's shield
@@ -136,6 +166,36 @@ Licence:
         Creative Commons Attribution-Share Alike 4.0 International
 
 
+# Homerton College's shield
+
+File:
+
+        Homerton.pdf
+
+Source:
+
+        Provided by the college
+
+Licence:
+
+        Not specified
+
+
+# Hughes Hall's shield
+
+File:
+
+        HughesHall.pdf (non-vector format)
+
+Source:
+
+        https://commons.wikimedia.org/wiki/File:HughesHallShield.png
+
+Licence:
+
+        Creative Commons Attribution-Share Alike 3.0 Unported
+
+
 # Jesus College's shield
 
 File:
@@ -166,6 +226,21 @@ Licence:
         Creative Commons Attribution-Share Alike 3.0 Unported
 
 
+# Lucy Cavendish College's shield
+
+File:
+
+        LucyCavendish.pdf
+
+Source:
+
+        Provided by the college
+
+Licence:
+
+        Not specified
+
+
 # Magdalene College's shield
 
 File:
@@ -190,6 +265,21 @@ File:
 Source:
 
         https://commons.wikimedia.org/wiki/File:MurrayEdwardsCollegeCrest.svg
+
+Licence:
+
+        Creative Commons Attribution-Share Alike 3.0 Unported
+
+
+# Newnham's shield
+
+File:
+
+        Newnham.pdf (non-vector format)
+
+Source:
+
+        https://en.wikipedia.org/wiki/Newnham_College,_Cambridge#/media/File:Newnham_crest.png
 
 Licence:
 
@@ -302,6 +392,21 @@ Licence:
         Creative Commons Attribution-Share Alike 3.0 Unported
 
 
+# St. Edmund's College's shield
+
+File:
+
+        StEdmunds.pdf (non-vector format)
+
+Source:
+
+        https://commons.wikimedia.org/wiki/File:St_Edmund%27s_College_crest.png
+
+Licence:
+
+        Creative Commons Attribution-Share Alike 3.0 Unported
+
+
 # St. John's College's shield
 
 File:
@@ -332,6 +437,34 @@ Licence:
         GNU Free Documentation License, Version 1.2 or any later version
 
 
+# Trinity Hall's shield
+
+File:
+
+        TrinityHall.pdf (non-vector format)
+
+Source:
+
+        https://commons.wikimedia.org/wiki/File:Trinity_Hall_Crest.png
+
+Licence:
+
+        Creative Commons Attribution-Share Alike 3.0 Unported
+
+
+# Wolfson College's shield
+
+File:
+
+        Wolfson.pdf (non-vector format)
+
+Source:
+
+        https://commons.wikimedia.org/wiki/File:Wolfson_College_Crest.png
+
+Licence:
+
+        Creative Commons Attribution-Share Alike 3.0 Unported
 
 
 # Licences

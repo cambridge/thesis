@@ -214,9 +214,7 @@ logos on [this page](http://www.admin.cam.ac.uk/offices/communications/services/
 Download and exchange the new logos with `CUni.eps` and/or `CUni.pdf`.
 
 
-## _Q6_: My college's shield/coat of arms/crest is not included. Why u no include it?
-
-The shields are being added on the go (when somebody, who uses them, provides them).
+## _Q6_: My college's shield/coat of arms/crest is not a vector-based image. Why u no include it?
 
 If you find a distributable vector-based image of your college's shield you can report it as an issue or mail it to contributors directly (refer to question __Q1__ above).
 
