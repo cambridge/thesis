@@ -1,30 +1,25 @@
 This file contains licences accompanying the images in this folder.
 
-# Clare's shield
+# Christ's College's shield
 
 File:
 
-        Clare.svg
-
-Derivative files:
-
-        Clare.eps
-        Clare.pdf
+        Christs.pdf (non-vector format)
 
 Source:
 
-        https://commons.wikimedia.org/wiki/File:ClareCollegeCrest.svg
+        Copied from St John's crest
 
 Licence:
 
-        Creative Commons CC0 1.0 Universal Public Domain Dedication
+        See St John's crest
+
 
 # Churchill College's shield
 
 Files:
 
         Churchill.pdf
-        Churchill.svg
 
 Source:
 
@@ -35,13 +30,54 @@ Licence:
         Not specified
 
 
+# Clare's shield
+
+File:
+
+        Clare.pdf
+
+Source:
+
+        https://commons.wikimedia.org/wiki/File:ClareCollegeCrest.svg
+
+Licence:
+
+        Creative Commons CC0 1.0 Universal Public Domain Dedication
+
+
+# Clare Hall's shield
+
+File:
+
+        ClareHall.pdf (non-vector format)
+
+Source:
+
+        https://commons.wikimedia.org/wiki/File:Clarehall_shield.png
+
+Licence:
+
+        Creative Commons Attribution-Share Alike 3.0 Unported
+
+
+# Corpus Christi's shield
+
+File:
+
+        CorpusChristi.pdf (non-vector format)
+
+Source:
+
+        Not specified
+
+Licence:
+
+        Not specified
+
+
 # Darwin College's shield
 
 Files:
-
-        Darwin.svg
-
-Derivative files:
 
         Darwin.pdf
 
@@ -58,10 +94,6 @@ Licence:
 
 File:
 
-        Downing.svg
-
-Derivative files:
-
         Downing.pdf
 
 Source:
@@ -76,10 +108,6 @@ Licence:
 # Emmanuel College's shield
 
 File:
-
-        Emmanuel.svg
-
-Derivative files:
 
         Emmanuel.pdf
 
@@ -97,9 +125,7 @@ Licence:
 Files:
 
         Fitzwilliam.pdf
-        Fitzwilliam.eps
         FitzwilliamRed.pdf
-        FitzwilliamRed.eps
 
 Source:
 
@@ -113,10 +139,6 @@ Licence:
 # Girton College's shield
 
 File:
-
-        Girton.svg
-
-Derivative files:
 
         Girton.pdf
 
@@ -133,10 +155,6 @@ Licence:
 
 File:
 
-        GonCaius.svg
-
-Derivative files:
-
         GonCaius.pdf
 
 Source:
@@ -147,13 +165,40 @@ Licence:
 
         Creative Commons Attribution-Share Alike 4.0 International
 
-# Jesus College's shield
+
+# Homerton College's shield
 
 File:
 
-        Jesus.svg
+        Homerton.pdf
 
-Derivative files:
+Source:
+
+        Provided by the college
+
+Licence:
+
+        Not specified
+
+
+# Hughes Hall's shield
+
+File:
+
+        HughesHall.pdf (non-vector format)
+
+Source:
+
+        https://commons.wikimedia.org/wiki/File:HughesHallShield.png
+
+Licence:
+
+        Creative Commons Attribution-Share Alike 3.0 Unported
+
+
+# Jesus College's shield
+
+File:
 
         Jesus.pdf
 
@@ -165,13 +210,10 @@ Licence:
 
         Creative Commons Attribution-Share Alike 3.0 Unported
 
+
 # King's College's shield
 
 File:
-
-        Kings.svg
-
-Derivative files:
 
         Kings.pdf
 
@@ -183,13 +225,25 @@ Licence:
 
         Creative Commons Attribution-Share Alike 3.0 Unported
 
-# Magdalene College's shield
+
+# Lucy Cavendish College's shield
 
 File:
 
-        Magdalene.svg
+        LucyCavendish.pdf
 
-Derivative files:
+Source:
+
+        Provided by the college
+
+Licence:
+
+        Not specified
+
+
+# Magdalene College's shield
+
+File:
 
         Magdalene.pdf
 
@@ -206,10 +260,6 @@ Licence:
 
 File:
 
-        MurrayEdwards.svg
-
-Derivative files:
-
         MurrayEdwards.pdf
 
 Source:
@@ -221,15 +271,41 @@ Licence:
         Creative Commons Attribution-Share Alike 3.0 Unported
 
 
+# Newnham's shield
+
+File:
+
+        Newnham.pdf (non-vector format)
+
+Source:
+
+        https://en.wikipedia.org/wiki/Newnham_College,_Cambridge#/media/File:Newnham_crest.png
+
+Licence:
+
+        Creative Commons Attribution-Share Alike 3.0 Unported
+
+
+# Pembroke College's shield
+
+File:
+
+        Pembroke.pdf
+
+Source:
+
+        Not specified
+
+Licence:
+
+        Not specified
+
+
 # Peterhouse's shield
 
 File:
 
-        Peterhouse.svg
-
-Derivative files:
-
-        Peterhouse.pdf  (rsvg-convert -f pdf -o Peterhouse.pdf Peterhouse.svg)
+        Peterhouse.pdf
 
 Source:
 
@@ -245,12 +321,7 @@ Licence:
 
 File:
 
-        Queens.svg
-
-Derivative files:
-
         Queens.pdf
-        Queens.eps
 
 Source:
 
@@ -264,10 +335,6 @@ Licence:
 # Robinson College's shield
 
 File:
-
-        Robinson.svg
-
-Derivative files:
 
         Robinson.pdf
 
@@ -284,10 +351,6 @@ Licence:
 
 File:
 
-        Selwyn.svg
-
-Derivative files:
-
         Selwyn.pdf
 
 Source:
@@ -302,10 +365,6 @@ Licence:
 # Sidney Sussex College's shield
 
 File:
-
-        SidneySussex.svg
-
-Derivative files:
 
         SidneySussex.pdf
 
@@ -322,10 +381,6 @@ Licence:
 
 File:
 
-        StCatharines.svg
-
-Derivative files:
-
         StCatharines.pdf
 
 Source:
@@ -337,15 +392,26 @@ Licence:
         Creative Commons Attribution-Share Alike 3.0 Unported
 
 
+# St. Edmund's College's shield
+
+File:
+
+        StEdmunds.pdf (non-vector format)
+
+Source:
+
+        https://commons.wikimedia.org/wiki/File:St_Edmund%27s_College_crest.png
+
+Licence:
+
+        Creative Commons Attribution-Share Alike 3.0 Unported
+
+
 # St. John's College's shield
 
 File:
 
-        StJohns.png
-
-Derivative files:
-
-        StJohns.eps
+        StJohns.pdf (non-vector format)
 
 Source:
 
@@ -360,11 +426,6 @@ Licence:
 
 File:
 
-        Trinity.svg
-
-Derivative files:
-
-        Trinity.eps
         Trinity.pdf
 
 Source:
@@ -376,6 +437,34 @@ Licence:
         GNU Free Documentation License, Version 1.2 or any later version
 
 
+# Trinity Hall's shield
+
+File:
+
+        TrinityHall.pdf (non-vector format)
+
+Source:
+
+        https://commons.wikimedia.org/wiki/File:Trinity_Hall_Crest.png
+
+Licence:
+
+        Creative Commons Attribution-Share Alike 3.0 Unported
+
+
+# Wolfson College's shield
+
+File:
+
+        Wolfson.pdf (non-vector format)
+
+Source:
+
+        https://commons.wikimedia.org/wiki/File:Wolfson_College_Crest.png
+
+Licence:
+
+        Creative Commons Attribution-Share Alike 3.0 Unported
 
 
 # Licences
