@@ -396,15 +396,15 @@ Licence:
 
 File:
 
-        StEdmunds.pdf (non-vector format)
+        StEdmunds.pdf
 
 Source:
 
-        https://commons.wikimedia.org/wiki/File:St_Edmund%27s_College_crest.png
+        Provided by the college
 
 Licence:
 
-        Creative Commons Attribution-Share Alike 3.0 Unported
+        For academic purposes only
 
 
 # St. John's College's shield
