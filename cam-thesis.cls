@@ -83,6 +83,11 @@
 \newif\ifcam@firstyr\cam@firstyrfalse
 \DeclareOption{firstyr}{\cam@firstyrtrue}
 
+% 2nd year report - omits declaration
+%
+\newif\ifcam@secondyr\cam@secondyrfalse
+\DeclareOption{secondyr}{\cam@secondyrtrue}
+
 % backrefs - add back references
 %
 \newif\ifcam@backrefs\cam@backrefsfalse
@@ -297,13 +302,20 @@
 \newcommand{\@submissionnotice}{%
 \ifcam@firstyr
 First year report submitted
+\else 
+\ifcam@secondyr
+Second year report submitted
 \else
 This dissertation is submitted
+\fi
 \fi
 \ifcam@submissiondate
     on \@submissiondate{}
 \fi
 \ifcam@firstyr
+in partial fulfilment of the requirements
+\fi
+\ifcam@secondyr
 in partial fulfilment of the requirements
 \fi
 for the degree of Doctor of Philosophy%
@@ -380,6 +392,9 @@ for the degree of Doctor of Philosophy%
 			\ifcam@firstyr\\%
 				{\vspace{5mm}\emph{\LARGE PhD Proposal}}%
 			\fi%
+			\ifcam@secondyr\\%
+				{\vspace{5mm}\emph{\LARGE Dissertation Schedule}}%
+			\fi
 		\end{center}
     \end{minipage}
 \end{lrbox}
@@ -475,7 +490,10 @@ for the degree of Doctor of Philosophy%
 % (see http://www.cl.cam.ac.uk/techreports/submission.html).
 \else
 {\ifcam@firstyr
-% First yr report doesn't need the declaration
+% First and second yr report don't need the declaration
+\else 
+\ifcam@secondyr
+%
 \else
 \chapter*{Declaration}
 \thispagestyle{empty}
@@ -498,6 +516,7 @@ This dissertation does not exceed the prescribed limit of 60\,000 words.
 \@date{}\\
 \end{flushright}
 \vfill
+\fi
 \fi}
 \fi
 
@@ -509,11 +528,15 @@ This dissertation does not exceed the prescribed limit of 60\,000 words.
 %%%%%
 
 \ifcam@firstyr
-% First yr report doesn't need the declaration
+% First and second yr report don't need the acknowledgements
+\else 
+{\ifcam@secondyr
+%
 \else
 \chapter*{Acknowledgements}
 \thispagestyle{empty}
 \@acknowledgements{}
+\fi}
 \fi
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
