@@ -1,42 +1,44 @@
 # cam-thesis
 
-[![Build Status](https://travis-ci.org/cambridge/thesis.svg)](https://travis-ci.org/cambridge/thesis)
+[![CircleCI](https://circleci.com/gh/cambridge/thesis/tree/master.svg?style=svg)](https://circleci.com/gh/cambridge/thesis/tree/master)
 
 >   _a LaTeX thesis template for Cambridge PhD students_
 
-Want to write a thesis? Well, here is what you need:
 
-1.  this template (just clone it with git),
-2.  one of the existing samples (which can be found in the [`./Samples/`](Samples) folder), and
-3.  and some research content.
 
-The samples are based on other PhD students' theses.
+## Quick start
 
-## Quicker start
+1. Clone this repository.
+1. Start adding contents of your thesis into [`thesis.tex`](./thesis.tex).
+1. Build the `PDF` by running the following in the command line:
 
-Copy all files from this directory (where you found this `README` file) to your
-desired location.
-
-Now you can start writing your thesis using the `thesis.tex` file.
-
-Finally, build the `PDF` document by running the following in the command line:
-
+    ```
     make
+    ```
 
-## How will it look like?
+1. Open `thesis.pdf`.
+
+Pro tip: if you can also one of the samples in the [`Samples`](./Samples) directory.
+
+
+
+## How will the thesis look like?
 
 Your thesis document will look something like this:
 
->   [Plain (PDF)](https://dl.bintray.com/matej/cam-thesis/thesis-master.pdf)
+>   [Plain (PDF)](https://dl.bintray.com/matej/thesis/thesis-master.pdf)
 
 If you use the _clean_ sample, which can be found in [`./Samples/clean`](Samples/clean), it will look like this:
 
->   [Sample Clean (PDF)](https://dl.bintray.com/matej/cam-thesis/SampleClean-master.pdf)
+>   [Sample Clean (PDF)](https://dl.bintray.com/matej/thesis/clean-master.pdf)
 
 The template also supports DVI and PS formats. All three formats can be generated
 with the provided `Makefile`.
 
+
+
 ## Producing `PDF`, `DVI` and `PS` documents
+
 
 ### Build your thesis
 
@@ -53,6 +55,7 @@ To produce `DVI` and `PS` versions of your document, you should run:
 This will use the `latex` and `dvips` commands to build the document
 and will produce `thesis.dvi` and `thesis.ps` documents.
 
+
 ### Clean unwanted files
 
 To clean unwanted clutter (all LaTeX auto-generated files), run:
@@ -61,7 +64,10 @@ To clean unwanted clutter (all LaTeX auto-generated files), run:
 
 -------------------------------------------------------------------------------
 
+
+
 # Usage details
+
 
 ## Class options
 
@@ -70,7 +76,9 @@ it is based).
 
 It also supports some custom options.
 
-*   `techreport`: formats the document as a technical report. Here is a list of
+*   `techreport`: formats the document as a technical report (here's
+    [a sample](https://dl.bintray.com/matej/thesis/techreport-master.pdf)).
+    Here is a list of
     formatting points in which the technical report differs from a normal thesis
     (see [guidelines](http://www.cl.cam.ac.uk/techreports/submission.html) for
     more information):
@@ -83,6 +91,17 @@ It also supports some custom options.
     *   page count starts with 3,
     *   if the `hyperref` package is used, the option `pdfpagelabels=false` will
         be passed to it.
+
+*   `firstyr`: formats the document as a first-year report (here's
+    [a sample](https://dl.bintray.com/matej/thesis/firstyr-master.pdf)). This option removes
+    some unneeded elements and modifies the submission note. Here is a list of
+    formatting points in which the first year report differs from a normal thesis:
+
+    *   an appropraite subtitle is added,
+    *   the submission note is changed appropriately,
+    *   no standalone abstract,
+    *   no declaration,
+    *   no acknowledgements.
 
 *   `times`: tells the class to use the _times_ font.
 
@@ -120,9 +139,17 @@ It also supports some custom options.
 
     _Note_: the package `makeidx` is used to create the index.
 
+*   `backrefs`: Add back references in the Bibliography section (here's
+    [a sample](https://dl.bintray.com/matej/thesis/backrefs-master.pdf)). In other words, for each reference, it adds the page(s) where it is cited.
+
+    _Note_: the package `backref` is used to create the back references.
+
 -------------------------------------------------------------------------------
 
+
+
 # Troubleshooting
+
 
 ## _Q1_: I found a bug in the template. Where do I report bugs?
 
@@ -131,6 +158,7 @@ You can report issues through
 
 You can also mail
 [the maintainers](https://github.com/cambridge/thesis/contributors) directly.
+
 
 ## _Q2_: Where can I find the thesis formatting guidelines this class is based on?
 
@@ -146,11 +174,13 @@ The Computer Laboratory guidelines for technical reports:
 
 > [http://www.cl.cam.ac.uk/techreports/submission.html](http://www.cl.cam.ac.uk/techreports/submission.html)
 
+
 ## _Q3_: Can I use my own Makefile?
 
 By all means. Previously we used the horrendously complex `Makefile` at
 
 > [http://code.google.com/p/latex-makefile/](http://code.google.com/p/latex-makefile/)
+
 
 ## _Q4_: But what if I don't want the template files in my thesis directory?
 
@@ -174,6 +204,7 @@ info see __[1]__):
 > For more comprehensive information refer to
 > [LaTeX Wikibooks](http://en.wikibooks.org/wiki/LaTeX/Packages/Installing_Extra_Packages).
 
+
 ## _Q5_: Where can I find newer versions of the University of Cambridge logo?
 
 The university updates its logo every now and then. You can find up-to-date
@@ -182,11 +213,11 @@ logos on [this page](http://www.admin.cam.ac.uk/offices/communications/services/
 
 Download and exchange the new logos with `CUni.eps` and/or `CUni.pdf`.
 
-## _Q6_: My college's shield/coat of arms/crest is not included. Why u no include it?
 
-The shields are being added on the go (when somebody, who uses them, provides them).
+## _Q6_: My college's shield/coat of arms/crest is not a vector-based image. Why u no include it?
 
 If you find a distributable vector-based image of your college's shield you can report it as an issue or mail it to contributors directly (refer to question __Q1__ above).
+
 
 ## _Q7_: Where can I find extra fonts (like Adobe Sabon, Adobe Utopia etc.)?
 
@@ -196,14 +227,9 @@ After you've installed the fonts, add somewhere in the preamble (before `\begin{
 
     \renewcommand\rmdefault{psb}
 
+
 ## _Q8_: How should I count the number of words in my thesis?
 
 There is [a page](http://www.cl.cam.ac.uk/local/phd/writingup.html) on the Computer Lab's web site. They recommend using this command:
 
     ps2ascii thesis.pdf | wc -w
-
---------------------------------------------------------------------------------
-
-# TODO list
-
-*   Fill out more PDF meta tags (e.g.: keywords, subject etc.).

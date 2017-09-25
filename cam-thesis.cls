@@ -78,6 +78,16 @@
 \newif\ifcam@index\cam@indexfalse
 \DeclareOption{withindex}{\cam@indextrue}
 
+% 1st year report - omits abstract/declaration
+%
+\newif\ifcam@firstyr\cam@firstyrfalse
+\DeclareOption{firstyr}{\cam@firstyrtrue}
+
+% backrefs - add back references
+%
+\newif\ifcam@backrefs\cam@backrefsfalse
+\DeclareOption{backrefs}{\cam@backrefstrue}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
@@ -92,12 +102,21 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
+%% For consistent vertical spacing
+%%
+%%%%%
+\raggedbottom
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
 %% Additional packages, and their options.
 %%
 %%%%%
 \RequirePackage{graphicx}           % Required for the UC Logo (on the title page)
 \RequirePackage{calc}               % Used for calculating margins and laying out the title page
 \RequirePackage{setspace}      	    % Used for selecting single or onehalf line spacing.
+\RequirePackage{microtype}          % Improvement of general text appearance 
 
 % Hyperref should be included in any case, but we make it non-obtrusive (i.e.: no hyperlink borders).
 % Why do we need a separate treatment of hyperref for the techreport? Because the guidelines say so. :)
@@ -134,7 +153,7 @@
 \ifcam@glossary
     \RequirePackage{glossaries}
     \makeglossaries%
-    \newcommand{\printthesisglossary}{\printglossary}
+    \newcommand{\printthesisglossary}{\printglossary[nonumberlist]}
     \newcommand{\cam@printthesisglossary}{%
         \cleardoublepage%
         \pagestyle{empty}%
@@ -190,7 +209,7 @@
 \ifcam@techreport
 \cam@calcpaperdims{25mm}{25mm}{20mm}{20mm}
 \else
-\cam@calcpaperdims{35mm}{30mm}{35mm}{25mm}
+\cam@calcpaperdims{30mm}{20mm}{20mm}{20mm}
 \fi
 
 
@@ -276,9 +295,16 @@
 % DOCVAR: submissionnotice (The submission notice is shown on the bottom of the
 % title page.)
 \newcommand{\@submissionnotice}{%
+\ifcam@firstyr
+First year report submitted
+\else
 This dissertation is submitted
+\fi
 \ifcam@submissiondate
     on \@submissiondate{}
+\fi
+\ifcam@firstyr
+in partial fulfilment of the requirements
 \fi
 for the degree of Doctor of Philosophy%
 }
@@ -346,14 +372,15 @@ for the degree of Doctor of Philosophy%
 \begin{lrbox}{\cam@title}
     \begin{minipage}[c][\height][c]{.98\textwidth}
         \begin{center}
-        	\begin{spacing}{2}
-            	{\Huge%
-                    \ifcam@times\else%
-                        \bfseries%
-                    \fi%
-                 {\@title{}}}
-        	\end{spacing}
-        \end{center}
+			\Huge%
+				\ifcam@times\else%
+				\bfseries%
+				\fi%
+			{\@title{}}%
+			\ifcam@firstyr\\%
+				{\vspace{5mm}\emph{\LARGE PhD Proposal}}%
+			\fi%
+		\end{center}
     \end{minipage}
 \end{lrbox}
 
@@ -370,7 +397,7 @@ for the degree of Doctor of Philosophy%
 \begin{lrbox}{\cam@authorcollege}
     \begin{minipage}[c][\height][c]{.98\textwidth}
         \begin{center}
-        {\large \@author{}}\\[1ex]
+        {\large \@author{}~\\[1ex]}
         \ifcam@collegeshield%
             \vspace{2mm}{\usebox{\cam@collegeshieldbox}}\\
         \fi
@@ -429,10 +456,14 @@ for the degree of Doctor of Philosophy%
     \setcounter{page}{3}
 \fi
 
+\ifcam@firstyr
+% First yr report doesn't need a standalone abstract
+\else
+
 \chapter*{Abstract}
 \thispagestyle{empty}
 \@abstract{}
-
+\fi
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
@@ -443,13 +474,21 @@ for the degree of Doctor of Philosophy%
 % Technical report doesn't need the declaration
 % (see http://www.cl.cam.ac.uk/techreports/submission.html).
 \else
+{\ifcam@firstyr
+% First yr report doesn't need the declaration
+\else
 \chapter*{Declaration}
 \thispagestyle{empty}
-This dissertation is my own work and contains nothing which is the outcome of
-work done in collaboration with others, except where specified in the text. This
-dissertation is not substantially the same as any that I have submitted for a
-degree or diploma or other qualification at any other university. This
-dissertation does not exceed the prescribed limit of 60\,000 words.
+This dissertation is the result of my own work and includes nothing which is the outcome
+of work done in collaboration except as declared in the Preface and specified in the text.
+It is not substantially the same as any that I have submitted, or am concurrently
+submitting, for a degree or diploma or other qualification at the University of Cambridge
+or any other University or similar institution except as declared in the Preface and
+specified in the text. I further state that no substantial part of my dissertation has
+already been submitted, or is being concurrently submitted, for any such degree, diploma
+or other qualification at the University of Cambridge or any other University or similar
+institution except as declared in the Preface and specified in the text.
+This dissertation does not exceed the prescribed limit of 60\,000 words.
 
 % Leaving some space for the signature:
 \vspace{15mm}
@@ -459,6 +498,7 @@ dissertation does not exceed the prescribed limit of 60\,000 words.
 \@date{}\\
 \end{flushright}
 \vfill
+\fi}
 \fi
 
 
@@ -468,10 +508,13 @@ dissertation does not exceed the prescribed limit of 60\,000 words.
 %%
 %%%%%
 
+\ifcam@firstyr
+% First yr report doesn't need the declaration
+\else
 \chapter*{Acknowledgements}
 \thispagestyle{empty}
 \@acknowledgements{}
-
+\fi
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
@@ -492,5 +535,24 @@ dissertation does not exceed the prescribed limit of 60\,000 words.
 \cleardoublepage
 \pagestyle{plain}
 }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% Backrefs
+%%
+%%%%%
+
+\ifcam@backrefs
+\RequirePackage[hyperpageref]{backref}
+\renewcommand*{\backref}[1]{}
+\renewcommand*{\backrefalt}[4]{%
+	\ifcase #1 %
+	\or
+	{\footnotesize Cited on page #2.}%
+	\else
+	{\footnotesize Cited on pages #2.}%
+	\fi
+}
+\fi
 
 %%%%% EOF: cam-thesis.cls
