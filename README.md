@@ -107,7 +107,7 @@ It also supports some custom options.
     [a sample](https://dl.bintray.com/matej/thesis/secondyr-master.pdf)). Similarly to
 	`firstyr`, this style modifies the submission note and removes unneeded elements.
     Specially, an abstract is retained (as for this report, research is often in a 
-	more "stable" state. Here is a list of formatting points in which the second year 
+	more "stable" state). Here is a list of formatting points in which the second year 
 	report differs from a normal thesis:
 
     *   an appropraite subtitle is added,
