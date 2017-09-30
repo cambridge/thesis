@@ -103,6 +103,18 @@ It also supports some custom options.
     *   no declaration,
     *   no acknowledgements.
 
+*   `secondyr`: formats the document as a second-year report (here's
+    [a sample](https://dl.bintray.com/matej/thesis/secondyr-master.pdf)). Similarly to
+	`firstyr`, this style modifies the submission note and removes unneeded elements.
+    Specially, an abstract is retained (as for this report, research is often in a 
+	more "stable" state. Here is a list of formatting points in which the second year 
+	report differs from a normal thesis:
+
+    *   an appropraite subtitle is added,
+    *   the submission note is changed appropriately,
+    *   no declaration,
+    *   no acknowledgements.
+
 *   `times`: tells the class to use the _times_ font.
 
 *   `glossary`: puts the glossary after the TOC. The glossary contains a list of
