@@ -174,12 +174,10 @@
 %%
 %%%%%
 
-% Setting the offsets to 'zero' (LaTeX calculates offsets 1in from the left and upper edges of the page) makes the calculation of margins a bit easier.
-\setlength{\hoffset}{-1in}
-\setlength{\voffset}{-1in}
-
 \newlength{\cam@topmargin}
 \newlength{\cam@bottommargin}
+\newlength{\cam@oddmargin}
+\newlength{\cam@evenmargin}
 
 
 %% Calculate and set the margins properly (with parameters that actually have
@@ -193,22 +191,23 @@
 % MARGINS
 % 'Top margin' is the distance between the top of the text and the top of the page.
 % 'Bottom margin' is the distance between the bottom of the footer (the page number) and the bottom of the page.
-\setlength{\oddsidemargin}{#1}        % inner margin
-\setlength{\evensidemargin}{#2}       % outer margin
+\setlength{\cam@oddmargin}{#1}        % inner margin
+\setlength{\cam@evenmargin}{#2}       % outer margin
 \setlength{\cam@topmargin}{#3}        % top margin        (the distance from the top of the page to the top of the body text -- the header is located between)
 \setlength{\cam@bottommargin}{#4}     % bottom margin     (the distance from the bottom of the page to the bottom of the body text -- the footer is located between)
 % Horizontal spacing
-\setlength{\textwidth}{\paperwidth-#1-#2}     % text takes the remaining width (210 - inner - outer)
-
-\setlength{\marginparwidth}{\evensidemargin-8mm} % the margin only has 'outer' space available, so we have to make it a bit thinner.
+\setlength{\textwidth}{\paperwidth-\cam@oddmargin-\cam@evenmargin}     % text takes the remaining width (210 - inner - outer)
+\setlength{\oddsidemargin}{\cam@oddmargin-1in}   % Counter the LaTeX 1in margin
+\setlength{\evensidemargin}{\cam@evenmargin-1in} % Counter the LaTeX 1in margin
+\setlength{\marginparwidth}{\cam@evenmargin-8mm} % the margin only has 'outer' space available, so we have to make it a bit thinner.
 \setlength{\marginparsep}{3mm}
 
 % Vertical spacing
 \setlength{\headheight}{5mm}      % The height of the box where the heading text lives
 \setlength{\headsep}{5mm}         % The distance between the heading and the top of the text
-\setlength{\topmargin}{#3-\headheight-\headsep}
+\setlength{\topmargin}{\cam@topmargin-\headheight-\headsep-1in} % Counter the LaTeX 1in margin
 
-\setlength{\textheight}{\paperheight-#3-1.7\cam@bottommargin}   % text takes the remaining height (297 - top margin - bottom margin)
+\setlength{\textheight}{\paperheight-\cam@topmargin-1.7\cam@bottommargin}   % text takes the remaining height (297 - top margin - bottom margin)
 \setlength{\footskip}{.7\cam@bottommargin} % The distance from the bottom of the text to the bottom of the footer
 }
 \ifcam@techreport
