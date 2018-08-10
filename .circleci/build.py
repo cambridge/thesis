@@ -6,7 +6,6 @@ from subprocess import check_call
 from os import listdir, environ
 
 logging.basicConfig(format='[%(levelname)s %(asctime)s] %(message)s', level=logging.DEBUG)
-logging.setLevel(logging.DEBUG)
 
 _build_dir = 'build'
 _samples_source_dir = 'Samples'
@@ -18,6 +17,7 @@ _bintray_control_api_url = 'https://api.bintray.com/packages/matej/thesis'
 
 
 def main():
+    logging.debug("Started the build...")
     _clean_build_dir()
     _copy_sources_to_build_dir(_samples_source_dir)
     _copy_sources_to_build_dir(_tests_dir)
