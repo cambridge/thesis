@@ -89,7 +89,10 @@ def _upload_file_to_bintray(file_path, package_name, artifact_name, version):
 
     delete_url = '{}/{}/{}/{}'.format(_bintray_content_api_url, package_name, version, artifact_name)
     logging.debug("Deleting potentially existing artifact at '%s'", delete_url)
-    _call_bintray_api('DELETE', delete_url)
+    try:
+        _call_bintray_api('DELETE', delete_url)
+    except Exception as ex:
+        logging.debug("No artifact deleted.")
 
     put_url = '{}/{};bt_package={};bt_version={};publish=1;override=1'.format(_bintray_content_api_url, artifact_name,
                                                                               package_name, version)
