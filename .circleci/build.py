@@ -111,7 +111,7 @@ def _create_bintray_package(package_name):
 
 
 def _call_bintray_api(http_verb, *extra_args):
-    check_call(['curl', '-X', http_verb, _get_bintray_credentials()] + list(extra_args))
+    check_call(['curl', '-sf', '-X', http_verb, _get_bintray_credentials()] + list(extra_args))
 
 
 def _get_bintray_credentials():
