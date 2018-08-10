@@ -6,6 +6,7 @@ from subprocess import check_call
 from os import listdir, environ
 
 logging.basicConfig(format='[%(levelname)s %(asctime)s] %(message)s', level=logging.DEBUG)
+logging.setLevel(logging.DEBUG)
 
 _build_dir = 'build'
 _samples_source_dir = 'Samples'
