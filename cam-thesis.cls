@@ -64,6 +64,10 @@
 \newif\ifcam@techreport\cam@techreportfalse
 \DeclareOption{techreport}{\cam@techreporttrue}
 
+% official - formats the thesis according to the official submission guidelines.
+\newif\ifcam@official\cam@officialfalse
+\DeclareOption{official}{\cam@officialtrue}
+
 % times - tells the class to use the times font.
 \newif\ifcam@times\cam@timesfalse
 \DeclareOption{times}{\cam@timestrue}
@@ -230,6 +234,11 @@
 % Use the times font if the user selected this option.
 \ifcam@times
     \RequirePackage{times}
+\fi
+
+
+\ifcam@official
+\RequirePackage{pdfpages}
 \fi
 
 
@@ -463,24 +472,6 @@ for the degree of Doctor of Philosophy%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
-%% Abstract
-%%
-%%%%%
-\ifcam@techreport%
-    \setcounter{page}{3}
-\fi
-
-\ifcam@firstyr
-% First yr report doesn't need a standalone abstract
-\else
-
-\chapter*{Abstract}
-\thispagestyle{empty}
-\@abstract{}
-\fi
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%
 %% Declaration
 %%
 %%%%%
@@ -517,6 +508,33 @@ This dissertation does not exceed the prescribed limit of 60\,000 words.
 \vfill
 \fi
 \fi}
+\fi
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% Abstract
+%%
+%%%%%
+\ifcam@techreport%
+    \setcounter{page}{3}
+\fi
+
+\ifcam@firstyr
+% First yr report doesn't need a standalone abstract
+\else
+
+\chapter*{Abstract}
+\thispagestyle{empty}
+
+\ifcam@official
+\textbf{\large \@title}
+\par\vspace{0.3cm}
+\noindent\textit{\@author}
+\par\vspace{0.6cm}
+\fi
+
+\@abstract{}
 \fi
 
 

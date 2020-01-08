@@ -18,6 +18,7 @@
 %   withindex   - enables the index. New index entries can be added through `\index{my entry}`
 %   glossary    - enables the glossary.
 %   techreport  - typesets the thesis in the technical report format.
+%   official    - typesets the thesis according to the official submission guidelines.
 %   firstyr     - formats the document as a first-year report.
 %   times       - uses the `Times` font.
 %   backrefs    - add back references in the Bibliography section
@@ -123,6 +124,20 @@ spanning two lines}
 %% Contents:
 %%
 \begin{document}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Insert "Deposit & Copying of Dissertation Declaration" form/scan or comment.
+%%
+\ifcam@official
+\includepdf{declaration.pdf}%
+\thispagestyle{empty}%
+\cleardoublepage%
+\setcounter{page}{1}%
+\fi
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Title page, abstract, declaration etc.:
