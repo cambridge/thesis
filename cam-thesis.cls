@@ -238,7 +238,7 @@
 
 
 \ifcam@official
-\RequirePackage{pdfpages}
+    \RequirePackage{pdfpages}
 \fi
 
 
@@ -364,6 +364,16 @@ for the degree of Doctor of Philosophy%
 \newcommand{\frontmatter}{
 
 \pagestyle{empty}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Insert "Deposit & Copying of Dissertation Declaration" form/scan or comment.
+%%
+\ifcam@official
+\includepdf{declaration.pdf}%
+\cleardoublepage%
+\setcounter{page}{1}%
+\fi
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

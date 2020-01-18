@@ -1,118 +1,35 @@
-%%%%%
-%%
-%% Sample document ``thesis.tex''
-%%
-%% Version: v0.2
-%% Authors: Jean Martina, Rok Strnisa, Matej Urbas
-%% Date: 30/07/2008
-%%
-%% Copyright (c) 2008-2011, Rok Strniša, Jean Martina, Matej Urbas
-%% License: Simplified BSD License
-%% License file: ./License
-%% Original License URL: http://www.freebsd.org/copyright/freebsd-license.html
-%%%%%
+\documentclass[official,withindex,glossary]{cam-thesis}
 
-% Available documentclass options:
-%
-%   <all `report` document class options, e.g.: `a5paper`>
-%   withindex   - enables the index. New index entries can be added through `\index{my entry}`
-%   glossary    - enables the glossary.
-%   techreport  - typesets the thesis in the technical report format.
-%   official    - typesets the thesis according to the official submission guidelines.
-%   firstyr     - formats the document as a first-year report.
-%   times       - uses the `Times` font.
-%   backrefs    - add back references in the Bibliography section
-%
-% For more info see `README.md`
-\documentclass[withindex,glossary]{cam-thesis}
+\title{My dissertation title}
 
-% Citations using numbers
-\usepackage[numbers]{natbib}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Thesis meta-information
-%%
-
-%% The title of the thesis:
-\title{My dissertation title\\
-spanning two lines}
-
-%% The full name of the author (e.g.: James Smith):
 \author{My Full Name}
 
 %% College affiliation:
-\college{My College}
+\college{Queens'}
 
-%% College shield [optional]:
-% \collegeshield{CollegeShields/Christs}
-% \collegeshield{CollegeShields/Churchill}
-% \collegeshield{CollegeShields/Clare}
-% \collegeshield{CollegeShields/ClareHall}
-% \collegeshield{CollegeShields/CorpusChristi}
-% \collegeshield{CollegeShields/Darwin}
-% \collegeshield{CollegeShields/Downing}
-% \collegeshield{CollegeShields/Emmanuel}
-% \collegeshield{CollegeShields/Fitzwilliam}
-% \collegeshield{CollegeShields/Girton}
-% \collegeshield{CollegeShields/GonCaius}
-% \collegeshield{CollegeShields/Homerton}
-% \collegeshield{CollegeShields/HughesHall}
-% \collegeshield{CollegeShields/Jesus}
-% \collegeshield{CollegeShields/Kings}
-% \collegeshield{CollegeShields/LucyCavendish}
-% \collegeshield{CollegeShields/Magdalene}
-% \collegeshield{CollegeShields/MurrayEdwards}
-% \collegeshield{CollegeShields/Newnham}
-% \collegeshield{CollegeShields/Pembroke}
-% \collegeshield{CollegeShields/Peterhouse}
-% \collegeshield{CollegeShields/Queens}
-% \collegeshield{CollegeShields/Robinson}
-% \collegeshield{CollegeShields/Selwyn}
-% \collegeshield{CollegeShields/SidneySussex}
-% \collegeshield{CollegeShields/StCatharines}
-% \collegeshield{CollegeShields/StEdmunds}
-% \collegeshield{CollegeShields/StJohns}
-% \collegeshield{CollegeShields/Trinity}
-% \collegeshield{CollegeShields/TrinityHall}
-% \collegeshield{CollegeShields/Wolfson}
-\collegeshield{CollegeShields/FitzwilliamRed}
+\collegeshield{CollegeShields/Queens}
 
-%% Submission date [optional]:
-% \submissiondate{November, 2042}
+\submissiondate{November, 2042}
 
-%% You can redefine the submission notice [optional]:
-% \submissionnotice{A badass thesis submitted on time for the Degree of PhD}
+\date{August, 2042}
 
-%% Declaration date:
-\date{My Month, My Year}
-
-%% PDF meta-info:
 \subjectline{Computer Science}
-\keywords{one two three}
+\keywords{techreport thesis sample}
 
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Abstract:
-%%
 \abstract{%
   My abstract ...
 }
 
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Acknowledgements:
-%%
 \acknowledgements{%
   My acknowledgements ...
 }
 
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Glossary [optional]:
-%%
 \newglossaryentry{HOL}{
     name=HOL,
     description={Higher-order logic}
@@ -120,33 +37,20 @@ spanning two lines}
 
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Contents:
-%%
 \begin{document}
 
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Title page, abstract, declaration etc.:
-%% -    the title page (is automatically omitted in the technical report mode).
 \frontmatter{}
 
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Thesis body:
-%%
 \chapter{Introduction}
 This document was created with the help of a custom class file~\cite{example}. A
 {\em \LaTeX{} class file}\index{\LaTeX{} class file@LaTeX class file} is a file,
 which holds style information for a particular \LaTeX{} class\footnote{You can
 find more about classes at \url{http://www.ctan.org/pkg/clsguide}.}.
 
-There are some handy options for citing publications. It is possible to print just the year of some publication:~\citeyear{example}. It is also possible to print the name of the author(s) in the form ``Author et al.'': \citeauthor{example}. Finally, there is also a command to print the full list of authors of a publication: \citet*{example}.
+This is an example glossary reference: \GLS{HOL}.
 
-This is an example glossary reference: \GLS{HOL}. \\
- 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -169,8 +73,6 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-\section{My Section}
-
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -187,20 +89,13 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
 
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Bibliography:
-%%
 \cleardoublepage
 \phantomsection
 \addcontentsline{toc}{chapter}{Bibliography}
-\bibliographystyle{plainnat}
+\bibliographystyle{plain}
 \bibliography{thesis}
 
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Appendix:
-%%
 
 \appendix
 
@@ -209,9 +104,6 @@ Some more text ...
 
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Index:
-%%
 \printthesisindex
 
 \end{document}
