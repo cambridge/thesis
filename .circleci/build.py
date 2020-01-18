@@ -27,7 +27,7 @@ def main():
 
 
 def _clean_build_dir():
-    # check_call(['rm', '-rf', _build_dir])
+    check_call(['rm', '-rf', _build_dir])
 
 
 def _copy_sources_to_build_dir(samples_root_dir):
