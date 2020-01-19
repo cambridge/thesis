@@ -60,7 +60,7 @@ def _copy_main_thesis_to_build():
 
 def _copy_base_files_to(target_dir):
     check_call(['mkdir', '-p', target_dir])
-    check_call(['cp', '-r', 'cam-thesis.cls', 'Makefile', 'CollegeShields', 'declaration.pdf', target_dir])
+    check_call(['cp', '-r', 'cam-thesis.cls', 'Makefile', 'CollegeShields', target_dir])
 
 
 def _is_running_in_circle_ci():
