@@ -92,12 +92,6 @@ It also supports some custom options.
     *   if the `hyperref` package is used, the option `pdfpagelabels=false` will
         be passed to it.
 
-*   `official`: formats the document according to the
-    [final submissionguidelines](https://www.cambridgestudents.cam.ac.uk/your-course/examinations/graduate-exam-information/after-examination/degree-approval-and-1):
-
-    *   adds title and author to the abstract page
-    *   adds the deposit & copying declaration form as the first page (`declaration.pdf`, can be replaced with scanned filled-in version)
-
 *   `firstyr`: formats the document as a first-year report (here's
     [a sample](https://dl.bintray.com/matej/thesis/firstyr-master.pdf)). This option removes
     some unneeded elements and modifies the submission note. Here is a list of

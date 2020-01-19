@@ -64,10 +64,6 @@
 \newif\ifcam@techreport\cam@techreportfalse
 \DeclareOption{techreport}{\cam@techreporttrue}
 
-% official - formats the thesis according to the official submission guidelines.
-\newif\ifcam@official\cam@officialfalse
-\DeclareOption{official}{\cam@officialtrue}
-
 % times - tells the class to use the times font.
 \newif\ifcam@times\cam@timesfalse
 \DeclareOption{times}{\cam@timestrue}
@@ -237,11 +233,6 @@
 \fi
 
 
-\ifcam@official
-    \RequirePackage{pdfpages}
-\fi
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
 %% Line spacing
@@ -364,16 +355,6 @@ for the degree of Doctor of Philosophy%
 \newcommand{\frontmatter}{
 
 \pagestyle{empty}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Insert "Deposit & Copying of Dissertation Declaration" form/scan or comment.
-%%
-\ifcam@official
-\includepdf{declaration.pdf}%
-\cleardoublepage%
-\setcounter{page}{1}%
-\fi
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -537,12 +518,12 @@ This dissertation does not exceed the prescribed limit of 60\,000 words.
 \chapter*{Abstract}
 \thispagestyle{empty}
 
-\ifcam@official
+% Cambridge thesis submission guidelines require the title and author be in the abstract.
+% For more info see https://www.cambridgestudents.cam.ac.uk/your-course/examinations/graduate-exam-information/after-examination/degree-approval-and-1
 \textbf{\large \@title}
 \par\vspace{0.3cm}
 \noindent\textit{\@author}
 \par\vspace{0.6cm}
-\fi
 
 \@abstract{}
 \fi
