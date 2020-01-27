@@ -463,24 +463,6 @@ for the degree of Doctor of Philosophy%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
-%% Abstract
-%%
-%%%%%
-\ifcam@techreport%
-    \setcounter{page}{3}
-\fi
-
-\ifcam@firstyr
-% First yr report doesn't need a standalone abstract
-\else
-
-\chapter*{Abstract}
-\thispagestyle{empty}
-\@abstract{}
-\fi
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%
 %% Declaration
 %%
 %%%%%
@@ -517,6 +499,33 @@ This dissertation does not exceed the prescribed limit of 60\,000 words.
 \vfill
 \fi
 \fi}
+\fi
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% Abstract
+%%
+%%%%%
+\ifcam@techreport%
+    \setcounter{page}{3}
+\fi
+
+\ifcam@firstyr
+% First yr report doesn't need a standalone abstract
+\else
+
+\chapter*{Abstract}
+\thispagestyle{empty}
+
+% Cambridge thesis submission guidelines require the title and author be in the abstract.
+% For more info see https://www.cambridgestudents.cam.ac.uk/your-course/examinations/graduate-exam-information/after-examination/degree-approval-and-1
+\textbf{\large \@title}
+\par\vspace{0.3cm}
+\noindent\textit{\@author}
+\par\vspace{0.6cm}
+
+\@abstract{}
 \fi
 
 

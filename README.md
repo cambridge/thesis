@@ -174,17 +174,21 @@ You can also mail
 
 ## _Q2_: Where can I find the thesis formatting guidelines this class is based on?
 
-The University of Cambridge guidelines:
+The University of Cambridge submission guidelines:
 
-> [http://www.admin.cam.ac.uk/students/studentregistry/exams/submission/phd/format.html](http://www.admin.cam.ac.uk/students/studentregistry/exams/submission/phd/format.html)
+> [https://www.cambridgestudents.cam.ac.uk/your-course/examinations/graduate-exam-information/submitting-and-examination/phd-msc-mlitt/submit](https://www.cambridgestudents.cam.ac.uk/your-course/examinations/graduate-exam-information/submitting-and-examination/phd-msc-mlitt/submit)
+
+The University of Cambridge final submission guidelines:
+
+> [https://www.cambridgestudents.cam.ac.uk/your-course/examinations/graduate-exam-information/after-examination/degree-approval-and-1](https://www.cambridgestudents.cam.ac.uk/your-course/examinations/graduate-exam-information/after-examination/degree-approval-and-1)
 
 The Computer Laboratory guidelines:
 
-> [http://www.cl.cam.ac.uk/local/phd/typography/](http://www.cl.cam.ac.uk/local/phd/typography/)     
+> [https://www.cl.cam.ac.uk/local/typography/phd/](https://www.cl.cam.ac.uk/local/typography/phd/)
 
 The Computer Laboratory guidelines for technical reports:
 
-> [http://www.cl.cam.ac.uk/techreports/submission.html](http://www.cl.cam.ac.uk/techreports/submission.html)
+> [https://www.cl.cam.ac.uk/techreports/submission.html](https://www.cl.cam.ac.uk/techreports/submission.html)
 
 
 ## _Q3_: Can I use my own Makefile?
