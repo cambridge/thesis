@@ -224,7 +224,7 @@ info see __[1]__):
 ## _Q5_: Where can I find newer versions of the University of Cambridge logo?
 
 The university updates its logo every now and then. You can find up-to-date
-logos on [this page](http://www.admin.cam.ac.uk/offices/communications/services/logos/)
+logos on [this page](https://www.cam.ac.uk/brand-resources/about-the-logo/logo-downloads)
 (subject to change without notice).
 
 Download and exchange the new logos with `CUni.eps` and/or `CUni.pdf`.
