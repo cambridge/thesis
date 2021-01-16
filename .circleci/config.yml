@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: /cam-thesis
     docker:
-      - image: urbas/cam-thesis-ubuntu:18.04-3
+      - image: urbas/cam-thesis-ubuntu:20.04-1
     steps:
       - checkout
       - run: ./.circleci/build.py
