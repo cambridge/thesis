@@ -1,6 +1,6 @@
 # cam-thesis
 
-[![CircleCI](https://circleci.com/gh/cambridge/thesis/tree/master.svg?style=svg)](https://circleci.com/gh/cambridge/thesis/tree/master)
+![builder](https://github.com/cambridge/thesis/workflows/builder/badge.svg?branch=master&event=push)
 
 >   _a LaTeX thesis template for Cambridge PhD students_
 
