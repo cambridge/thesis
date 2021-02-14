@@ -26,11 +26,11 @@ Pro tip: if you can also one of the samples in the [`Samples`](./Samples) direct
 
 Your thesis document will look something like this:
 
->   [Plain (PDF)](https://dl.bintray.com/matej/thesis/thesis-master.pdf)
+>   [Plain (PDF)](https://cam-thesis.s3-eu-west-1.amazonaws.com/pdf/thesis.pdf)
 
 If you use the _clean_ sample, which can be found in [`./Samples/clean`](Samples/clean), it will look like this:
 
->   [Sample Clean (PDF)](https://dl.bintray.com/matej/thesis/clean-master.pdf)
+>   [Sample Clean (PDF)](https://cam-thesis.s3-eu-west-1.amazonaws.com/pdf/clean.pdf)
 
 The template also supports DVI and PS formats. All three formats can be generated
 with the provided `Makefile`.
@@ -77,7 +77,7 @@ it is based).
 It also supports some custom options.
 
 *   `techreport`: formats the document as a technical report (here's
-    [a sample](https://dl.bintray.com/matej/thesis/techreport-master.pdf)).
+    [a sample](https://cam-thesis.s3-eu-west-1.amazonaws.com/pdf/techreport.pdf)).
     Here is a list of
     formatting points in which the technical report differs from a normal thesis
     (see [guidelines](http://www.cl.cam.ac.uk/techreports/submission.html) for
@@ -93,7 +93,7 @@ It also supports some custom options.
         be passed to it.
 
 *   `firstyr`: formats the document as a first-year report (here's
-    [a sample](https://dl.bintray.com/matej/thesis/firstyr-master.pdf)). This option removes
+    [a sample](https://cam-thesis.s3-eu-west-1.amazonaws.com/pdf/firstyr.pdf)). This option removes
     some unneeded elements and modifies the submission note. Here is a list of
     formatting points in which the first year report differs from a normal thesis:
 
@@ -104,10 +104,10 @@ It also supports some custom options.
     *   no acknowledgements.
 
 *   `secondyr`: formats the document as a second-year report (here's
-    [a sample](https://dl.bintray.com/matej/thesis/secondyr-master.pdf)). Similarly to
+    [a sample](https://cam-thesis.s3-eu-west-1.amazonaws.com/pdf/secondyr.pdf)). Similarly to
 	`firstyr`, this style modifies the submission note and removes unneeded elements.
-    Specially, an abstract is retained (as for this report, research is often in a 
-	more "stable" state). Here is a list of formatting points in which the second year 
+    Specially, an abstract is retained (as for this report, research is often in a
+	more "stable" state). Here is a list of formatting points in which the second year
 	report differs from a normal thesis:
 
     *   an appropraite subtitle is added,
@@ -152,7 +152,7 @@ It also supports some custom options.
     _Note_: the package `makeidx` is used to create the index.
 
 *   `backrefs`: Add back references in the References section (here's
-    [a sample](https://dl.bintray.com/matej/thesis/backrefs-master.pdf)). In other words, for each reference, it adds the page(s) where it is cited.
+    [a sample](https://cam-thesis.s3-eu-west-1.amazonaws.com/pdf/backrefs.pdf)). In other words, for each reference, it adds the page(s) where it is cited.
 
     _Note_: the package `backref` is used to create the back references.
 
