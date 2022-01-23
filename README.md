@@ -249,3 +249,11 @@ After you've installed the fonts, add somewhere in the preamble (before `\begin{
 There is [a page](http://www.cl.cam.ac.uk/local/phd/writingup.html) on the Computer Lab's web site. They recommend using this command:
 
     ps2ascii thesis.pdf | wc -w
+
+
+## _Q9_: How can I change the College Shield?
+
+In `thesis.tex` use `\collegeshield{CollegeShields/<college>}` with `<college>` as your your desired college name, as found in `CollegeShields`.
+
+Alternatively, `\collegeshield{CollegeShields/CUniNoText}` can be used to display the University of Cambridge shield design.
+
