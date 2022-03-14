@@ -237,7 +237,7 @@ If you find a distributable vector-based image of your college's shield you can 
 
 ## _Q7_: Where can I find extra fonts (like Adobe Sabon, Adobe Utopia etc.)?
 
-The Computer Laboratory provides some [here](http://www.cl.cam.ac.uk/local/sys/unix/applications/tex/#clfonts).
+The Computer Laboratory provides [some](https://web.archive.org/web/20150908001116/http://www.cl.cam.ac.uk/local/sys/unix/applications/tex/#clfonts).
 
 After you've installed the fonts, add somewhere in the preamble (before `\begin{document}`) the following command:
 
