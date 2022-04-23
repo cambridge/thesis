@@ -18,7 +18,7 @@
 
 1. Open `thesis.pdf`.
 
-Pro tip: if you can also one of the samples in the [`Samples`](./Samples) directory.
+Pro tip: you can use one of the samples in the [`Samples`](./Samples) directory.
 
 
 
