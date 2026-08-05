@@ -185,15 +185,15 @@ Licence:
 
 File:
 
-        HughesHall.pdf (non-vector format)
+        HughesHall.pdf
 
 Source:
 
-        https://commons.wikimedia.org/wiki/File:HughesHallShield.png
+        https://commons.wikimedia.org/wiki/File:Hughes_Hall_Shield.svg
 
 Licence:
 
-        Creative Commons Attribution-Share Alike 3.0 Unported
+        Creative Commons CC0 1.0 Universal Public Domain Dedication
 
 
 # Jesus College's shield
