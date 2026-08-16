@@ -4,8 +4,6 @@ import os
 import subprocess
 from pathlib import Path
 
-import boto3
-
 
 logging.basicConfig(
     format="[%(levelname)s %(asctime)s] %(message)s", level=logging.INFO
@@ -26,21 +24,6 @@ def main():
     _copy_sources_to_build_dir(SAMPLES_SOURCE_DIR)
     _copy_sources_to_build_dir(TESTS_DIR)
     _build()
-    if os.environ.get("GITHUB_REF") != "refs/heads/master":
-        logging.info("Not uploading PDFs...")
-        return
-    logging.info("Uploading PDFs...")
-    _upload_pdfs()
-
-
-def _upload_pdfs():
-    s3_client = boto3.client("s3")
-    for pdf in PDFS_DIR.glob("*.pdf"):
-        logging.info("Uploading '%s'", pdf)
-        with pdf.open(mode="rb") as pdf_stream:
-            s3_client.put_object(
-                Bucket="cam-thesis", Key=f"pdf/{pdf.name}", Body=pdf_stream
-            )
 
 
 def _clean_build_dir():
