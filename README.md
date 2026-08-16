@@ -1,6 +1,6 @@
 # cam-thesis
 
-![builder](https://github.com/cambridge/thesis/workflows/builder/badge.svg?branch=master&event=push)
+[![builder](https://github.com/cambridge/thesis/actions/workflows/build.yml/badge.svg)](https://github.com/cambridge/thesis/actions/workflows/build.yml)
 
 >   _a LaTeX thesis template for Cambridge PhD students_
 
@@ -19,6 +19,21 @@
 1. Open `thesis.pdf`.
 
 Pro tip: you can use one of the samples in the [`Samples`](./Samples) directory.
+
+
+
+## How will the thesis look like?
+
+Your thesis document will look something like this:
+
+>   [Plain (PDF)](https://cambridge.github.io/thesis/thesis.pdf)
+
+If you use the _clean_ sample, which can be found in [`./Samples/clean`](Samples/clean), it will look like this:
+
+>   [Sample Clean (PDF)](https://cambridge.github.io/thesis/clean.pdf)
+
+The template also supports DVI and PS formats. All three formats can be generated
+with the provided `Makefile`.
 
 
 
@@ -61,7 +76,8 @@ it is based).
 
 It also supports some custom options.
 
-*   `techreport`: formats the document as a technical report.
+*   `techreport`: formats the document as a technical report (here's
+    [a sample](https://cambridge.github.io/thesis/techreport.pdf)).
     Here is a list of
     formatting points in which the technical report differs from a normal thesis
     (see [guidelines](http://www.cl.cam.ac.uk/techreports/submission.html) for
@@ -76,7 +92,8 @@ It also supports some custom options.
     *   if the `hyperref` package is used, the option `pdfpagelabels=false` will
         be passed to it.
 
-*   `firstyr`: formats the document as a first-year report. This option removes
+*   `firstyr`: formats the document as a first-year report (here's
+    [a sample](https://cambridge.github.io/thesis/firstyr.pdf)). This option removes
     some unneeded elements and modifies the submission note. Here is a list of
     formatting points in which the first year report differs from a normal thesis:
 
@@ -86,7 +103,8 @@ It also supports some custom options.
     *   no declaration,
     *   no acknowledgements.
 
-*   `secondyr`: formats the document as a second-year report. Similarly to
+*   `secondyr`: formats the document as a second-year report (here's
+    [a sample](https://cambridge.github.io/thesis/secondyr.pdf)). Similarly to
 	`firstyr`, this style modifies the submission note and removes unneeded elements.
     Specially, an abstract is retained (as for this report, research is often in a
 	more "stable" state). Here is a list of formatting points in which the second year
@@ -133,7 +151,8 @@ It also supports some custom options.
 
     _Note_: the package `makeidx` is used to create the index.
 
-*   `backrefs`: Add back references in the References section. In other words, for each reference, it adds the page(s) where it is cited.
+*   `backrefs`: Add back references in the References section (here's
+    [a sample](https://cambridge.github.io/thesis/backrefs.pdf)). In other words, for each reference, it adds the page(s) where it is cited.
 
     _Note_: the package `backref` is used to create the back references.
 

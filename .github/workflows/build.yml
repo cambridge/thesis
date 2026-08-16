@@ -22,3 +22,25 @@ jobs:
         with:
           name: pdfs
           path: build/samples/*/*.pdf
+
+      - name: Upload Pages artifact
+        if: github.ref == 'refs/heads/master' && github.event_name == 'push'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: build/pdfs
+
+  deploy-pages:
+    name: Deploy PDFs to GitHub Pages
+    needs: build
+    if: github.ref == 'refs/heads/master' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
